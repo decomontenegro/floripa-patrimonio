@@ -150,6 +150,40 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .voc-score-badge{display:inline-block;background:rgba(255,107,0,.15);color:var(--ng-orange);
   font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;margin-left:4px}
 
+/* Mercado mode */
+.mercado-vgv-total{background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(16,185,129,.1));
+  border:1px solid rgba(245,158,11,.3);border-radius:10px;padding:14px;margin-bottom:4px;text-align:center}
+.mercado-vgv-total .mvgv-val{font-size:26px;font-weight:800;color:#f59e0b;line-height:1.1}
+.mercado-vgv-total .mvgv-label{font-size:10px;color:var(--text3);margin-top:3px}
+.ppp-item{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid rgba(30,42,69,.5)}
+.ppp-item:last-child{border-bottom:none}
+.ppp-rank{font-size:10px;font-weight:700;color:var(--text3);min-width:18px;text-align:center;padding-top:2px}
+.ppp-rank.top3{color:#f59e0b}
+.ppp-content{flex:1;overflow:hidden}
+.ppp-bairro{font-size:11px;font-weight:600;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:4px}
+.ppp-modelo{font-size:9px;color:var(--text3);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ppp-vgv{font-size:11px;font-weight:700;color:#f59e0b;white-space:nowrap}
+.ppp-score-bar{height:2px;background:var(--border);border-radius:1px;margin-top:4px}
+.ppp-score-fill{height:2px;border-radius:1px}
+.opp-item{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(30,42,69,.4)}
+.opp-item:last-child{border-bottom:none}
+.opp-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.opp-content{flex:1;overflow:hidden}
+.opp-label{font-size:11px;font-weight:500;color:var(--text)}
+.opp-score{font-size:10px;color:var(--text3)}
+.opp-vgv{font-size:10px;font-weight:600;color:#10b981;white-space:nowrap}
+.ppp-detail-section{background:rgba(17,24,39,.6);border:1px solid var(--border);border-radius:8px;padding:10px;margin-bottom:8px}
+.ppp-detail-section h4{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.ppp-detail-item{padding:6px 0;border-bottom:1px solid rgba(30,42,69,.4)}
+.ppp-detail-item:last-child{border-bottom:none}
+.ppp-detail-modelo{font-size:11px;font-weight:600;color:var(--text);margin-bottom:2px}
+.ppp-detail-desc{font-size:9px;color:var(--text3);line-height:1.4}
+.ppp-detail-meta{display:flex;gap:8px;margin-top:4px;flex-wrap:wrap}
+.ppp-meta-tag{font-size:9px;padding:2px 7px;border-radius:8px;font-weight:600}
+.leg-mercado-grid{display:flex;flex-direction:column;gap:5px}
+.leg-mercado-item{display:flex;align-items:center;gap:6px;font-size:9px;color:var(--text2)}
+.leg-mercado-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
 /* Scrollbar */
 #right-panel::-webkit-scrollbar{width:4px}
 #right-panel::-webkit-scrollbar-track{background:transparent}
@@ -177,6 +211,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
     <button class="mode-tab" data-mode="area"><span class="lc"><i data-lucide="ruler" style="width:13px;height:13px"></i></span>Área (m²)</button>
     <button class="mode-tab" data-mode="sem_uso"><span class="lc"><i data-lucide="alert-triangle" style="width:13px;height:13px"></i></span>Sem Uso</button>
     <button class="mode-tab" data-mode="vocacao"><span class="lc"><i data-lucide="target" style="width:13px;height:13px"></i></span>Vocação</button>
+    <button class="mode-tab" data-mode="mercado"><span class="lc"><i data-lucide="building-2" style="width:13px;height:13px"></i></span>Mercado</button>
   </div>
   <div class="header-right">
     <div class="stat-pill">Total: <strong id="h-total">—</strong></div>
@@ -259,6 +294,37 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
     <h3><span class="lc"><i data-lucide="map-pin" style="width:12px;height:12px"></i></span>Todos os Bairros</h3>
     <ul class="rank-list" id="vocacao-bairros-list"></ul>
   </div>
+
+  <!-- Mercado: VGV total (visible only in mercado mode) -->
+  <div class="panel-section" id="mercado-vgv-panel" style="display:none;">
+    <h3><span class="lc"><i data-lucide="trending-up" style="width:12px;height:12px"></i></span>Inteligência de Mercado <span class="badge">PPP</span></h3>
+    <div class="mercado-vgv-total">
+      <div class="mvgv-val" id="mercado-vgv-total">—</div>
+      <div class="mvgv-label">💰 VGV Total Estimado do Portfólio Municipal</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
+      <div class="stat-card">
+        <div class="sv" id="mercado-pot-avg" style="color:#10b981">—</div>
+        <div class="sl">Score médio potencial</div>
+      </div>
+      <div class="stat-card">
+        <div class="sv" id="mercado-bairros-alta" style="color:#f59e0b">—</div>
+        <div class="sl">Bairros tendência alta</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mercado: ranking por potencial (visible only in mercado mode) -->
+  <div class="panel-section" id="mercado-ranking-panel" style="display:none;">
+    <h3><span class="lc"><i data-lucide="bar-chart-2" style="width:12px;height:12px"></i></span>Ranking por Potencial de Incorporação</h3>
+    <ul class="rank-list" id="mercado-ranking-list"></ul>
+  </div>
+
+  <!-- Mercado: Top PPP (visible only in mercado mode) -->
+  <div class="panel-section" id="mercado-ppp-panel" style="display:none;">
+    <h3><span class="lc"><i data-lucide="building-2" style="width:12px;height:12px"></i></span>🏗️ Top Oportunidades PPP <span class="badge">VGV</span></h3>
+    <div id="mercado-ppp-list"></div>
+  </div>
 </div>
 
 <div id="panel-toggle" onclick="togglePanel()">◀</div>
@@ -283,6 +349,14 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
       <div class="leg-voc-item"><i data-lucide="briefcase" style="width:10px;height:10px;stroke:#ec4899;flex-shrink:0"></i>Econômico</div>
       <div class="leg-voc-item"><i data-lucide="handshake" style="width:10px;height:10px;stroke:#f97316;flex-shrink:0"></i>Concessão</div>
       <div class="leg-voc-item"><i data-lucide="library" style="width:10px;height:10px;stroke:#14b8a6;flex-shrink:0"></i>Cultural</div>
+    </div>
+  </div>
+  <div id="leg-mercado-wrap" style="display:none;">
+    <div class="leg-mercado-grid">
+      <div class="leg-mercado-item"><div class="leg-mercado-dot" style="background:#374151"></div>Baixo (0-30)</div>
+      <div class="leg-mercado-item"><div class="leg-mercado-dot" style="background:#d97706"></div>Médio (31-60)</div>
+      <div class="leg-mercado-item"><div class="leg-mercado-dot" style="background:#10b981"></div>Alto (61-80)</div>
+      <div class="leg-mercado-item"><div class="leg-mercado-dot" style="background:#f59e0b"></div>Muito Alto (81-100)</div>
     </div>
   </div>
 </div>
@@ -314,6 +388,27 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   document.getElementById('pw-btn').onclick=tryLogin;
   document.getElementById('pw-input').onkeydown=e=>{if(e.key==='Enter')tryLogin();};
 })();
+
+// ─── Mercado color map ───────────────────────────────────────────────────────
+function getMercadoColor(potencial) {
+  if (potencial <= 30) return '#374151';
+  if (potencial <= 60) return '#d97706';
+  if (potencial <= 80) return '#10b981';
+  return '#f59e0b';
+}
+
+const OPP_ICONS = {
+  residencial_premium:    'home',
+  residencial_social:     'users',
+  comercial_varejo:       'shopping-bag',
+  shopping:               'store',
+  hotel_pousada:          'bed',
+  logistica_galpao:       'package',
+  escritorios_corporativos:'briefcase',
+  turismo_marina:         'anchor',
+  misto_uso:              'layers',
+  coworking:              'monitor'
+};
 
 // ─── Vocação color map ────────────────────────────────────────────────────────
 const VOC_COLORS = {
@@ -406,6 +501,10 @@ function getMetric(b) {
     if (vd && vd.vocacoes && vd.vocacoes.length > 0) return vd.vocacoes[0].score;
     return 0;
   }
+  if (activeMode === 'mercado') {
+    const md = window.mercadoData && window.mercadoData[b.bairro];
+    return md ? md.potencial_incorporacao : 0;
+  }
   return 0;
 }
 
@@ -449,21 +548,29 @@ function setTab(mode) {
     count:   'Quantidade de imóveis',
     area:    'Área territorial (m²)',
     sem_uso: 'Imóveis sem uso',
-    vocacao: 'Vocação Principal por Bairro'
+    vocacao: 'Vocação Principal por Bairro',
+    mercado: 'Potencial de Incorporação (0-100)'
   };
   document.getElementById('leg-title').textContent = titles[mode] || '';
 
-  const isVoc = mode === 'vocacao';
+  const isVoc     = mode === 'vocacao';
+  const isMercado = mode === 'mercado';
 
   // Legend switch
-  document.getElementById('leg-scale-wrap').style.display = isVoc ? 'none' : 'block';
-  document.getElementById('leg-voc-wrap').style.display   = isVoc ? 'block' : 'none';
+  document.getElementById('leg-scale-wrap').style.display    = (!isVoc && !isMercado) ? 'block' : 'none';
+  document.getElementById('leg-voc-wrap').style.display      = isVoc     ? 'block' : 'none';
+  document.getElementById('leg-mercado-wrap').style.display  = isMercado ? 'block' : 'none';
 
   // Panel sections
-  document.getElementById('rank-list-wrapper').style.display         = isVoc ? 'none'  : 'block';
-  document.getElementById('top-oportunidades-panel').style.display   = isVoc ? 'block' : 'none';
-  document.getElementById('vocacao-bairros-panel').style.display     = isVoc ? 'block' : 'none';
+  document.getElementById('rank-list-wrapper').style.display         = (!isVoc && !isMercado) ? 'block' : 'none';
+  document.getElementById('filters-panel').style.display             = (!isVoc && !isMercado) ? 'block' : 'none';
+  document.getElementById('top-oportunidades-panel').style.display   = isVoc     ? 'block' : 'none';
+  document.getElementById('vocacao-bairros-panel').style.display     = isVoc     ? 'block' : 'none';
+  document.getElementById('mercado-vgv-panel').style.display         = isMercado ? 'block' : 'none';
+  document.getElementById('mercado-ranking-panel').style.display     = isMercado ? 'block' : 'none';
+  document.getElementById('mercado-ppp-panel').style.display         = isMercado ? 'block' : 'none';
 
+  if (isMercado) renderMercadoPanel();
   updateMap();
 }
 
@@ -477,7 +584,7 @@ function updateMap() {
   circles = {};
 
   let maxVal;
-  if (activeMode === 'vocacao') {
+  if (activeMode === 'vocacao' || activeMode === 'mercado') {
     maxVal = 100; // scores are 0-100
   } else {
     maxVal = Math.max(...data.map(b => getMetric(b)), 1);
@@ -487,13 +594,15 @@ function updateMap() {
     if (b.bairro === 'Não Identificado') continue;
     const val = getMetric(b);
 
-    // In vocacao mode: always show circles (even 0); other modes: skip 0
-    if (val === 0 && activeMode !== 'vocacao') continue;
+    // In vocacao/mercado mode: always show circles (even 0); other modes: skip 0
+    if (val === 0 && activeMode !== 'vocacao' && activeMode !== 'mercado') continue;
 
     const radius = 1500 + (val / maxVal) * 18000;
     let color;
     if (activeMode === 'vocacao') {
       color = getVocacaoColorForBairro(b.bairro);
+    } else if (activeMode === 'mercado') {
+      color = getMercadoColor(val);
     } else {
       color = getGradientColor(val, maxVal);
     }
@@ -517,6 +626,19 @@ function updateMap() {
         ).join('');
       } else {
         tipRows = '<div class="tt-row">Nenhuma vocação: <span>—</span></div>';
+      }
+    } else if (activeMode === 'mercado') {
+      const md = window.mercadoData && window.mercadoData[b.bairro];
+      if (md) {
+        const topOpp = md.oportunidades_privadas && md.oportunidades_privadas[0];
+        const vgv = topOpp ? topOpp.vgv_estimado_milhoes : 0;
+        tipRows = `
+          <div class="tt-row">Potencial Incorporação: <span>${md.potencial_incorporacao}/100</span></div>
+          <div class="tt-row">Valor m² Res.: <span>R$ ${md.valor_m2_residencial.toLocaleString('pt-BR')}</span></div>
+          <div class="tt-row">VGV Estimado: <span>R$ ${vgv.toFixed(1)}M</span></div>
+          <div class="tt-row">Tendência: <span>${md.tendencia}</span></div>`;
+      } else {
+        tipRows = '<div class="tt-row">Sem dados de mercado: <span>—</span></div>';
       }
     } else {
       tipRows = Object.entries(b.tipos).slice(0,4)
@@ -684,6 +806,54 @@ function showDetail(b) {
     }
     if (window.lucide) lucide.createIcons();
 
+  } else if (activeMode === 'mercado') {
+    const md = window.mercadoData && window.mercadoData[b.bairro];
+    if (md) {
+      const potColor = getMercadoColor(md.potencial_incorporacao);
+      const topVgv = md.oportunidades_privadas && md.oportunidades_privadas.length > 0
+        ? Math.max(...md.oportunidades_privadas.map(o => o.vgv_estimado_milhoes)) : 0;
+      document.getElementById('d-sub').innerHTML = `<span style="color:${potColor};font-weight:600">${md.perfil_mercado}</span>`;
+      document.getElementById('d-grid').innerHTML = `
+        <div class="detail-stat"><div class="dv" style="color:${potColor}">${md.potencial_incorporacao}</div><div class="dl">Potencial incorp.</div></div>
+        <div class="detail-stat"><div class="dv" style="color:#f59e0b">R$ ${(md.valor_m2_residencial/1000).toFixed(0)}k</div><div class="dl">Valor m² res.</div></div>
+        <div class="detail-stat"><div class="dv" style="color:#10b981">R$ ${topVgv.toFixed(0)}M</div><div class="dl">VGV máx. estimado</div></div>
+        <div class="detail-stat"><div class="dv" style="color:${md.risco_incorporacao==='baixo'?'#10b981':md.risco_incorporacao==='medio'?'#d97706':'#ef4444'}">${md.risco_incorporacao.charAt(0).toUpperCase()+md.risco_incorporacao.slice(1)}</div><div class="dl">Risco incorporação</div></div>`;
+
+      // Oportunidades privadas
+      document.getElementById('d-tipos').innerHTML =
+        `<div style="font-size:10px;color:var(--text3);margin-bottom:8px;margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.7px">Oportunidades Privadas</div>` +
+        md.oportunidades_privadas.map(op => {
+          const iconName = OPP_ICONS[op.tipo] || 'circle';
+          return `
+          <div class="opp-item">
+            <div class="opp-icon" style="background:rgba(245,158,11,.1)">${lucideIcon(iconName,14,'#f59e0b')}</div>
+            <div class="opp-content">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <span class="opp-label">${op.label}</span>
+                <span class="opp-vgv">R$ ${op.vgv_estimado_milhoes.toFixed(1)}M</span>
+              </div>
+              <div class="opp-score">Score ${op.score}/100 · ${fmt(op.area_disponivel_m2)} m²</div>
+              <div style="font-size:9px;color:var(--text4);margin-top:2px">${op.justificativa}</div>
+            </div>
+          </div>`;
+        }).join('') +
+        `<div style="font-size:10px;color:var(--text3);margin-top:12px;margin-bottom:8px;font-weight:600;text-transform:uppercase;letter-spacing:.7px">Modelos PPP</div>` +
+        md.modelos_ppp.map(ppp => `
+          <div class="ppp-detail-item">
+            <div class="ppp-detail-modelo">${ppp.modelo}</div>
+            <div class="ppp-detail-desc">${ppp.descricao}</div>
+            <div class="ppp-detail-meta">
+              <span class="ppp-meta-tag" style="background:rgba(16,185,129,.12);color:#10b981">Viab. ${ppp.viabilidade}%</span>
+              <span class="ppp-meta-tag" style="background:rgba(59,130,246,.12);color:#3b82f6">${ppp.prazo_estimado}</span>
+            </div>
+          </div>`).join('') +
+        `<div style="font-size:9px;color:var(--text3);margin-top:10px;padding:8px;background:var(--surface);border-radius:6px">${md.observacoes}</div>`;
+      if (window.lucide) lucide.createIcons();
+    } else {
+      document.getElementById('d-sub').textContent = 'Sem dados de mercado para este bairro.';
+      document.getElementById('d-grid').innerHTML = '';
+      document.getElementById('d-tipos').innerHTML = '';
+    }
   } else {
     document.getElementById('d-sub').textContent = 'Dados do patrimônio municipal';
     document.getElementById('d-grid').innerHTML = `
@@ -709,6 +879,90 @@ function showDetail(b) {
   }
 }
 
+// ─── Mercado Panel Render ─────────────────────────────────────────────────────
+function renderMercadoPanel() {
+  const md = window.mercadoData;
+  if (!md) return;
+
+  // Calculate VGV total and stats
+  let vgvTotal = 0;
+  let potSum = 0;
+  let count = 0;
+  let altaCount = 0;
+  const ranked = [];
+
+  for (const [bairro, dados] of Object.entries(md)) {
+    if (bairro === 'Não Identificado') continue;
+    const maxVgv = dados.oportunidades_privadas && dados.oportunidades_privadas.length > 0
+      ? Math.max(...dados.oportunidades_privadas.map(o => o.vgv_estimado_milhoes)) : 0;
+    vgvTotal += maxVgv;
+    potSum += dados.potencial_incorporacao;
+    count++;
+    if (dados.tendencia === 'alta') altaCount++;
+    const pppModel = dados.modelos_ppp && dados.modelos_ppp.length > 0 ? dados.modelos_ppp[0].modelo : '—';
+    ranked.push({ bairro, dados, maxVgv, pppModel });
+  }
+
+  const potAvg = count > 0 ? (potSum / count).toFixed(0) : 0;
+
+  document.getElementById('mercado-vgv-total').textContent = `R$ ${vgvTotal.toFixed(0)}M`;
+  document.getElementById('mercado-pot-avg').textContent = potAvg;
+  document.getElementById('mercado-bairros-alta').textContent = altaCount;
+
+  // Ranking by potencial_incorporacao
+  const byPotencial = [...ranked].sort((a,b) => b.dados.potencial_incorporacao - a.dados.potencial_incorporacao).slice(0,15);
+  const rankUl = document.getElementById('mercado-ranking-list');
+  rankUl.innerHTML = byPotencial.map((item, i) => {
+    const color = getMercadoColor(item.dados.potencial_incorporacao);
+    const tend = item.dados.tendencia === 'alta' ? '↑' : item.dados.tendencia === 'baixa' ? '↓' : '→';
+    return `<li class="rank-item" onclick="showDetail(bairroByName['${item.bairro}'])">
+      <span class="rn ${i<3?'top3':''}">${i+1}</span>
+      <div style="flex:1;overflow:hidden">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:4px">
+          <span class="rname">${item.bairro}</span>
+          <span style="font-size:9px;font-weight:700;color:${color};white-space:nowrap">${item.dados.potencial_incorporacao} <span style="color:var(--text3)">${tend}</span></span>
+        </div>
+        <div class="rank-bar-wrap" style="margin-top:3px">
+          <div class="rank-bar" style="width:${item.dados.potencial_incorporacao}%;background:${color}"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:2px">
+          <span style="font-size:9px;color:var(--text3)">R$ ${(item.dados.valor_m2_residencial/1000).toFixed(0)}k/m²</span>
+          <span style="font-size:9px;color:#f59e0b">VGV R$ ${item.maxVgv.toFixed(0)}M</span>
+        </div>
+      </div>
+    </li>`;
+  }).join('');
+
+  // Top PPP by VGV
+  const byVgv = [...ranked].sort((a,b) => b.maxVgv - a.maxVgv).slice(0,10);
+  const pppDiv = document.getElementById('mercado-ppp-list');
+  pppDiv.innerHTML = byVgv.map((item, i) => {
+    const color = getMercadoColor(item.dados.potencial_incorporacao);
+    const risco = item.dados.risco_incorporacao;
+    const riscoColor = risco === 'baixo' ? '#10b981' : risco === 'medio' ? '#d97706' : '#ef4444';
+    const topOpp = item.dados.oportunidades_privadas && item.dados.oportunidades_privadas[0];
+    const iconName = topOpp ? (OPP_ICONS[topOpp.tipo] || 'circle') : 'circle';
+    return `<div class="ppp-item" onclick="showDetail(bairroByName['${item.bairro}'])" style="cursor:pointer">
+      <span class="ppp-rank ${i<3?'top3':''}">${i+1}</span>
+      <div class="ppp-content">
+        <div class="ppp-bairro">
+          <span style="display:flex;align-items:center;gap:4px">${lucideIcon(iconName,11,color)} ${item.bairro}</span>
+          <span class="ppp-vgv">R$ ${item.maxVgv.toFixed(1)}M</span>
+        </div>
+        <div class="ppp-modelo">${item.pppModel}</div>
+        <div style="display:flex;gap:6px;margin-top:3px;align-items:center">
+          <div class="ppp-score-bar" style="flex:1">
+            <div class="ppp-score-fill" style="width:${item.dados.potencial_incorporacao}%;background:${color}"></div>
+          </div>
+          <span style="font-size:9px;font-weight:600;color:${riscoColor};white-space:nowrap">${risco}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  if (window.lucide) lucide.createIcons();
+}
+
 // ─── Panel toggle ─────────────────────────────────────────────────────────────
 function togglePanel() {
   panelOpen = !panelOpen;
@@ -719,15 +973,17 @@ function togglePanel() {
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 async function init() {
-  const [imoveisData, bairrosData, vocacaoJson] = await Promise.all([
+  const [imoveisData, bairrosData, vocacaoJson, mercadoJson] = await Promise.all([
     fetch('data/imoveis.json').then(r => r.json()),
     fetch('data/bairros_stats.json').then(r => r.json()),
-    fetch('data/vocacao.json').then(r => r.json())
+    fetch('data/vocacao.json').then(r => r.json()),
+    fetch('data/mercado.json').then(r => r.json()).catch(() => ({ bairros: {} }))
   ]);
 
   allImoveis   = imoveisData;
   bairrosStats = bairrosData;
   window.vocacaoData = vocacaoJson.bairros;
+  window.mercadoData = mercadoJson.bairros;
 
   // Build bairroByName lookup
   for (const b of bairrosData) bairroByName[b.bairro] = b;

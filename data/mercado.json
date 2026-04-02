@@ -1,0 +1,1662 @@
+{
+  "meta": {
+    "versao": "1.0",
+    "data_referencia": "2025-Q1",
+    "fonte_principal": "FipeZAP (fev/2026: R$13.011/m² média Floripa), Agente Imóvel, ZAP Imóveis, CRECI-SC",
+    "nota": "Valores calibrados com dados de mercado reais. VGV = área_sem_uso × 0.6 × valor_m2_residencial. Mínimo de 1.000m² para cálculo."
+  },
+  "bairros": {
+    "Canasvieiras": {
+      "valor_m2_residencial": 7500,
+      "valor_m2_comercial": 5500,
+      "potencial_incorporacao": 78,
+      "potencial_comercial": 72,
+      "tendencia": "alta",
+      "perfil_mercado": "turismo de massa + expansão residencial norte da ilha",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "turismo", "hotel_pousada", "misto"],
+      "modelos_ppp": [
+        {
+          "modelo": "Concessão Onerosa de Uso",
+          "descricao": "Município cede terreno por 25-30 anos a operador de resort/pousada em troca de % da receita + construção de equipamento público (praça, UBS)",
+          "viabilidade": 80,
+          "tipo_incorporador": "Hotéis boutique, fundos FII hoteleiros",
+          "prazo_estimado": "18-36 meses"
+        },
+        {
+          "modelo": "PPP Hotel-Boutique",
+          "descricao": "Parceria para implantação de hotel de 3-4 estrelas com área de serviços públicos no térreo (posto policial, informações turísticas)",
+          "viabilidade": 75,
+          "tipo_incorporador": "Hotéis boutique, cadeias regionais",
+          "prazo_estimado": "24-48 meses"
+        },
+        {
+          "modelo": "ZEIS — HIS Sazonal",
+          "descricao": "Habitação de interesse social para trabalhadores do turismo com contrapartida comercial de baixo impacto",
+          "viabilidade": 55,
+          "tipo_incorporador": "COHAB-SC, Tenda, Direcional",
+          "prazo_estimado": "36-60 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "hotel_pousada",
+          "label": "Hotel / Pousada",
+          "score": 82,
+          "area_disponivel_m2": 13000,
+          "vgv_estimado_milhoes": 58.5,
+          "justificativa": "Alta demanda turística, temporada de verão intensa, poucos lotes bem localizados disponíveis"
+        },
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Premium",
+          "score": 72,
+          "area_disponivel_m2": 13000,
+          "vgv_estimado_milhoes": 58.5,
+          "justificativa": "Bairro norte da ilha em expansão, boa infraestrutura, valorização contínua"
+        },
+        {
+          "tipo": "comercial_varejo",
+          "label": "Comercial / Varejo",
+          "score": 65,
+          "area_disponivel_m2": 5000,
+          "vgv_estimado_milhoes": 27.5,
+          "justificativa": "Demanda local + turismo, corredor comercial consolidado na temporada"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "Bairro com forte sazonalidade turística. Janela de oportunidade: expansão residencial para segunda residência. 13 imóveis sem uso — aproveitamento estratégico urgente."
+    },
+    "Estreito": {
+      "valor_m2_residencial": 5500,
+      "valor_m2_comercial": 4500,
+      "potencial_incorporacao": 62,
+      "potencial_comercial": 75,
+      "tendencia": "alta",
+      "perfil_mercado": "expansão do continente — verticalização e misto-uso em aceleração",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "escritorios", "servicos", "misto"],
+      "modelos_ppp": [
+        {
+          "modelo": "Operação Urbana Consorciada",
+          "descricao": "Instrumento urbanístico para adensar corredor do Estreito com receita via CEPAC — construtores pagam pelo potencial construtivo adicional",
+          "viabilidade": 70,
+          "tipo_incorporador": "MRV, Trisul, incorporadoras locais médio porte",
+          "prazo_estimado": "36-60 meses"
+        },
+        {
+          "modelo": "Coworking Municipal PPP",
+          "descricao": "Imóvel público transformado em hub de inovação/coworking com gestão privada e área social pública",
+          "viabilidade": 72,
+          "tipo_incorporador": "Operadores de coworking, startups imobiliárias",
+          "prazo_estimado": "12-24 meses"
+        },
+        {
+          "modelo": "ZEIS — Habitação de Interesse Social",
+          "descricao": "Terrenos para HIS em bairro de alta densidade com contrapartida de equipamento público",
+          "viabilidade": 68,
+          "tipo_incorporador": "COHAB-SC, Direcional, Tenda",
+          "prazo_estimado": "36-60 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "escritorios_corporativos",
+          "label": "Escritórios Corporativos",
+          "score": 78,
+          "area_disponivel_m2": 10000,
+          "vgv_estimado_milhoes": 27.0,
+          "justificativa": "Proximidade com centro de Florianópolis via pontes, demanda crescente por escritórios no continente"
+        },
+        {
+          "tipo": "misto_uso",
+          "label": "Misto Uso",
+          "score": 70,
+          "area_disponivel_m2": 10000,
+          "vgv_estimado_milhoes": 33.0,
+          "justificativa": "Zoneamento permissivo, verticalização em curso, demanda mista residencial/comercial"
+        },
+        {
+          "tipo": "coworking",
+          "label": "Coworking / Hub Tech",
+          "score": 62,
+          "area_disponivel_m2": 3000,
+          "vgv_estimado_milhoes": 8.25,
+          "justificativa": "Próximo à UFSC via transporte, perfil universitário e de startups"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "Continente de Florianópolis em valorização acelerada. 10 imóveis sem uso com alto potencial de retrofit urbano. Pressão de verticalização crescente."
+    },
+    "Capoeiras": {
+      "valor_m2_residencial": 4500,
+      "valor_m2_comercial": 3800,
+      "potencial_incorporacao": 55,
+      "potencial_comercial": 65,
+      "tendencia": "alta",
+      "perfil_mercado": "bairro popular do continente em transição — pressão de verticalização",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "habitacao_social", "servicos"],
+      "modelos_ppp": [
+        {
+          "modelo": "ZEIS — Habitação de Interesse Social",
+          "descricao": "Terrenos municipais destinados a HIS com financiamento MCMV e contrapartida de equipamento (creche, UBS)",
+          "viabilidade": 75,
+          "tipo_incorporador": "COHAB-SC, Tenda, Direcional, MRV",
+          "prazo_estimado": "36-54 meses"
+        },
+        {
+          "modelo": "Distrito Criativo / Incubadora",
+          "descricao": "Espaço de economia criativa com gestão privada e área pública de mercado/artesanato",
+          "viabilidade": 55,
+          "tipo_incorporador": "Operadores de espaços criativos, SEBRAE",
+          "prazo_estimado": "18-30 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_social",
+          "label": "Habitação Social",
+          "score": 72,
+          "area_disponivel_m2": 4000,
+          "vgv_estimado_milhoes": 10.8,
+          "justificativa": "Alta demanda por HIS, MCMV ativo, localização estratégica no continente"
+        },
+        {
+          "tipo": "comercial_varejo",
+          "label": "Comercial / Varejo",
+          "score": 60,
+          "area_disponivel_m2": 4000,
+          "vgv_estimado_milhoes": 9.12,
+          "justificativa": "Polo comercial popular consolidado, tráfego intenso, demanda de serviços"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "Bairro popular com boa demanda por habitação social. 4 imóveis sem uso — prioridade MCMV. Valorização moderada mas consistente."
+    },
+    "Ingleses": {
+      "valor_m2_residencial": 6500,
+      "valor_m2_comercial": 5000,
+      "potencial_incorporacao": 72,
+      "potencial_comercial": 65,
+      "tendencia": "alta",
+      "perfil_mercado": "expansão residencial norte da ilha + turismo de praia",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "turismo", "hotel_pousada"],
+      "modelos_ppp": [
+        {
+          "modelo": "Concessão Onerosa de Uso",
+          "descricao": "Terreno público para resort/hotel com contrapartida de acesso público à praia e equipamento de lazer",
+          "viabilidade": 72,
+          "tipo_incorporador": "Hotéis boutique, fundos CRI/FII hoteleiros",
+          "prazo_estimado": "24-48 meses"
+        },
+        {
+          "modelo": "PPP Residencial Premium",
+          "descricao": "Parceria para condomínio de médio-alto padrão com cessão onerosa e contrapartida social",
+          "viabilidade": 68,
+          "tipo_incorporador": "Cyrela, PDG, incorporadoras regionais",
+          "prazo_estimado": "24-42 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Premium",
+          "score": 72,
+          "area_disponivel_m2": 3000,
+          "vgv_estimado_milhoes": 11.7,
+          "justificativa": "Bairro de praia, crescimento acelerado, segunda residência em alta"
+        },
+        {
+          "tipo": "hotel_pousada",
+          "label": "Hotel / Pousada",
+          "score": 68,
+          "area_disponivel_m2": 3000,
+          "vgv_estimado_milhoes": 11.7,
+          "justificativa": "Alta temporada, demanda turística crescente, escassez de hospedagem qualificada"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "Norte da ilha em forte expansão. 3 imóveis sem uso com potencial turístico. Valorização de 10%+ ao ano."
+    },
+    "Coqueiros": {
+      "valor_m2_residencial": 11500,
+      "valor_m2_comercial": 8500,
+      "potencial_incorporacao": 82,
+      "potencial_comercial": 78,
+      "tendencia": "alta",
+      "perfil_mercado": "bairro nobre do continente — alta valorização, perfil alto padrão",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "escritorios", "misto"],
+      "modelos_ppp": [
+        {
+          "modelo": "CEPAC — Certificados de Potencial Construtivo",
+          "descricao": "Município vende certificados que permitem construção acima do gabarito padrão — receita para fundo de habitação",
+          "viabilidade": 82,
+          "tipo_incorporador": "Cyrela, PDG, Gafisa, grandes incorporadoras",
+          "prazo_estimado": "18-30 meses"
+        },
+        {
+          "modelo": "Operação Urbana Consorciada",
+          "descricao": "Densificação planejada com recebimento de contrapartidas para infraestrutura e espaços públicos",
+          "viabilidade": 78,
+          "tipo_incorporador": "Grandes incorporadoras nacionais",
+          "prazo_estimado": "24-48 meses"
+        },
+        {
+          "modelo": "Concessão Onerosa — Uso Misto",
+          "descricao": "Torre mista residencial/comercial em terreno público com % da receita para o município",
+          "viabilidade": 85,
+          "tipo_incorporador": "Cyrela, PDG, incorporadoras alto padrão",
+          "prazo_estimado": "12-24 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Premium",
+          "score": 88,
+          "area_disponivel_m2": 9000,
+          "vgv_estimado_milhoes": 62.1,
+          "justificativa": "Bairro mais valorizado do continente, R$11.483/m² (mai/2025 +21%), demanda aquecida"
+        },
+        {
+          "tipo": "escritorios_corporativos",
+          "label": "Escritórios Corporativos",
+          "score": 80,
+          "area_disponivel_m2": 9000,
+          "vgv_estimado_milhoes": 45.9,
+          "justificativa": "Hub de negócios do continente, grandes empresas se instalando na região"
+        },
+        {
+          "tipo": "misto_uso",
+          "label": "Misto Uso",
+          "score": 75,
+          "area_disponivel_m2": 9000,
+          "vgv_estimado_milhoes": 62.1,
+          "justificativa": "Zoneamento misto, infraestrutura consolidada, demanda sólida"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "Coqueiros é o bairro com maior valorização recente (+21% em 12 meses). 9 imóveis sem uso representam oportunidade imediata de alto retorno."
+    },
+    "Campeche": {
+      "valor_m2_residencial": 9500,
+      "valor_m2_comercial": 7000,
+      "potencial_incorporacao": 85,
+      "potencial_comercial": 70,
+      "tendencia": "alta",
+      "perfil_mercado": "expansão residencial premium + turismo de praia sul da ilha",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "turismo", "misto"],
+      "modelos_ppp": [
+        {
+          "modelo": "Concessão Onerosa",
+          "descricao": "Município cede terreno por 30 anos em troca de % da receita ou construção de equipamento público",
+          "viabilidade": 85,
+          "tipo_incorporador": "Cyrela, PDG, incorporadoras médio/grande porte",
+          "prazo_estimado": "24-48 meses"
+        },
+        {
+          "modelo": "PPP Hotel-Boutique / Pousada Premium",
+          "descricao": "Terreno público para hospedagem de alto padrão com acesso à praia + serviço turístico municipal",
+          "viabilidade": 78,
+          "tipo_incorporador": "Hotéis boutique, fundos CRI/FII hoteleiros",
+          "prazo_estimado": "24-42 meses"
+        },
+        {
+          "modelo": "ZEIS — HIS com Contrapartida",
+          "descricao": "Terreno para HIS com contrapartida privada em área comercial de baixo impacto ambiental",
+          "viabilidade": 60,
+          "tipo_incorporador": "COHAB-SC, Tenda, Direcional",
+          "prazo_estimado": "36-60 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Premium",
+          "score": 88,
+          "area_disponivel_m2": 21000,
+          "vgv_estimado_milhoes": 119.7,
+          "justificativa": "Alta demanda, valorização acelerada, zoneamento permissivo, praia valorizada"
+        },
+        {
+          "tipo": "hotel_pousada",
+          "label": "Hotel / Pousada",
+          "score": 75,
+          "area_disponivel_m2": 8000,
+          "vgv_estimado_milhoes": 45.6,
+          "justificativa": "Proximidade praia, alta temporada, demanda turística, escassez de hospedagem premium"
+        },
+        {
+          "tipo": "misto_uso",
+          "label": "Misto Uso",
+          "score": 68,
+          "area_disponivel_m2": 5000,
+          "vgv_estimado_milhoes": 28.5,
+          "justificativa": "Demanda por serviços no bairro em expansão, gastronomia e lazer"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "Campeche em forte valorização. 21 imóveis sem uso — maior oportunidade unitária do portfólio. Janela 2025-2027 crítica antes de escassez de terrenos."
+    },
+    "Saco dos Limoes": {
+      "valor_m2_residencial": 7000,
+      "valor_m2_comercial": 5500,
+      "potencial_incorporacao": 65,
+      "potencial_comercial": 60,
+      "tendencia": "estavel",
+      "perfil_mercado": "bairro residencial sul da ilha com vista mar — nicho médio-alto",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "misto"],
+      "modelos_ppp": [
+        {
+          "modelo": "Concessão Onerosa de Uso",
+          "descricao": "Terreno público para residencial médio-alto com contrapartida de praça e estacionamento público",
+          "viabilidade": 65,
+          "tipo_incorporador": "Incorporadoras regionais médio porte",
+          "prazo_estimado": "24-36 meses"
+        },
+        {
+          "modelo": "CEPAC Local",
+          "descricao": "Instrumento para densificação controlada com receita para urbanismo da área",
+          "viabilidade": 58,
+          "tipo_incorporador": "Incorporadoras locais",
+          "prazo_estimado": "24-48 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Médio-Alto",
+          "score": 65,
+          "area_disponivel_m2": 7000,
+          "vgv_estimado_milhoes": 29.4,
+          "justificativa": "Vista mar, bairro tranquilo, demanda crescente por apartamentos de qualidade"
+        },
+        {
+          "tipo": "misto_uso",
+          "label": "Misto Uso",
+          "score": 55,
+          "area_disponivel_m2": 3000,
+          "vgv_estimado_milhoes": 12.6,
+          "justificativa": "Carência de serviços, área plana para desenvolvimento"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "7 imóveis sem uso. Potencial subestimado para residencial com vista mar. Infraestrutura consolidada."
+    },
+    "Roçado": {
+      "valor_m2_residencial": 5000,
+      "valor_m2_comercial": 4000,
+      "potencial_incorporacao": 50,
+      "potencial_comercial": 55,
+      "tendencia": "estavel",
+      "perfil_mercado": "bairro consolidado do continente — residencial popular médio",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "habitacao_social"],
+      "modelos_ppp": [
+        {
+          "modelo": "ZEIS — Habitação de Interesse Social",
+          "descricao": "Único imóvel sem uso para HIS com gestão COHAB",
+          "viabilidade": 60,
+          "tipo_incorporador": "COHAB-SC, Tenda",
+          "prazo_estimado": "36-54 meses"
+        },
+        {
+          "modelo": "Distrito Criativo",
+          "descricao": "Espaço de economia criativa/artesanato com baixa intervenção e gestão comunitária",
+          "viabilidade": 48,
+          "tipo_incorporador": "Cooperativas, SEBRAE, ONGs",
+          "prazo_estimado": "12-24 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_social",
+          "label": "Habitação Social",
+          "score": 55,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 3.0,
+          "justificativa": "Demanda local por HIS, MCMV disponível, terreno único sem uso"
+        },
+        {
+          "tipo": "comercial_varejo",
+          "label": "Comercial Local",
+          "score": 48,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 2.4,
+          "justificativa": "Serviços locais necessários, tráfego razoável"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "Baixo potencial relativo. 1 imóvel sem uso. Bairro estável sem grandes movimentos de mercado esperados."
+    },
+    "Morro das Pedras": {
+      "valor_m2_residencial": 8000,
+      "valor_m2_comercial": 6000,
+      "potencial_incorporacao": 70,
+      "potencial_comercial": 58,
+      "tendencia": "alta",
+      "perfil_mercado": "expansão sul da ilha — pré-praia, valorização por proximidade ao Campeche",
+      "usos_permitidos": ["residencial_unifamiliar", "residencial_multifamiliar", "comercial_local", "turismo"],
+      "modelos_ppp": [
+        {
+          "modelo": "Concessão Onerosa",
+          "descricao": "Terrenos próximos à praia para pousada/resort boutique com contrapartida de área de lazer pública",
+          "viabilidade": 72,
+          "tipo_incorporador": "Hotéis boutique, fundos hoteleiros",
+          "prazo_estimado": "24-42 meses"
+        },
+        {
+          "modelo": "PPP Residencial de Interesse Turístico",
+          "descricao": "Condomínio de turismo rural/ambiental com gestão privada e cotas de uso social",
+          "viabilidade": 65,
+          "tipo_incorporador": "Incorporadoras regionais, ecoturismo",
+          "prazo_estimado": "30-48 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Premium",
+          "score": 72,
+          "area_disponivel_m2": 4000,
+          "vgv_estimado_milhoes": 19.2,
+          "justificativa": "Sul da ilha, praia, valorização por contiguidade com Campeche"
+        },
+        {
+          "tipo": "hotel_pousada",
+          "label": "Ecoturismo / Pousada",
+          "score": 65,
+          "area_disponivel_m2": 2000,
+          "vgv_estimado_milhoes": 9.6,
+          "justificativa": "Proximidade à praia, perfil ambiental, demanda por turismo alternativo"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "4 imóveis sem uso com excelente posicionamento no sul da ilha. Valorização por contiguidade com Campeche."
+    },
+    "Armacao": {
+      "valor_m2_residencial": 8500,
+      "valor_m2_comercial": 6200,
+      "potencial_incorporacao": 80,
+      "potencial_comercial": 62,
+      "tendencia": "alta",
+      "perfil_mercado": "praia sul da ilha — residencial premium e turismo",
+      "usos_permitidos": ["residencial_unifamiliar", "residencial_multifamiliar", "turismo", "hotel_pousada"],
+      "modelos_ppp": [
+        {
+          "modelo": "Concessão Onerosa — Turismo Premium",
+          "descricao": "Terrenos frente-praia para operação de turismo de alto padrão com contrapartida de acesso e preservação ambiental",
+          "viabilidade": 80,
+          "tipo_incorporador": "Hotéis boutique, fundos CRI/FII hoteleiros",
+          "prazo_estimado": "18-36 meses"
+        },
+        {
+          "modelo": "RPPNM — Reserva Particular do Patrimônio Natural",
+          "descricao": "Áreas de APP municipais constituídas como RPPNM com concessão de trilha/lanchonete para custeio",
+          "viabilidade": 70,
+          "tipo_incorporador": "ONGs ambientais, operadores ecoturismo",
+          "prazo_estimado": "12-24 meses"
+        },
+        {
+          "modelo": "PPP Residencial Premium",
+          "descricao": "Condomínio fechado de alto padrão com cessão onerosa e contrapartida de infraestrutura local",
+          "viabilidade": 75,
+          "tipo_incorporador": "Cyrela, PDG, incorporadoras alto padrão",
+          "prazo_estimado": "24-48 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Premium",
+          "score": 82,
+          "area_disponivel_m2": 16000,
+          "vgv_estimado_milhoes": 81.6,
+          "justificativa": "16 imóveis sem uso em bairro de praia premium sul da ilha — maior concentração do portfólio"
+        },
+        {
+          "tipo": "hotel_pousada",
+          "label": "Resort / Hotel Boutique",
+          "score": 78,
+          "area_disponivel_m2": 8000,
+          "vgv_estimado_milhoes": 40.8,
+          "justificativa": "Praia, tranquilidade, turismo de alto padrão, demanda por resort boutique"
+        },
+        {
+          "tipo": "turismo_marina",
+          "label": "Turismo / Marina",
+          "score": 60,
+          "area_disponivel_m2": 3000,
+          "vgv_estimado_milhoes": 15.3,
+          "justificativa": "Potencial de marina/deck náutico, demanda de turismo náutico crescente"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "Armação tem 16 imóveis sem uso — maior número absoluto do portfólio após Campeche. Bairro de praia premium com enorme potencial subexplorado."
+    },
+    "Campinas": {
+      "valor_m2_residencial": 4200,
+      "valor_m2_comercial": 3500,
+      "potencial_incorporacao": 48,
+      "potencial_comercial": 55,
+      "tendencia": "estavel",
+      "perfil_mercado": "bairro popular do continente — residencial acessível",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "habitacao_social"],
+      "modelos_ppp": [
+        {
+          "modelo": "Minha Casa Minha Vida — Faixa 2/3",
+          "descricao": "Financiamento MCMV para renda média com terreno municipal e contrapartida de infraestrutura",
+          "viabilidade": 70,
+          "tipo_incorporador": "MRV, Tenda, Direcional",
+          "prazo_estimado": "24-42 meses"
+        },
+        {
+          "modelo": "ZEIS — Habitação de Interesse Social",
+          "descricao": "HIS para baixa renda com gestão COHAB-SC",
+          "viabilidade": 65,
+          "tipo_incorporador": "COHAB-SC, Direcional",
+          "prazo_estimado": "36-54 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_social",
+          "label": "Habitação Acessível",
+          "score": 60,
+          "area_disponivel_m2": 3000,
+          "vgv_estimado_milhoes": 7.56,
+          "justificativa": "MCMV ativo, demanda reprimida, terrenos disponíveis no continente"
+        },
+        {
+          "tipo": "comercial_varejo",
+          "label": "Comércio Popular",
+          "score": 50,
+          "area_disponivel_m2": 1500,
+          "vgv_estimado_milhoes": 3.15,
+          "justificativa": "Demanda local por serviços, área de alto tráfego pedestre"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "3 imóveis sem uso. Potencial modesto mas seguro para habitação social/MCMV. Continente em valorização."
+    },
+    "Lagoa da Conceição": {
+      "valor_m2_residencial": 12000,
+      "valor_m2_comercial": 9000,
+      "potencial_incorporacao": 88,
+      "potencial_comercial": 80,
+      "tendencia": "alta",
+      "perfil_mercado": "polo de luxo e turismo — lagoa, bares, gastronomia, residencial ultra-premium",
+      "usos_permitidos": ["residencial_unifamiliar", "residencial_multifamiliar", "turismo", "gastronomia", "hotel_pousada", "misto"],
+      "modelos_ppp": [
+        {
+          "modelo": "Concessão Onerosa — Frente Lagoa",
+          "descricao": "Terrenos com acesso à lagoa para operação náutica premium com contrapartida de orla pública",
+          "viabilidade": 88,
+          "tipo_incorporador": "Cyrela, PDG, boutique internacional",
+          "prazo_estimado": "18-36 meses"
+        },
+        {
+          "modelo": "PPP Marina / Porto de Lazer",
+          "descricao": "Marina náutica com gestão privada, área comercial e passarela pública à beira da lagoa",
+          "viabilidade": 82,
+          "tipo_incorporador": "Fundos FII hoteleiros, operadores náuticos",
+          "prazo_estimado": "24-48 meses"
+        },
+        {
+          "modelo": "CEPAC — Potencial Construtivo Adicional",
+          "descricao": "Venda de certificados para projetos de alto padrão que excedem gabarito — receita para conservação ambiental",
+          "viabilidade": 75,
+          "tipo_incorporador": "Grandes incorporadoras nacionais",
+          "prazo_estimado": "18-36 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Ultra-Premium",
+          "score": 92,
+          "area_disponivel_m2": 10000,
+          "vgv_estimado_milhoes": 72.0,
+          "justificativa": "Lagoa da Conceição é referência de luxo em Floripa — >R$12.000/m², demanda de alto poder aquisitivo"
+        },
+        {
+          "tipo": "turismo_marina",
+          "label": "Marina / Náutico Premium",
+          "score": 85,
+          "area_disponivel_m2": 5000,
+          "vgv_estimado_milhoes": 36.0,
+          "justificativa": "Lagoa navegável, turismo náutico consolidado, escassez de marinas de qualidade"
+        },
+        {
+          "tipo": "hotel_pousada",
+          "label": "Hotel Boutique / Resort",
+          "score": 80,
+          "area_disponivel_m2": 4000,
+          "vgv_estimado_milhoes": 28.8,
+          "justificativa": "Polo gastronômico e noturno, turistas de alto poder aquisitivo, ocupação anual"
+        },
+        {
+          "tipo": "misto_uso",
+          "label": "Complexo Gastronômico",
+          "score": 75,
+          "area_disponivel_m2": 2000,
+          "vgv_estimado_milhoes": 14.4,
+          "justificativa": "DNA de gastronomia da lagoa, frente d'água, demanda permanente"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "Lagoa da Conceição é o bairro de maior valor absoluto e potencial de VGV. 10 imóveis sem uso em área premium — oportunidade de R$70M+. Demanda permanente, não só sazonal."
+    },
+    "Jardim Atlantico": {
+      "valor_m2_residencial": 6800,
+      "valor_m2_comercial": 5000,
+      "potencial_incorporacao": 58,
+      "potencial_comercial": 52,
+      "tendencia": "estavel",
+      "perfil_mercado": "bairro residencial centro-norte — tranquilo, infraestrutura boa",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local"],
+      "modelos_ppp": [
+        {
+          "modelo": "Concessão Onerosa",
+          "descricao": "Terreno para residencial médio padrão com contrapartida de área verde/praça",
+          "viabilidade": 58,
+          "tipo_incorporador": "Incorporadoras locais médio porte",
+          "prazo_estimado": "24-36 meses"
+        },
+        {
+          "modelo": "Pagamento por Serviços Ambientais",
+          "descricao": "Áreas verdes com PSA para conservação com receita de visitação e educação ambiental",
+          "viabilidade": 50,
+          "tipo_incorporador": "ONGs, FLORAM, prefeitura",
+          "prazo_estimado": "12-24 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Médio Padrão",
+          "score": 58,
+          "area_disponivel_m2": 2000,
+          "vgv_estimado_milhoes": 8.16,
+          "justificativa": "Bairro tranquilo, demanda por moradia de qualidade"
+        },
+        {
+          "tipo": "comercial_varejo",
+          "label": "Serviços / Comércio",
+          "score": 48,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 4.08,
+          "justificativa": "Carência de serviços locais, população crescente"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "2 imóveis sem uso. Potencial moderado para residencial médio padrão. Bairro estável."
+    },
+    "Cachoeira do Bom Jesus": {
+      "valor_m2_residencial": 7000,
+      "valor_m2_comercial": 5200,
+      "potencial_incorporacao": 68,
+      "potencial_comercial": 58,
+      "tendencia": "alta",
+      "perfil_mercado": "norte da ilha em expansão — residencial e turismo costeiro",
+      "usos_permitidos": ["residencial_unifamiliar", "residencial_multifamiliar", "turismo", "comercial_local"],
+      "modelos_ppp": [
+        {
+          "modelo": "PPP Turismo Residencial",
+          "descricao": "Condomínio com frente para baía norte, uso misto residencial/pousada",
+          "viabilidade": 68,
+          "tipo_incorporador": "Incorporadoras regionais, hotéis boutique",
+          "prazo_estimado": "24-42 meses"
+        },
+        {
+          "modelo": "Concessão Onerosa",
+          "descricao": "Terreno para residencial médio-alto com contrapartida de equipamento público",
+          "viabilidade": 62,
+          "tipo_incorporador": "Cyrela regional, PDG",
+          "prazo_estimado": "18-36 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial de Praia",
+          "score": 70,
+          "area_disponivel_m2": 3000,
+          "vgv_estimado_milhoes": 12.6,
+          "justificativa": "Bairro costeiro, vista mar, expansão do norte da ilha"
+        },
+        {
+          "tipo": "hotel_pousada",
+          "label": "Pousada Boutique",
+          "score": 62,
+          "area_disponivel_m2": 2000,
+          "vgv_estimado_milhoes": 8.4,
+          "justificativa": "Turismo costeiro, demanda de hospedagem tranquila ao norte"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "3 imóveis sem uso em bairro costeiro do norte. Expansão do turismo e residencial pelo efeito Canasvieiras/Ingleses."
+    },
+    "Santo Antonio de Lisboa": {
+      "valor_m2_residencial": 9000,
+      "valor_m2_comercial": 7000,
+      "potencial_incorporacao": 62,
+      "potencial_comercial": 55,
+      "tendencia": "estavel",
+      "perfil_mercado": "vila histórica e gastronômica — niche cultural e turismo de qualidade",
+      "usos_permitidos": ["residencial_unifamiliar", "turismo", "gastronomia", "cultural"],
+      "modelos_ppp": [
+        {
+          "modelo": "PPP Cultural / Patrimônio Histórico",
+          "descricao": "Restauro de imóvel histórico com gestão privada de uso cultural/gastronômico e área pública",
+          "viabilidade": 68,
+          "tipo_incorporador": "Operadores culturais, restaurantes premium",
+          "prazo_estimado": "12-24 meses"
+        },
+        {
+          "modelo": "Pagamento por Serviços Ambientais",
+          "descricao": "APPs da frente da baía com PSA para conservação e trilha pública",
+          "viabilidade": 72,
+          "tipo_incorporador": "FLORAM, ONGs, ecoturismo",
+          "prazo_estimado": "12-18 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "turismo_marina",
+          "label": "Turismo Cultural / Gastronômico",
+          "score": 70,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 5.4,
+          "justificativa": "Vila histórica única, turismo gastronômico consolidado, demanda por experiências autênticas"
+        },
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Boutique",
+          "score": 58,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 5.4,
+          "justificativa": "Bairro histórico premium, difícil de replicar, demanda de alto padrão"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "1 imóvel sem uso. 20 APPs são oportunidade para PSA. Bairro único — qualquer intervenção deve respeitar o DNA histórico e cultural."
+    },
+    "Kobrasol": {
+      "valor_m2_residencial": 7500,
+      "valor_m2_comercial": 6000,
+      "potencial_incorporacao": 68,
+      "potencial_comercial": 72,
+      "tendencia": "alta",
+      "perfil_mercado": "bairro comercial do continente — hub de serviços, corporativo emergente",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "escritorios", "servicos", "misto"],
+      "modelos_ppp": [
+        {
+          "modelo": "CEPAC — Certificados de Potencial Construtivo",
+          "descricao": "Adensamento corporativo via CEPAC — receita para fundo de mobilidade urbana",
+          "viabilidade": 72,
+          "tipo_incorporador": "Trisul, MRV, incorporadoras corporativas",
+          "prazo_estimado": "18-36 meses"
+        },
+        {
+          "modelo": "Coworking Municipal",
+          "descricao": "Espaço de coworking e incubadora com gestão privada e área pública de atendimento",
+          "viabilidade": 68,
+          "tipo_incorporador": "Operadores de coworking, ACIF",
+          "prazo_estimado": "12-18 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "escritorios_corporativos",
+          "label": "Escritórios / Corporativo",
+          "score": 75,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 4.5,
+          "justificativa": "Maior hub comercial do continente, demanda crescente por escritórios de qualidade"
+        },
+        {
+          "tipo": "coworking",
+          "label": "Coworking / Hub",
+          "score": 68,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 4.5,
+          "justificativa": "Perfil empreendedor, startups, crescimento do ecossistema tech"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "1 imóvel sem uso em excelente localização comercial. Kobrasol é o endereço corporativo do continente."
+    },
+    "Barra da Lagoa": {
+      "valor_m2_residencial": 9000,
+      "valor_m2_comercial": 6800,
+      "potencial_incorporacao": 78,
+      "potencial_comercial": 65,
+      "tendencia": "alta",
+      "perfil_mercado": "bairro de praia e lagoa — turismo premium, residencial exclusivo",
+      "usos_permitidos": ["residencial_unifamiliar", "turismo", "hotel_pousada", "gastronomia"],
+      "modelos_ppp": [
+        {
+          "modelo": "PPP Turismo Náutico",
+          "descricao": "Área pública para marina/deck náutico com gestão privada e passarela pública",
+          "viabilidade": 78,
+          "tipo_incorporador": "Operadores náuticos, fundos hoteleiros",
+          "prazo_estimado": "18-36 meses"
+        },
+        {
+          "modelo": "Concessão Onerosa — Residencial Premium",
+          "descricao": "Terreno frente lagoa para residencial de alto padrão com área de acesso público",
+          "viabilidade": 75,
+          "tipo_incorporador": "Cyrela, PDG, boutique regional",
+          "prazo_estimado": "24-42 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Premium",
+          "score": 80,
+          "area_disponivel_m2": 9000,
+          "vgv_estimado_milhoes": 48.6,
+          "justificativa": "Barra da Lagoa: praia + lagoa navegável, rara combinação, 9 imóveis sem uso"
+        },
+        {
+          "tipo": "hotel_pousada",
+          "label": "Pousada / Resort Boutique",
+          "score": 75,
+          "area_disponivel_m2": 5000,
+          "vgv_estimado_milhoes": 27.0,
+          "justificativa": "Turismo de qualidade, frente d'água, experiência única de lagoa + mar"
+        },
+        {
+          "tipo": "turismo_marina",
+          "label": "Marina / Náutico",
+          "score": 65,
+          "area_disponivel_m2": 2000,
+          "vgv_estimado_milhoes": 10.8,
+          "justificativa": "Canal navegável, demanda por atividades náuticas, potencial de marina comunitária"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "9 imóveis sem uso em bairro de altíssimo valor. Barra da Lagoa tem a combinação única de praia + canal navegável. Demanda premium crescente."
+    },
+    "Sambaqui": {
+      "valor_m2_residencial": 8500,
+      "valor_m2_comercial": 6200,
+      "potencial_incorporacao": 65,
+      "potencial_comercial": 52,
+      "tendencia": "alta",
+      "perfil_mercado": "bairro histórico e costeiro — nicho premium tranquilo",
+      "usos_permitidos": ["residencial_unifamiliar", "turismo", "cultural", "ambiental"],
+      "modelos_ppp": [
+        {
+          "modelo": "PPP Cultural / Gastronômico",
+          "descricao": "Imóvel histórico ou frente-mar para restaurante/pousada boutique com área pública de acesso à costa",
+          "viabilidade": 65,
+          "tipo_incorporador": "Operadores gastronômicos, pousadas boutique",
+          "prazo_estimado": "12-24 meses"
+        },
+        {
+          "modelo": "Pagamento por Serviços Ambientais",
+          "descricao": "APPs costeiras com PSA e concessão de atividades de baixo impacto (trilha, caiaque)",
+          "viabilidade": 68,
+          "tipo_incorporador": "ONGs, FLORAM",
+          "prazo_estimado": "12-18 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Costeiro Premium",
+          "score": 65,
+          "area_disponivel_m2": 3000,
+          "vgv_estimado_milhoes": 15.3,
+          "justificativa": "Costa norte tranquila, valorização por exclusividade, demanda de alta renda"
+        },
+        {
+          "tipo": "hotel_pousada",
+          "label": "Pousada Boutique",
+          "score": 60,
+          "area_disponivel_m2": 1500,
+          "vgv_estimado_milhoes": 7.65,
+          "justificativa": "Turismo de qualidade, perfil histórico/cultural, demanda de viajantes premium"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "3 imóveis sem uso em área costeira histórica. Sambaqui tem identidade única que agrega valor ao desenvolvimento."
+    },
+    "Costeira do Pirajubae": {
+      "valor_m2_residencial": 6500,
+      "valor_m2_comercial": 4800,
+      "potencial_incorporacao": 60,
+      "potencial_comercial": 55,
+      "tendencia": "estavel",
+      "perfil_mercado": "bairro sul próximo ao aeroporto — residencial médio e serviços",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "logistica", "servicos"],
+      "modelos_ppp": [
+        {
+          "modelo": "Galpão Logístico / Serviços",
+          "descricao": "Área para pequenos galpões logísticos e serviços de apoio ao aeroporto com gestão privada",
+          "viabilidade": 60,
+          "tipo_incorporador": "Operadores logísticos, small business",
+          "prazo_estimado": "18-30 meses"
+        },
+        {
+          "modelo": "ZEIS — HIS",
+          "descricao": "HIS em terreno próximo ao aeroporto para trabalhadores do setor",
+          "viabilidade": 65,
+          "tipo_incorporador": "COHAB-SC, Tenda",
+          "prazo_estimado": "36-54 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "logistica_galpao",
+          "label": "Logística / Serviços",
+          "score": 62,
+          "area_disponivel_m2": 5000,
+          "vgv_estimado_milhoes": 19.5,
+          "justificativa": "Próximo ao aeroporto, demanda por serviços e logística, terrenos disponíveis"
+        },
+        {
+          "tipo": "residencial_social",
+          "label": "Habitação Acessível",
+          "score": 58,
+          "area_disponivel_m2": 3000,
+          "vgv_estimado_milhoes": 11.7,
+          "justificativa": "Demanda de trabalhadores do aeroporto, MCMV disponível"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "5 imóveis sem uso. Localização estratégica junto ao aeroporto favorece logística. Potencial moderado."
+    },
+    "Vargem Grande": {
+      "valor_m2_residencial": 6000,
+      "valor_m2_comercial": 4500,
+      "potencial_incorporacao": 65,
+      "potencial_comercial": 55,
+      "tendencia": "alta",
+      "perfil_mercado": "norte da ilha em expansão — residencial emergente, segunda residência",
+      "usos_permitidos": ["residencial_unifamiliar", "residencial_multifamiliar", "turismo", "ambiental"],
+      "modelos_ppp": [
+        {
+          "modelo": "Concessão Onerosa",
+          "descricao": "Terreno para condomínio horizontal de médio padrão com contrapartida de área verde e trilha pública",
+          "viabilidade": 65,
+          "tipo_incorporador": "Incorporadoras regionais",
+          "prazo_estimado": "24-42 meses"
+        },
+        {
+          "modelo": "Pagamento por Serviços Ambientais",
+          "descricao": "APPs com PSA e ecoturismo de baixo impacto",
+          "viabilidade": 60,
+          "tipo_incorporador": "ONGs, ecoturismo",
+          "prazo_estimado": "12-24 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Condomínio Horizontal",
+          "score": 65,
+          "area_disponivel_m2": 10000,
+          "vgv_estimado_milhoes": 36.0,
+          "justificativa": "Norte da ilha em expansão, segunda residência, terrenos grandes disponíveis"
+        },
+        {
+          "tipo": "turismo_marina",
+          "label": "Ecoturismo",
+          "score": 55,
+          "area_disponivel_m2": 3000,
+          "vgv_estimado_milhoes": 10.8,
+          "justificativa": "Área verde abundante, turismo de natureza, demanda de nichos de qualidade"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "10 imóveis sem uso na Vargem Grande. Norte da ilha em expansão — boa oportunidade para condomínios horizontais e ecoturismo."
+    },
+    "Abraao": {
+      "valor_m2_residencial": 5000,
+      "valor_m2_comercial": 4000,
+      "potencial_incorporacao": 42,
+      "potencial_comercial": 48,
+      "tendencia": "estavel",
+      "perfil_mercado": "bairro popular do continente — consolidado, sem pressão de mercado",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local"],
+      "modelos_ppp": [
+        {
+          "modelo": "ZEIS — Habitação Social",
+          "descricao": "Uso residencial social com contrapartida de creche ou UBS",
+          "viabilidade": 50,
+          "tipo_incorporador": "COHAB-SC",
+          "prazo_estimado": "36-60 meses"
+        },
+        {
+          "modelo": "Equipamento Público com Gestão Privada",
+          "descricao": "Espaço cultural/esportivo com gestão privada e uso comunitário",
+          "viabilidade": 45,
+          "tipo_incorporador": "ONGs, cooperativas",
+          "prazo_estimado": "12-24 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_social",
+          "label": "Habitação Social",
+          "score": 45,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 3.0,
+          "justificativa": "Sem imóveis sem uso registrados — base mínima de análise"
+        },
+        {
+          "tipo": "comercial_varejo",
+          "label": "Comércio Local",
+          "score": 40,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 2.4,
+          "justificativa": "Demanda local por serviços básicos"
+        }
+      ],
+      "risco_incorporacao": "alto",
+      "observacoes": "0 imóveis sem uso. Bairro consolidado com baixo potencial de intervenção. Usar base mínima de 1.000m² para cálculo."
+    },
+    "Ponta das Canas": {
+      "valor_m2_residencial": 8000,
+      "valor_m2_comercial": 6000,
+      "potencial_incorporacao": 70,
+      "potencial_comercial": 60,
+      "tendencia": "alta",
+      "perfil_mercado": "ponta norte da ilha — turismo exclusivo, segunda residência premium",
+      "usos_permitidos": ["residencial_unifamiliar", "turismo", "hotel_pousada"],
+      "modelos_ppp": [
+        {
+          "modelo": "PPP Turismo Premium",
+          "descricao": "Área pública para resort de praia de alto padrão com contrapartida de acesso público e infraestrutura",
+          "viabilidade": 72,
+          "tipo_incorporador": "Hotéis boutique, fundos hoteleiros",
+          "prazo_estimado": "24-48 meses"
+        },
+        {
+          "modelo": "Concessão Onerosa",
+          "descricao": "Terreno para condomínio horizontal premium frente-mar",
+          "viabilidade": 68,
+          "tipo_incorporador": "PDG, Cyrela, incorporadoras premium",
+          "prazo_estimado": "24-36 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Segunda Residência Premium",
+          "score": 70,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 4.8,
+          "justificativa": "Ponta norte exclusiva, sem imóveis sem uso registrados — base mínima"
+        },
+        {
+          "tipo": "hotel_pousada",
+          "label": "Resort de Praia",
+          "score": 65,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 4.8,
+          "justificativa": "Turismo premium, escassez de oferta qualificada"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "0 imóveis sem uso registrados — base mínima. Ponta norte da ilha com altíssimo valor de mercado e potencial turístico."
+    },
+    "Jurere Internacional": {
+      "valor_m2_residencial": 19000,
+      "valor_m2_comercial": 14000,
+      "potencial_incorporacao": 90,
+      "potencial_comercial": 85,
+      "tendencia": "alta",
+      "perfil_mercado": "bairro mais premium do Brasil Sul — resort, yachts, mansões, ultra-luxo",
+      "usos_permitidos": ["residencial_unifamiliar", "residencial_multifamiliar", "turismo", "hotel_pousada", "marina", "gastronomia"],
+      "modelos_ppp": [
+        {
+          "modelo": "Concessão Onerosa Premium",
+          "descricao": "Terreno público para empreendimento ultra-luxo com % da receita + manutenção de orla pública. VGV potencial R$80M+",
+          "viabilidade": 95,
+          "tipo_incorporador": "Cyrela, PDG, Gafisa, boutique internacional",
+          "prazo_estimado": "18-36 meses"
+        },
+        {
+          "modelo": "PPP Marina Internacional",
+          "descricao": "Marina de alto padrão para yachts com gestão privada, área comercial premium e passarela pública",
+          "viabilidade": 88,
+          "tipo_incorporador": "Fundos FII hoteleiros, operadores náuticos internacionais",
+          "prazo_estimado": "24-48 meses"
+        },
+        {
+          "modelo": "CEPAC — Alto Padrão",
+          "descricao": "Certificados de potencial construtivo adicional para torres de luxo — receita para fundo ambiental",
+          "viabilidade": 82,
+          "tipo_incorporador": "Grandes incorporadoras nacionais/internacionais",
+          "prazo_estimado": "18-30 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Ultra Luxo Residencial",
+          "score": 95,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 11.4,
+          "justificativa": "R$19.931/m² (DataZAP). Maior valor de m² do Sul do Brasil. Demanda perene de ultra-high-net-worth"
+        },
+        {
+          "tipo": "turismo_marina",
+          "label": "Marina / Yacht Club",
+          "score": 90,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 11.4,
+          "justificativa": "Único bairro com DNA de mega-eventos e show business — Jurerê Open Air, temporada de luxo"
+        },
+        {
+          "tipo": "hotel_pousada",
+          "label": "Hotel 5 Estrelas / Resort",
+          "score": 88,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 11.4,
+          "justificativa": "Demanda de turistas de ultra-luxo, ocupação premium, ADR mais alto de SC"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "Jurerê Internacional tem 1 imóvel sem uso e valor de R$19.931/m² (DataZAP 2025). Qualquer imóvel público aqui vale ouro. Prioridade máxima para concessão."
+    },
+    "Barreiros": {
+      "valor_m2_residencial": 5000,
+      "valor_m2_comercial": 4000,
+      "potencial_incorporacao": 40,
+      "potencial_comercial": 45,
+      "tendencia": "estavel",
+      "perfil_mercado": "bairro popular do continente — sem pressão significativa de mercado",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local"],
+      "modelos_ppp": [
+        {
+          "modelo": "Equipamento Público",
+          "descricao": "Espaço de uso coletivo com gestão comunitária — creche, posto de saúde",
+          "viabilidade": 50,
+          "tipo_incorporador": "COHAB-SC, prefeitura",
+          "prazo_estimado": "24-36 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_social",
+          "label": "Habitação Social",
+          "score": 40,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 3.0,
+          "justificativa": "0 imóveis sem uso — base mínima. Bairro consolidado."
+        }
+      ],
+      "risco_incorporacao": "alto",
+      "observacoes": "0 imóveis sem uso. Bairro consolidado sem oportunidades imediatas."
+    },
+    "Ribeirao da Ilha": {
+      "valor_m2_residencial": 4000,
+      "valor_m2_comercial": 3200,
+      "potencial_incorporacao": 48,
+      "potencial_comercial": 42,
+      "tendencia": "estavel",
+      "perfil_mercado": "sul da ilha histórico — ostras, pesca, turismo gastronômico de nicho",
+      "usos_permitidos": ["residencial_unifamiliar", "turismo", "cultural", "gastronomia", "ambiental"],
+      "modelos_ppp": [
+        {
+          "modelo": "PPP Turismo Gastronômico",
+          "descricao": "Espaço para mercado de ostras e gastronomia com gestão privada e área pública de acesso à beira d'água",
+          "viabilidade": 55,
+          "tipo_incorporador": "Restaurantes, operadores gastronômicos, Associação de Maricultores",
+          "prazo_estimado": "12-24 meses"
+        },
+        {
+          "modelo": "RPPNM / PSA",
+          "descricao": "Manguezais e APPs com PSA e turismo de observação de aves",
+          "viabilidade": 60,
+          "tipo_incorporador": "ONGs, FLORAM, ecoturismo",
+          "prazo_estimado": "12-18 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "turismo_marina",
+          "label": "Turismo Gastronômico / Ostreicultura",
+          "score": 52,
+          "area_disponivel_m2": 3000,
+          "vgv_estimado_milhoes": 7.2,
+          "justificativa": "DNA gastronômico único, turismo de ostras, demanda crescente de qualidade"
+        },
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Costeiro",
+          "score": 45,
+          "area_disponivel_m2": 1500,
+          "vgv_estimado_milhoes": 3.6,
+          "justificativa": "Sul da ilha tranquilo, demanda de nicho por moradia alternativa"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "3 imóveis sem uso em bairro de nicho único. Potencial gastronômico e ambiental subexplorado."
+    },
+    "Agronômica": {
+      "valor_m2_residencial": 9000,
+      "valor_m2_comercial": 7500,
+      "potencial_incorporacao": 72,
+      "potencial_comercial": 75,
+      "tendencia": "alta",
+      "perfil_mercado": "bairro nobre central — alta densidade, residencial premium e corporativo",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "escritorios", "misto"],
+      "modelos_ppp": [
+        {
+          "modelo": "CEPAC — Potencial Construtivo",
+          "descricao": "Densificação com CEPAC em bairro de alta demanda — receita para mobilidade e parques",
+          "viabilidade": 75,
+          "tipo_incorporador": "Cyrela, PDG, Trisul, grandes incorporadoras",
+          "prazo_estimado": "18-30 meses"
+        },
+        {
+          "modelo": "Operação Urbana Consorciada",
+          "descricao": "Adensamento planejado com contrapartidas para melhoria de calçadas, ciclovias e praças",
+          "viabilidade": 70,
+          "tipo_incorporador": "Grandes incorporadoras nacionais",
+          "prazo_estimado": "24-42 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Alto Padrão",
+          "score": 75,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 5.4,
+          "justificativa": "Bairro nobre, 0 imóveis sem uso registrados — base mínima, mas qualquer terreno vale muito"
+        },
+        {
+          "tipo": "escritorios_corporativos",
+          "label": "Escritórios Premium",
+          "score": 72,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 4.5,
+          "justificativa": "Corredor corporativo central, demanda por lajes AAA"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "0 imóveis sem uso. Bairro nobre com altíssimo valor de mercado. Qualquer liberação de patrimônio tem retorno imediato."
+    },
+    "Centro": {
+      "valor_m2_residencial": 8500,
+      "valor_m2_comercial": 9000,
+      "potencial_incorporacao": 70,
+      "potencial_comercial": 85,
+      "tendencia": "estavel",
+      "perfil_mercado": "centro histórico e comercial — verticalização, uso misto, revitalização urbana",
+      "usos_permitidos": ["comercial_local", "escritorios", "residencial_multifamiliar", "cultural", "misto"],
+      "modelos_ppp": [
+        {
+          "modelo": "Operação Urbana Consorciada Centro",
+          "descricao": "Revitalização do centro histórico via Operação Urbana — incentivos para retrofit, contrapartidas para espaços públicos",
+          "viabilidade": 80,
+          "tipo_incorporador": "MRV, Trisul, incorporadoras de retrofit",
+          "prazo_estimado": "24-48 meses"
+        },
+        {
+          "modelo": "CEPAC — Verticalização Centro",
+          "descricao": "Certificados para verticalização além do gabarito em corredores comerciais — receita para mobilidade",
+          "viabilidade": 75,
+          "tipo_incorporador": "Grandes incorporadoras, fundos imobiliários",
+          "prazo_estimado": "18-36 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "escritorios_corporativos",
+          "label": "Retrofit Corporativo",
+          "score": 78,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 5.4,
+          "justificativa": "Centro em revitalização, demanda por escritórios boutique, 0 imóveis sem uso"
+        },
+        {
+          "tipo": "misto_uso",
+          "label": "Uso Misto / Revitalização",
+          "score": 72,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 5.1,
+          "justificativa": "Potencial de retrofit urbano, conversão de antigos prédios comerciais"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "0 imóveis sem uso. Centro histórico com altíssimo valor comercial. Prioridade para revitalização e uso misto."
+    },
+    "Pantano do Sul": {
+      "valor_m2_residencial": 6500,
+      "valor_m2_comercial": 5000,
+      "potencial_incorporacao": 58,
+      "potencial_comercial": 48,
+      "tendencia": "estavel",
+      "perfil_mercado": "extremo sul da ilha — praia tranquila, nicho de moradores e turistas alternativos",
+      "usos_permitidos": ["residencial_unifamiliar", "turismo", "ambiental"],
+      "modelos_ppp": [
+        {
+          "modelo": "PPP Ecoturismo",
+          "descricao": "Parque ambiental com concessão de trilha, lanchonete e camping de qualidade",
+          "viabilidade": 58,
+          "tipo_incorporador": "Operadores ecoturismo",
+          "prazo_estimado": "18-30 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "turismo_marina",
+          "label": "Ecoturismo / Praia",
+          "score": 55,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 3.9,
+          "justificativa": "Sul selvagem, 0 imóveis sem uso — base mínima. Nicho de turismo alternativo"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "0 imóveis sem uso. Sul extremo da ilha com vocação ambiental e ecoturismo."
+    },
+    "Carianos": {
+      "valor_m2_residencial": 5500,
+      "valor_m2_comercial": 4200,
+      "potencial_incorporacao": 52,
+      "potencial_comercial": 58,
+      "tendencia": "estavel",
+      "perfil_mercado": "bairro próximo ao aeroporto — residencial funcional e serviços aeroportuários",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "logistica", "servicos"],
+      "modelos_ppp": [
+        {
+          "modelo": "Galpão Logístico / Serviços Aeroportuários",
+          "descricao": "Área para serviços de suporte ao aeroporto com gestão privada",
+          "viabilidade": 62,
+          "tipo_incorporador": "Operadores logísticos, serviços aeroportuários",
+          "prazo_estimado": "18-30 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "logistica_galpao",
+          "label": "Logística / Aeroporto",
+          "score": 60,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 3.3,
+          "justificativa": "Proximidade aeroporto, demanda de serviços logísticos e de apoio"
+        },
+        {
+          "tipo": "residencial_social",
+          "label": "Habitação Funcional",
+          "score": 50,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 3.3,
+          "justificativa": "Demanda de trabalhadores do aeroporto e região sul"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "1 imóvel sem uso. Localização funcional próxima ao aeroporto."
+    },
+    "Ratones": {
+      "valor_m2_residencial": 5500,
+      "valor_m2_comercial": 4200,
+      "potencial_incorporacao": 60,
+      "potencial_comercial": 45,
+      "tendencia": "alta",
+      "perfil_mercado": "interior da ilha — ecoturismo, chácara, agroecoturismo emergente",
+      "usos_permitidos": ["residencial_unifamiliar", "ambiental", "turismo", "agro"],
+      "modelos_ppp": [
+        {
+          "modelo": "PPP Ecoturismo / Agroecoturismo",
+          "descricao": "Área rural para chácara-hotel ou fazenda pedagógica com gestão privada e visitação pública",
+          "viabilidade": 62,
+          "tipo_incorporador": "Operadores ecoturismo, agroturismo",
+          "prazo_estimado": "18-36 meses"
+        },
+        {
+          "modelo": "RPPNM / PSA",
+          "descricao": "Reserva ambiental com PSA e trilhas de baixo impacto",
+          "viabilidade": 65,
+          "tipo_incorporador": "ONGs, FLORAM",
+          "prazo_estimado": "12-18 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "turismo_marina",
+          "label": "Ecoturismo / Agroturismo",
+          "score": 62,
+          "area_disponivel_m2": 4000,
+          "vgv_estimado_milhoes": 13.2,
+          "justificativa": "4 imóveis sem uso em área rural — potencial para ecoturismo e agroecoturismo em expansão"
+        },
+        {
+          "tipo": "residencial_premium",
+          "label": "Chácara Premium",
+          "score": 55,
+          "area_disponivel_m2": 2000,
+          "vgv_estimado_milhoes": 6.6,
+          "justificativa": "Demanda por vida no campo próxima à cidade, trabalho remoto impulsionando interesse"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "4 imóveis sem uso em área rural. Ratones emerge como destino de ecoturismo e lifestyle no interior da ilha."
+    },
+    "Praia Brava": {
+      "valor_m2_residencial": 12000,
+      "valor_m2_comercial": 8500,
+      "potencial_incorporacao": 75,
+      "potencial_comercial": 65,
+      "tendencia": "alta",
+      "perfil_mercado": "praia selvagem de alto valor — residencial premium e ecoturismo exclusivo",
+      "usos_permitidos": ["residencial_unifamiliar", "turismo", "hotel_pousada", "ambiental"],
+      "modelos_ppp": [
+        {
+          "modelo": "PPP Turismo Exclusivo",
+          "descricao": "Operação de turismo de baixo impacto e alta qualidade com acesso controlado e infraestrutura premium",
+          "viabilidade": 75,
+          "tipo_incorporador": "Hotéis boutique, ecoturismo premium",
+          "prazo_estimado": "18-36 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Exclusivo",
+          "score": 78,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 7.2,
+          "justificativa": "1 imóvel sem uso em praia selvagem — valor altíssimo por exclusividade e natureza preservada"
+        },
+        {
+          "tipo": "hotel_pousada",
+          "label": "Eco-Resort",
+          "score": 72,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 7.2,
+          "justificativa": "Praia selvagem, demanda por experiências exclusivas, acesso limitado"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "1 imóvel sem uso em praia selvagem premium. Potencial por exclusividade e conservação ambiental."
+    },
+    "Itacorubi": {
+      "valor_m2_residencial": 9500,
+      "valor_m2_comercial": 8000,
+      "potencial_incorporacao": 75,
+      "potencial_comercial": 80,
+      "tendencia": "alta",
+      "perfil_mercado": "polo tecnológico e universitário — UFSC, Sapiens Parque, startups e corporativo",
+      "usos_permitidos": ["escritorios", "residencial_multifamiliar", "comercial_local", "tecnologia", "misto"],
+      "modelos_ppp": [
+        {
+          "modelo": "Distrito de Inovação / Tech Hub",
+          "descricao": "Área para hub de inovação com âncora pública (universidade, governo) e gestão privada de coworking/escritórios",
+          "viabilidade": 85,
+          "tipo_incorporador": "Fundos imobiliários, operadores tech, ACATE",
+          "prazo_estimado": "12-24 meses"
+        },
+        {
+          "modelo": "CEPAC — Polo Tecnológico",
+          "descricao": "Certificados de potencial construtivo para adensamento do polo tech ao redor da UFSC",
+          "viabilidade": 78,
+          "tipo_incorporador": "Grandes incorporadoras, fundos FII",
+          "prazo_estimado": "18-30 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "escritorios_corporativos",
+          "label": "Tech Hub / Corporativo",
+          "score": 85,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 5.7,
+          "justificativa": "Polo tech consolidado (UFSC, Sapiens), 1 imóvel sem uso — altíssimo valor de localização"
+        },
+        {
+          "tipo": "coworking",
+          "label": "Coworking / Incubadora",
+          "score": 80,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 4.8,
+          "justificativa": "Ecossistema de startups maduro, demanda por espaços tech de qualidade"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "1 imóvel sem uso no polo tech mais importante de SC. Itacorubi é o Silicon Valley de Floripa — qualquer terreno público aqui é ouro."
+    },
+    "Tapera": {
+      "valor_m2_residencial": 3500,
+      "valor_m2_comercial": 2800,
+      "potencial_incorporacao": 38,
+      "potencial_comercial": 35,
+      "tendencia": "estavel",
+      "perfil_mercado": "bairro periférico sul — residencial popular de baixa renda",
+      "usos_permitidos": ["residencial_unifamiliar", "habitacao_social", "comercial_local"],
+      "modelos_ppp": [
+        {
+          "modelo": "Minha Casa Minha Vida — Faixa 1/2",
+          "descricao": "HIS de baixa renda com gestão COHAB-SC e financiamento MCMV subsidiado",
+          "viabilidade": 55,
+          "tipo_incorporador": "COHAB-SC, Direcional, Tenda",
+          "prazo_estimado": "36-60 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_social",
+          "label": "Habitação Social",
+          "score": 38,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 2.1,
+          "justificativa": "0 imóveis sem uso — base mínima. Bairro periférico com demanda social"
+        }
+      ],
+      "risco_incorporacao": "alto",
+      "observacoes": "0 imóveis sem uso. Periférico com baixo potencial de mercado. Prioridade social, não comercial."
+    },
+    "Trindade": {
+      "valor_m2_residencial": 9000,
+      "valor_m2_comercial": 7500,
+      "potencial_incorporacao": 75,
+      "potencial_comercial": 78,
+      "tendencia": "alta",
+      "perfil_mercado": "bairro universitário-nobre — UFSC, alta demanda residencial e serviços",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local", "escritorios", "servicos", "misto"],
+      "modelos_ppp": [
+        {
+          "modelo": "CEPAC — Adensamento Universitário",
+          "descricao": "Certificados para verticalização ao redor da UFSC com receita para mobilidade e ciclovia",
+          "viabilidade": 78,
+          "tipo_incorporador": "Cyrela, PDG, incorporadoras premium locais",
+          "prazo_estimado": "18-30 meses"
+        },
+        {
+          "modelo": "PPP Student Housing",
+          "descricao": "Moradia estudantil de qualidade com gestão privada e cotas de bolsa para renda baixa",
+          "viabilidade": 72,
+          "tipo_incorporador": "Fundos FII residencial, operadores de student housing",
+          "prazo_estimado": "24-36 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Estudantil/Premium",
+          "score": 78,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 5.4,
+          "justificativa": "0 imóveis sem uso — base mínima, mas valor altíssimo próximo à UFSC"
+        },
+        {
+          "tipo": "coworking",
+          "label": "Hub Universitário",
+          "score": 72,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 4.5,
+          "justificativa": "Ecossistema universitário, demanda constante, potencial de spin-offs"
+        }
+      ],
+      "risco_incorporacao": "baixo",
+      "observacoes": "0 imóveis sem uso. Trindade é referência de qualidade de vida urbana. Alta valorização por proximidade à UFSC."
+    },
+    "Balneario": {
+      "valor_m2_residencial": 7000,
+      "valor_m2_comercial": 5500,
+      "potencial_incorporacao": 58,
+      "potencial_comercial": 55,
+      "tendencia": "estavel",
+      "perfil_mercado": "bairro tranquilo próximo ao centro — residencial médio padrão",
+      "usos_permitidos": ["residencial_multifamiliar", "comercial_local"],
+      "modelos_ppp": [
+        {
+          "modelo": "Concessão de Uso",
+          "descricao": "Espaço para uso misto residencial/comercial com contrapartida de área pública",
+          "viabilidade": 55,
+          "tipo_incorporador": "Incorporadoras locais",
+          "prazo_estimado": "24-36 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "residencial_premium",
+          "label": "Residencial Médio Padrão",
+          "score": 58,
+          "area_disponivel_m2": 1000,
+          "vgv_estimado_milhoes": 4.2,
+          "justificativa": "0 imóveis sem uso — base mínima. Bairro tranquilo próximo ao centro"
+        }
+      ],
+      "risco_incorporacao": "medio",
+      "observacoes": "0 imóveis sem uso. Potencial moderado para residencial médio padrão."
+    },
+    "Não Identificado": {
+      "valor_m2_residencial": 6000,
+      "valor_m2_comercial": 4500,
+      "potencial_incorporacao": 30,
+      "potencial_comercial": 30,
+      "tendencia": "estavel",
+      "perfil_mercado": "imóveis sem bairro identificado — análise agregada do município",
+      "usos_permitidos": ["variado"],
+      "modelos_ppp": [
+        {
+          "modelo": "Regularização Fundiária",
+          "descricao": "Regularização e identificação dos imóveis para posterior destinação estratégica",
+          "viabilidade": 40,
+          "tipo_incorporador": "Prefeitura Municipal",
+          "prazo_estimado": "12-36 meses"
+        }
+      ],
+      "oportunidades_privadas": [
+        {
+          "tipo": "misto_uso",
+          "label": "A Definir (Regularização)",
+          "score": 30,
+          "area_disponivel_m2": 60000,
+          "vgv_estimado_milhoes": 216.0,
+          "justificativa": "60 imóveis sem uso sem bairro identificado — necessário cadastro para potencial real"
+        }
+      ],
+      "risco_incorporacao": "alto",
+      "observacoes": "585 imóveis sem bairro identificado (60 sem uso). Regularização fundiária urgente para liberar potencial do portfólio."
+    }
+  }
+}
