@@ -239,10 +239,9 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 <script>
 // Password protection
 (function(){
-  const PASS_HASH = '0592c44f'; // hash of "baoba"
-  function h(s){let h=0;for(let i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return (h>>>0).toString(16).slice(0,8);}
-  const key='pmf_auth';
-  if(sessionStorage.getItem(key)===PASS_HASH) return;
+  const CORRECT='baoba';
+  const key='pmf_auth_v2';
+  if(sessionStorage.getItem(key)==='ok') return;
   document.body.style.display='none';
   const overlay=document.createElement('div');
   overlay.style.cssText='position:fixed;inset:0;background:#0a0e17;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:Inter,sans-serif';
@@ -257,8 +256,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   document.body.appendChild(overlay);
   document.body.style.display='';
   function tryLogin(){
-    const val=document.getElementById('pw-input').value;
-    if(h(val)===PASS_HASH){sessionStorage.setItem(key,PASS_HASH);overlay.remove();}
+    const val=document.getElementById('pw-input').value.trim().toLowerCase();
+    if(val===CORRECT){sessionStorage.setItem(key,'ok');overlay.remove();}
     else{document.getElementById('pw-err').textContent='Senha incorreta';document.getElementById('pw-input').value='';}
   }
   document.getElementById('pw-btn').onclick=tryLogin;
