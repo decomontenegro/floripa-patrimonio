@@ -632,10 +632,13 @@ function updateMap() {
       if (md) {
         const topOpp = md.oportunidades_privadas && md.oportunidades_privadas[0];
         const vgv = topOpp ? topOpp.vgv_estimado_milhoes : 0;
+        const bsRef = bairroByName[b.bairro];
+        const vtVal = bsRef && bsRef.valuation_total || 0;
+        const vtStr = vtVal >= 1e9 ? 'R$ '+(vtVal/1e9).toFixed(1)+'B' : vtVal > 0 ? 'R$ '+(vtVal/1e6).toFixed(0)+'M' : '—';
         tipRows = `
-          <div class="tt-row">Potencial Incorporação: <span>${md.potencial_incorporacao}/100</span></div>
           <div class="tt-row">m² no bairro: <span>R$ ${md.valor_m2_residencial.toLocaleString('pt-BR')}</span></div>
-          ${(() => { const bs = bairroByName[b.bairro]; const vt = bs && bs.valuation_total ? (bs.valuation_total >= 1e9 ? 'R$ '+(bs.valuation_total/1e9).toFixed(1)+'B' : 'R$ '+(bs.valuation_total/1e6).toFixed(0)+'M') : '—'; return `<div class="tt-row">Valuation bairro: <span style="color:#f59e0b">${vt}</span></div>`; })()
+          <div class="tt-row">Valuation: <span style="color:#f59e0b">${vtStr}</span></div>
+          <div class="tt-row">Potencial incorp.: <span>${md.potencial_incorporacao}/100</span></div>
           <div class="tt-row">Tendência: <span>${md.tendencia}</span></div>`;
       } else {
         tipRows = '<div class="tt-row">Sem dados de mercado: <span>—</span></div>';
@@ -813,8 +816,12 @@ function showDetail(b) {
       const topVgv = md.oportunidades_privadas && md.oportunidades_privadas.length > 0
         ? Math.max(...md.oportunidades_privadas.map(o => o.vgv_estimado_milhoes)) : 0;
       document.getElementById('d-sub').innerHTML = `<span style="color:${potColor};font-weight:600">${md.perfil_mercado}</span>`;
-      document.getElementById('d-grid').innerHTML = `
-        ${(() => { const valBairroReal = b.valuation_total || 0; const vStr = valBairroReal >= 1e9 ? 'R$ '+(valBairroReal/1e9).toFixed(2)+'B' : valBairroReal > 0 ? 'R$ '+(valBairroReal/1e6).toFixed(0)+'M' : '—'; return valBairroReal > 0 ? `<div class="detail-stat" style="grid-column:1/-1;background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(16,185,129,.08));border-color:rgba(245,158,11,.35)"><div class="dv" style="color:#f59e0b;font-size:20px">${vStr}</div><div class="dl">Valuation estimado (área × m² mercado)</div></div>` : ''; })()}
+      const valBairroReal = b.valuation_total || 0;
+      const vStrMercado = valBairroReal >= 1e9 ? 'R$ '+(valBairroReal/1e9).toFixed(2)+'B' : valBairroReal > 0 ? 'R$ '+(valBairroReal/1e6).toFixed(0)+'M' : '—';
+      const valuationBlock = valBairroReal > 0
+        ? `<div class="detail-stat" style="grid-column:1/-1;background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(16,185,129,.08));border-color:rgba(245,158,11,.35)"><div class="dv" style="color:#f59e0b;font-size:20px">${vStrMercado}</div><div class="dl">Valuation estimado (área × m² mercado)</div></div>`
+        : '';
+      document.getElementById('d-grid').innerHTML = valuationBlock + `
         <div class="detail-stat"><div class="dv" style="color:#f59e0b">R$ ${(md.valor_m2_residencial).toLocaleString('pt-BR')}</div><div class="dl">m² residencial</div></div>
         <div class="detail-stat"><div class="dv" style="color:${potColor}">${md.potencial_incorporacao}/100</div><div class="dl">Potencial incorp.</div></div>
         <div class="detail-stat"><div class="dv" style="color:${md.risco_incorporacao==='baixo'?'#10b981':md.risco_incorporacao==='medio'?'#d97706':'#ef4444'}">${md.risco_incorporacao.charAt(0).toUpperCase()+md.risco_incorporacao.slice(1)}</div><div class="dl">Risco</div></div>
