@@ -300,7 +300,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
     <h3><span class="lc"><i data-lucide="trending-up" style="width:12px;height:12px"></i></span>Inteligência de Mercado <span class="badge">PPP</span></h3>
     <div class="mercado-vgv-total">
       <div class="mvgv-val" id="mercado-vgv-total">—</div>
-      <div class="mvgv-label">💰 VGV Total Estimado do Portfólio Municipal</div>
+      <div class="mvgv-label">Valuation do Portfólio Municipal (área × m² mercado)</div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">
       <div class="stat-card">
@@ -634,8 +634,8 @@ function updateMap() {
         const vgv = topOpp ? topOpp.vgv_estimado_milhoes : 0;
         tipRows = `
           <div class="tt-row">Potencial Incorporação: <span>${md.potencial_incorporacao}/100</span></div>
-          <div class="tt-row">Valor m² Res.: <span>R$ ${md.valor_m2_residencial.toLocaleString('pt-BR')}</span></div>
-          <div class="tt-row">VGV Estimado: <span>R$ ${vgv.toFixed(1)}M</span></div>
+          <div class="tt-row">m² no bairro: <span>R$ ${md.valor_m2_residencial.toLocaleString('pt-BR')}</span></div>
+          ${(() => { const bs = bairroByName[b.bairro]; const vt = bs && bs.valuation_total ? (bs.valuation_total >= 1e9 ? 'R$ '+(bs.valuation_total/1e9).toFixed(1)+'B' : 'R$ '+(bs.valuation_total/1e6).toFixed(0)+'M') : '—'; return `<div class="tt-row">Valuation bairro: <span style="color:#f59e0b">${vt}</span></div>`; })()
           <div class="tt-row">Tendência: <span>${md.tendencia}</span></div>`;
       } else {
         tipRows = '<div class="tt-row">Sem dados de mercado: <span>—</span></div>';
@@ -814,10 +814,11 @@ function showDetail(b) {
         ? Math.max(...md.oportunidades_privadas.map(o => o.vgv_estimado_milhoes)) : 0;
       document.getElementById('d-sub').innerHTML = `<span style="color:${potColor};font-weight:600">${md.perfil_mercado}</span>`;
       document.getElementById('d-grid').innerHTML = `
-        <div class="detail-stat"><div class="dv" style="color:${potColor}">${md.potencial_incorporacao}</div><div class="dl">Potencial incorp.</div></div>
-        <div class="detail-stat"><div class="dv" style="color:#f59e0b">R$ ${(md.valor_m2_residencial/1000).toFixed(0)}k</div><div class="dl">Valor m² res.</div></div>
-        <div class="detail-stat"><div class="dv" style="color:#10b981">R$ ${topVgv.toFixed(0)}M</div><div class="dl">VGV máx. estimado</div></div>
-        <div class="detail-stat"><div class="dv" style="color:${md.risco_incorporacao==='baixo'?'#10b981':md.risco_incorporacao==='medio'?'#d97706':'#ef4444'}">${md.risco_incorporacao.charAt(0).toUpperCase()+md.risco_incorporacao.slice(1)}</div><div class="dl">Risco incorporação</div></div>`;
+        ${(() => { const valBairroReal = b.valuation_total || 0; const vStr = valBairroReal >= 1e9 ? 'R$ '+(valBairroReal/1e9).toFixed(2)+'B' : valBairroReal > 0 ? 'R$ '+(valBairroReal/1e6).toFixed(0)+'M' : '—'; return valBairroReal > 0 ? `<div class="detail-stat" style="grid-column:1/-1;background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(16,185,129,.08));border-color:rgba(245,158,11,.35)"><div class="dv" style="color:#f59e0b;font-size:20px">${vStr}</div><div class="dl">Valuation estimado (área × m² mercado)</div></div>` : ''; })()}
+        <div class="detail-stat"><div class="dv" style="color:#f59e0b">R$ ${(md.valor_m2_residencial).toLocaleString('pt-BR')}</div><div class="dl">m² residencial</div></div>
+        <div class="detail-stat"><div class="dv" style="color:${potColor}">${md.potencial_incorporacao}/100</div><div class="dl">Potencial incorp.</div></div>
+        <div class="detail-stat"><div class="dv" style="color:${md.risco_incorporacao==='baixo'?'#10b981':md.risco_incorporacao==='medio'?'#d97706':'#ef4444'}">${md.risco_incorporacao.charAt(0).toUpperCase()+md.risco_incorporacao.slice(1)}</div><div class="dl">Risco</div></div>
+        <div class="detail-stat"><div class="dv" style="color:${md.tendencia==='alta'?'#10b981':md.tendencia==='baixa'?'#ef4444':'#f59e0b'}">${md.tendencia==='alta'?'↑ Alta':md.tendencia==='baixa'?'↓ Baixa':'→ Estável'}</div><div class="dl">Tendência</div></div>`;
 
       // Oportunidades privadas
       document.getElementById('d-tipos').innerHTML =
@@ -856,11 +857,15 @@ function showDetail(b) {
     }
   } else {
     document.getElementById('d-sub').textContent = 'Dados do patrimônio municipal';
+    const valBairro = b.valuation_total || 0;
+    const m2Bairro  = b.valor_m2_mercado || 0;
     document.getElementById('d-grid').innerHTML = `
       <div class="detail-stat"><div class="dv">${b.total}</div><div class="dl">Imóveis</div></div>
       <div class="detail-stat"><div class="dv">${b.sem_uso}</div><div class="dl">Sem uso</div></div>
       <div class="detail-stat"><div class="dv">${fmt(Math.round(b.area_total))}</div><div class="dl">Área total m²</div></div>
-      <div class="detail-stat"><div class="dv">${b.total > 0 ? ((b.sem_uso/b.total)*100).toFixed(0) : 0}%</div><div class="dl">% sem uso</div></div>`;
+      <div class="detail-stat"><div class="dv" style="color:#f59e0b">${m2Bairro > 0 ? 'R$ '+m2Bairro.toLocaleString('pt-BR') : '—'}</div><div class="dl">m² no bairro</div></div>
+      ${valBairro > 0 ? `<div class="detail-stat" style="grid-column:1/-1;background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(16,185,129,.08));border-color:rgba(245,158,11,.3)"><div class="dv" style="color:#f59e0b;font-size:18px">R$ ${valBairro >= 1e9 ? (valBairro/1e9).toFixed(2)+'B' : (valBairro/1e6).toFixed(0)+'M'}</div><div class="dl">Valuation estimado do bairro (área × m² mercado)</div></div>` : ''}
+    `;
 
     const tiposArr = Object.entries(b.tipos).sort((a,b) => b[1]-a[1]).slice(0,6);
     const maxT = Math.max(...tiposArr.map(t => t[1]), 1);
@@ -884,57 +889,64 @@ function renderMercadoPanel() {
   const md = window.mercadoData;
   if (!md) return;
 
-  // Calculate VGV total and stats
-  let vgvTotal = 0;
+  // Calcular valuation real por bairro (área cadastrada × m² de mercado)
+  let valuationTotal = 0;
   let potSum = 0;
   let count = 0;
   let altaCount = 0;
   const ranked = [];
 
-  for (const [bairro, dados] of Object.entries(md)) {
-    if (bairro === 'Não Identificado') continue;
-    const maxVgv = dados.oportunidades_privadas && dados.oportunidades_privadas.length > 0
-      ? Math.max(...dados.oportunidades_privadas.map(o => o.vgv_estimado_milhoes)) : 0;
-    vgvTotal += maxVgv;
+  for (const b of bairrosStats) {
+    if (b.bairro === 'Não Identificado') continue;
+    const dados = md[b.bairro];
+    if (!dados) continue;
+    const valuation = b.valuation_total || 0;
+    const m2 = b.valor_m2_mercado || dados.valor_m2_residencial || 0;
+    valuationTotal += valuation;
     potSum += dados.potencial_incorporacao;
     count++;
     if (dados.tendencia === 'alta') altaCount++;
     const pppModel = dados.modelos_ppp && dados.modelos_ppp.length > 0 ? dados.modelos_ppp[0].modelo : '—';
-    ranked.push({ bairro, dados, maxVgv, pppModel });
+    ranked.push({ bairro: b.bairro, b, dados, valuation, m2, pppModel });
   }
 
   const potAvg = count > 0 ? (potSum / count).toFixed(0) : 0;
 
-  document.getElementById('mercado-vgv-total').textContent = `R$ ${vgvTotal.toFixed(0)}M`;
+  // Mostrar valuation real como indicador principal
+  const valStr = valuationTotal >= 1e9
+    ? `R$ ${(valuationTotal/1e9).toFixed(1)}B`
+    : `R$ ${(valuationTotal/1e6).toFixed(0)}M`;
+  document.getElementById('mercado-vgv-total').textContent = valStr;
   document.getElementById('mercado-pot-avg').textContent = potAvg;
   document.getElementById('mercado-bairros-alta').textContent = altaCount;
 
-  // Ranking by potencial_incorporacao
-  const byPotencial = [...ranked].sort((a,b) => b.dados.potencial_incorporacao - a.dados.potencial_incorporacao).slice(0,15);
+  // Ranking por valuation real
+  const byValuation = [...ranked].sort((a,b) => b.valuation - a.valuation).slice(0,15);
   const rankUl = document.getElementById('mercado-ranking-list');
-  rankUl.innerHTML = byPotencial.map((item, i) => {
+  rankUl.innerHTML = byValuation.map((item, i) => {
     const color = getMercadoColor(item.dados.potencial_incorporacao);
     const tend = item.dados.tendencia === 'alta' ? '↑' : item.dados.tendencia === 'baixa' ? '↓' : '→';
+    const valStr2 = item.valuation >= 1e9 ? (item.valuation/1e9).toFixed(1)+'B' : (item.valuation/1e6).toFixed(0)+'M';
     return `<li class="rank-item" onclick="showDetail(bairroByName['${item.bairro}'])">
       <span class="rn ${i<3?'top3':''}">${i+1}</span>
       <div style="flex:1;overflow:hidden">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:4px">
           <span class="rname">${item.bairro}</span>
-          <span style="font-size:9px;font-weight:700;color:${color};white-space:nowrap">${item.dados.potencial_incorporacao} <span style="color:var(--text3)">${tend}</span></span>
+          <span style="font-size:9px;font-weight:700;color:#f59e0b;white-space:nowrap">R$ ${valStr2} <span style="color:var(--text3)">${tend}</span></span>
         </div>
         <div class="rank-bar-wrap" style="margin-top:3px">
-          <div class="rank-bar" style="width:${item.dados.potencial_incorporacao}%;background:${color}"></div>
+          <div class="rank-bar" style="width:${Math.min(100, item.valuation / valuationTotal * 100 * 5)}%;background:${color}"></div>
         </div>
         <div style="display:flex;justify-content:space-between;margin-top:2px">
-          <span style="font-size:9px;color:var(--text3)">R$ ${(item.dados.valor_m2_residencial/1000).toFixed(0)}k/m²</span>
-          <span style="font-size:9px;color:#f59e0b">VGV R$ ${item.maxVgv.toFixed(0)}M</span>
+          <span style="font-size:9px;color:var(--text3)">R$ ${(item.m2/1000).toFixed(0)}k/m²</span>
+          <span style="font-size:9px;color:var(--text2)">${item.b.imoveis_valuados || 0} imóveis c/ área</span>
         </div>
       </div>
     </li>`;
   }).join('');
 
-  // Top PPP by VGV
-  const byVgv = [...ranked].sort((a,b) => b.maxVgv - a.maxVgv).slice(0,10);
+  // Top por valuation (para PPP panel)
+  const byVgv = [...ranked].sort((a,b) => b.valuation - a.valuation).slice(0,10);
   const pppDiv = document.getElementById('mercado-ppp-list');
   pppDiv.innerHTML = byVgv.map((item, i) => {
     const color = getMercadoColor(item.dados.potencial_incorporacao);
@@ -942,12 +954,13 @@ function renderMercadoPanel() {
     const riscoColor = risco === 'baixo' ? '#10b981' : risco === 'medio' ? '#d97706' : '#ef4444';
     const topOpp = item.dados.oportunidades_privadas && item.dados.oportunidades_privadas[0];
     const iconName = topOpp ? (OPP_ICONS[topOpp.tipo] || 'circle') : 'circle';
+    const valStr3 = item.valuation >= 1e9 ? (item.valuation/1e9).toFixed(2)+'B' : (item.valuation/1e6).toFixed(0)+'M';
     return `<div class="ppp-item" onclick="showDetail(bairroByName['${item.bairro}'])" style="cursor:pointer">
       <span class="ppp-rank ${i<3?'top3':''}">${i+1}</span>
       <div class="ppp-content">
         <div class="ppp-bairro">
           <span style="display:flex;align-items:center;gap:4px">${lucideIcon(iconName,11,color)} ${item.bairro}</span>
-          <span class="ppp-vgv">R$ ${item.maxVgv.toFixed(1)}M</span>
+          <span class="ppp-vgv">R$ ${valStr3}</span>
         </div>
         <div class="ppp-modelo">${item.pppModel}</div>
         <div style="display:flex;gap:6px;margin-top:3px;align-items:center">
