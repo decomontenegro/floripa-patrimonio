@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -153,21 +154,29 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 #right-panel::-webkit-scrollbar{width:4px}
 #right-panel::-webkit-scrollbar-track{background:transparent}
 #right-panel::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+/* Lucide icons */
+.lc{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.lc svg{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.logo-icon .lc svg{stroke:#fff}
+.mode-tab .lc{margin-right:5px;opacity:.8}
+.mode-tab.active .lc{opacity:1}
+.panel-section h3 .lc{margin-right:5px;color:var(--text3)}
 </style>
 </head>
 <body>
 
 <div id="header">
   <div class="logo">
-    <div class="logo-icon">🏛️</div>
+    <div class="logo-icon"><span class="lc"><i data-lucide="landmark" style="width:18px;height:18px"></i></span></div>
     <h1>Florianópolis <span>— Patrimônio Municipal</span></h1>
   </div>
   <div class="header-sep"></div>
   <div id="mode-tabs">
-    <button class="mode-tab active" data-mode="count">📊 Quantidade</button>
-    <button class="mode-tab" data-mode="area">📐 Área (m²)</button>
-    <button class="mode-tab" data-mode="sem_uso">⚠️ Sem Uso</button>
-    <button class="mode-tab" data-mode="vocacao">🎯 Vocação</button>
+    <button class="mode-tab active" data-mode="count"><span class="lc"><i data-lucide="bar-chart-2" style="width:13px;height:13px"></i></span>Quantidade</button>
+    <button class="mode-tab" data-mode="area"><span class="lc"><i data-lucide="ruler" style="width:13px;height:13px"></i></span>Área (m²)</button>
+    <button class="mode-tab" data-mode="sem_uso"><span class="lc"><i data-lucide="alert-triangle" style="width:13px;height:13px"></i></span>Sem Uso</button>
+    <button class="mode-tab" data-mode="vocacao"><span class="lc"><i data-lucide="target" style="width:13px;height:13px"></i></span>Vocação</button>
   </div>
   <div class="header-right">
     <div class="stat-pill">Total: <strong id="h-total">—</strong></div>
@@ -180,7 +189,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 <div id="right-panel">
   <!-- Stats -->
   <div class="panel-section">
-    <h3>📈 Visão Geral</h3>
+    <h3><span class="lc"><i data-lucide="trending-up" style="width:12px;height:12px"></i></span>Visão Geral</h3>
     <div class="stats-grid">
       <div class="stat-card">
         <div class="sv orange" id="s-total">—</div>
@@ -216,7 +225,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 
   <!-- Filters -->
   <div class="panel-section" id="filters-panel">
-    <h3>🔍 Filtros <span class="badge" id="filter-count">Todos</span></h3>
+    <h3><span class="lc"><i data-lucide="sliders-horizontal" style="width:12px;height:12px"></i></span>Filtros <span class="badge" id="filter-count">Todos</span></h3>
     <div class="filter-group">
       <span class="filter-label">Responsável</span>
       <select class="filter-select" id="f-resp">
@@ -235,19 +244,19 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 
   <!-- Rankings (hidden in vocacao mode) -->
   <div class="panel-section" id="rank-list-wrapper">
-    <h3>🏆 Ranking de Bairros</h3>
+    <h3><span class="lc"><i data-lucide="award" style="width:12px;height:12px"></i></span>Ranking de Bairros</h3>
     <ul class="rank-list" id="rank-list"></ul>
   </div>
 
   <!-- Top Oportunidades Baoba (visible only in vocacao mode) -->
   <div class="panel-section" id="top-oportunidades-panel" style="display:none;">
-    <h3>🎯 Top Oportunidades Baoba <span class="badge">Inteligência</span></h3>
+    <h3><span class="lc"><i data-lucide="target" style="width:12px;height:12px"></i></span>Top Oportunidades Baoba <span class="badge">Inteligência</span></h3>
     <ul class="rank-list" id="top-oportunidades-list"></ul>
   </div>
 
   <!-- Vocação bairros list (visible only in vocacao mode) -->
   <div class="panel-section" id="vocacao-bairros-panel" style="display:none;">
-    <h3>📍 Todos os Bairros</h3>
+    <h3><span class="lc"><i data-lucide="map-pin" style="width:12px;height:12px"></i></span>Todos os Bairros</h3>
     <ul class="rank-list" id="vocacao-bairros-list"></ul>
   </div>
 </div>
@@ -266,14 +275,14 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   </div>
   <div id="leg-voc-wrap" style="display:none;">
     <div class="leg-voc-grid">
-      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#ef4444"></div>Saúde</div>
-      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#3b82f6"></div>Educação</div>
-      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#f59e0b"></div>Habitação</div>
-      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#22c55e"></div>Ambiental</div>
-      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#6366f1"></div>Infraestrutura</div>
-      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#ec4899"></div>Econômico</div>
-      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#f97316"></div>Concessão</div>
-      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#14b8a6"></div>Cultural</div>
+      <div class="leg-voc-item"><i data-lucide="heart-pulse" style="width:10px;height:10px;stroke:#ef4444;flex-shrink:0"></i>Saúde</div>
+      <div class="leg-voc-item"><i data-lucide="graduation-cap" style="width:10px;height:10px;stroke:#3b82f6;flex-shrink:0"></i>Educação</div>
+      <div class="leg-voc-item"><i data-lucide="home" style="width:10px;height:10px;stroke:#f59e0b;flex-shrink:0"></i>Habitação</div>
+      <div class="leg-voc-item"><i data-lucide="trees" style="width:10px;height:10px;stroke:#22c55e;flex-shrink:0"></i>Ambiental</div>
+      <div class="leg-voc-item"><i data-lucide="warehouse" style="width:10px;height:10px;stroke:#6366f1;flex-shrink:0"></i>Infraestrutura</div>
+      <div class="leg-voc-item"><i data-lucide="briefcase" style="width:10px;height:10px;stroke:#ec4899;flex-shrink:0"></i>Econômico</div>
+      <div class="leg-voc-item"><i data-lucide="handshake" style="width:10px;height:10px;stroke:#f97316;flex-shrink:0"></i>Concessão</div>
+      <div class="leg-voc-item"><i data-lucide="library" style="width:10px;height:10px;stroke:#14b8a6;flex-shrink:0"></i>Cultural</div>
     </div>
   </div>
 </div>
@@ -288,7 +297,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   const overlay=document.createElement('div');
   overlay.style.cssText='position:fixed;inset:0;background:#0a0e17;display:flex;align-items:center;justify-content:center;z-index:9999;font-family:Inter,sans-serif';
   overlay.innerHTML=`<div style="background:#111827;border:1px solid #1e2a45;border-radius:16px;padding:40px 48px;text-align:center;min-width:320px">
-    <div style="font-size:32px;margin-bottom:16px">🏛️</div>
+    <div style="margin-bottom:16px;display:flex;justify-content:center"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polyline points="2 7 12 2 22 7"/><line x1="2" y1="11" x2="22" y2="11"/></svg></div>
     <div style="font-size:18px;font-weight:700;color:#e0e6f0;margin-bottom:4px">Patrimônio Municipal</div>
     <div style="font-size:12px;color:#5a6a8a;margin-bottom:24px">Florianópolis</div>
     <input id="pw-input" type="password" placeholder="Senha de acesso" style="width:100%;background:#0a0e17;border:1px solid #1e2a45;border-radius:8px;padding:12px 16px;font-size:14px;color:#e0e6f0;font-family:inherit;outline:none;margin-bottom:12px;box-sizing:border-box" autofocus/>
@@ -318,8 +327,31 @@ const VOC_COLORS = {
   cultural:      '#14b8a6'
 };
 
+const VOC_ICONS = {
+  saude:         'heart-pulse',
+  educacao:      'graduation-cap',
+  habitacao:     'home',
+  ambiental:     'trees',
+  infraestrutura:'warehouse',
+  economico:     'briefcase',
+  concessao:     'handshake',
+  cultural:      'library'
+};
+
 function vocColor(tipo) {
   return VOC_COLORS[tipo] || '#5a6a8a';
+}
+
+function vocIcon(tipo, size=12, color) {
+  const iconName = VOC_ICONS[tipo] || 'circle';
+  const c = color || vocColor(tipo);
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0" data-lucide="${iconName}"></svg>`;
+}
+
+// Helper: render lucide icon by name inline
+function lucideIcon(name, size=12, color='currentColor') {
+  // We'll call lucide.createIcons after DOM mutations; use <i data-lucide> pattern
+  return `<i data-lucide="${name}" style="width:${size}px;height:${size}px;stroke:${color};display:inline-block"></i>`;
 }
 
 // ─── State ────────────────────────────────────────────────────────────────────
@@ -481,7 +513,7 @@ function updateMap() {
       const vd = window.vocacaoData && window.vocacaoData[b.bairro];
       if (vd && vd.vocacoes && vd.vocacoes.length > 0) {
         tipRows = vd.vocacoes.slice(0,3).map(v =>
-          `<div class="tt-row">${v.label}: <span>${v.score}</span></div>`
+          `<div class="tt-row" style="display:flex;align-items:center;gap:5px">${lucideIcon(VOC_ICONS[v.tipo]||'circle',11,vocColor(v.tipo))} ${v.label}: <span>${v.score}</span></div>`
         ).join('');
       } else {
         tipRows = '<div class="tt-row">Nenhuma vocação: <span>—</span></div>';
@@ -558,7 +590,7 @@ function updateRankings(data) {
         <div style="flex:1;overflow:hidden">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:4px">
             <span class="rname">${item.bairro}</span>
-            <span style="font-size:9px;font-weight:700;color:${color};white-space:nowrap">${item.voc.label}</span>
+            <span style="font-size:9px;font-weight:700;color:${color};white-space:nowrap;display:flex;align-items:center;gap:3px">${lucideIcon(VOC_ICONS[item.voc.tipo]||'circle',10,color)} ${item.voc.label}</span>
           </div>
           <div class="rank-bar-wrap" style="margin-top:4px">
             <div class="rank-bar" style="width:${item.score}%;background:${color}"></div>
@@ -591,6 +623,8 @@ function updateRankings(data) {
       allUl.appendChild(li);
     });
 
+    if (window.lucide) lucide.createIcons();
+
   } else {
     const sorted  = [...data].sort((a,b) => getMetric(b) - getMetric(a)).slice(0,12);
     const maxVal  = Math.max(...sorted.map(b => getMetric(b)), 1);
@@ -622,7 +656,7 @@ function showDetail(b) {
     const vd = window.vocacaoData && window.vocacaoData[b.bairro];
     if (vd && vd.vocacoes && vd.vocacoes.length > 0) {
       const top = vd.vocacoes[0];
-      document.getElementById('d-sub').textContent = `Vocação principal: ${top.label} — Score ${top.score}`;
+      document.getElementById('d-sub').innerHTML = `<span style="display:inline-flex;align-items:center;gap:5px">${lucideIcon(VOC_ICONS[top.tipo]||'circle',13,vocColor(top.tipo))} ${top.label} — Score ${top.score}</span>`;
 
       document.getElementById('d-grid').innerHTML = `
         <div class="detail-stat"><div class="dv">${fmt(vd.populacao)}</div><div class="dl">Pop. estimada</div></div>
@@ -636,7 +670,7 @@ function showDetail(b) {
           const c = vocColor(v.tipo);
           return `
           <div class="tipo-row">
-            <span class="tipo-name" style="color:${c}">${v.label}</span>
+            <span class="tipo-name" style="color:${c};display:flex;align-items:center;gap:4px">${lucideIcon(VOC_ICONS[v.tipo]||'circle',11,c)} ${v.label}</span>
             <div class="tipo-bar-w"><div class="tipo-bar" style="width:${v.score}%;background:${c}"></div></div>
             <span class="tipo-count">${v.score}</span>
           </div>
@@ -648,6 +682,7 @@ function showDetail(b) {
       document.getElementById('d-grid').innerHTML = '';
       document.getElementById('d-tipos').innerHTML = '';
     }
+    if (window.lucide) lucide.createIcons();
 
   } else {
     document.getElementById('d-sub').textContent = 'Dados do patrimônio municipal';
@@ -739,6 +774,7 @@ async function init() {
   });
 
   setTab('count');
+  if (window.lucide) lucide.createIcons();
 }
 
 init();
