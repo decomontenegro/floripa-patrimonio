@@ -1,5 +1,52 @@
 {
   "bairros": {
+    "Centro": {
+      "populacao": 42000,
+      "equipamentos": {
+        "ubs": 91,
+        "escola": 15,
+        "creche": 5,
+        "parque": 27,
+        "praca": 27
+      },
+      "gaps": [
+        "creche"
+      ],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 50,
+          "justificativa": "Alta densidade demográfica, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Alta densidade demográfica, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Alta densidade demográfica, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "concessao",
+          "label": "🏢 Concessão / PPP",
+          "score": 50,
+          "justificativa": "Alta densidade — oportunidade de concessão, Zoneamento misto favorável, Área disponível para concessão"
+        },
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 35,
+          "justificativa": "Gap crítico de Creches, Alta densidade demográfica"
+        }
+      ]
+    },
     "Estreito": {
       "populacao": 28000,
       "equipamentos": {
@@ -19,559 +66,79 @@
         {
           "tipo": "educacao",
           "label": "🎓 Escola / Creche",
-          "score": 115,
-          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
+          "score": 85,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Alta densidade demográfica"
         },
         {
           "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
+          "label": "🏥 Unidade de Saúde (UBS)",
           "score": 70,
-          "justificativa": "Imóveis sem uso disponíveis, Bairro com alta população, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 70,
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 70,
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
         },
         {
           "tipo": "habitacao",
           "label": "🏘️ Habitação Social (HIS)",
           "score": 55,
-          "justificativa": "Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Área média dos imóveis > 500m²"
         }
       ]
     },
-    "Ponta das Canas": {
-      "populacao": 6000,
+    "Capoeiras": {
+      "populacao": 22000,
       "equipamentos": {
-        "ubs": 4,
-        "escola": 2,
-        "creche": 1,
-        "parque": 1,
-        "praca": 1
+        "ubs": 57,
+        "escola": 9,
+        "creche": 2,
+        "parque": 20,
+        "praca": 17
       },
       "gaps": [
         "creche"
       ],
-      "sem_uso_count": 0,
+      "sem_uso_count": 4,
       "area_sem_uso_m2": 0,
       "vocacoes": [
         {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 45,
-          "justificativa": "Gap crítico de Creches, Área média dos imóveis > 500m²"
-        },
-        {
           "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 30,
-          "justificativa": "Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 30,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Lagoa da Conceição": {
-      "populacao": 9000,
-      "equipamentos": {
-        "ubs": 6,
-        "escola": 0,
-        "creche": 2,
-        "parque": 4,
-        "praca": 0
-      },
-      "gaps": [
-        "educacao"
-      ],
-      "sem_uso_count": 10,
-      "area_sem_uso_m2": 46602.28,
-      "vocacoes": [
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 65,
-          "justificativa": "Gap crítico de Escolas, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 50,
-          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 35,
-          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Canasvieiras": {
-      "populacao": 12000,
-      "equipamentos": {
-        "ubs": 5,
-        "escola": 3,
-        "creche": 2,
-        "parque": 5,
-        "praca": 5
-      },
-      "gaps": [
-        "educacao",
-        "creche"
-      ],
-      "sem_uso_count": 13,
-      "area_sem_uso_m2": 3594.75,
-      "vocacoes": [
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 95,
-          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 50,
-          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 35,
-          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 35,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Não Identificado": {
-      "populacao": 0,
-      "equipamentos": {
-        "ubs": 91,
-        "escola": 15,
-        "creche": 5,
-        "parque": 27,
-        "praca": 27
-      },
-      "gaps": [],
-      "sem_uso_count": 60,
-      "area_sem_uso_m2": 5156736.689999999,
-      "vocacoes": [
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 50,
-          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 35,
-          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 35,
-          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Centro": {
-      "populacao": 42000,
-      "equipamentos": {
-        "ubs": 91,
-        "escola": 15,
-        "creche": 5,
-        "parque": 27,
-        "praca": 27
-      },
-      "gaps": [
-        "creche"
-      ],
-      "sem_uso_count": 0,
-      "area_sem_uso_m2": 0,
-      "vocacoes": [
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 65,
-          "justificativa": "Gap crítico de Creches, Bairro com alta população, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 50,
-          "justificativa": "Bairro com alta população, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 35,
-          "justificativa": "Bairro com alta população, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 30,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Ingleses": {
-      "populacao": 35000,
-      "equipamentos": {
-        "ubs": 13,
-        "escola": 3,
-        "creche": 1,
-        "parque": 6,
-        "praca": 0
-      },
-      "gaps": [
-        "educacao",
-        "creche"
-      ],
-      "sem_uso_count": 3,
-      "area_sem_uso_m2": 9496.716999999999,
-      "vocacoes": [
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 115,
-          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
+          "label": "🏥 Unidade de Saúde (UBS)",
           "score": 70,
-          "justificativa": "Imóveis sem uso disponíveis, Bairro com alta população, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 70,
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 70,
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 55,
+          "justificativa": "Gap crítico de Creches, Imóveis sem uso disponíveis, Alta densidade demográfica"
         },
         {
           "tipo": "habitacao",
           "label": "🏘️ Habitação Social (HIS)",
           "score": 55,
-          "justificativa": "Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Cachoeira do Bom Jesus": {
-      "populacao": 5000,
-      "equipamentos": {
-        "ubs": 0,
-        "escola": 1,
-        "creche": 0,
-        "parque": 3,
-        "praca": 0
-      },
-      "gaps": [
-        "saude",
-        "educacao",
-        "creche"
-      ],
-      "sem_uso_count": 3,
-      "area_sem_uso_m2": 7779.93,
-      "vocacoes": [
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 95,
-          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 80,
-          "justificativa": "Gap crítico de UBS/Postos de Saúde, Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 35,
-          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Vargem Grande": {
-      "populacao": 6000,
-      "equipamentos": {
-        "ubs": 1,
-        "escola": 2,
-        "creche": 0,
-        "parque": 0,
-        "praca": 0
-      },
-      "gaps": [
-        "saude",
-        "creche",
-        "lazer"
-      ],
-      "sem_uso_count": 10,
-      "area_sem_uso_m2": 6297.790000000001,
-      "vocacoes": [
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 80,
-          "justificativa": "Gap crítico de UBS/Postos de Saúde, Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 65,
-          "justificativa": "Gap crítico de Creches, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 45,
-          "justificativa": "Gap crítico de Parques/Praças, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 35,
-          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Barra da Lagoa": {
-      "populacao": 4000,
-      "equipamentos": {
-        "ubs": 1,
-        "escola": 2,
-        "creche": 0,
-        "parque": 4,
-        "praca": 0
-      },
-      "gaps": [
-        "creche"
-      ],
-      "sem_uso_count": 9,
-      "area_sem_uso_m2": 14559.01,
-      "vocacoes": [
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 65,
-          "justificativa": "Gap crítico de Creches, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 50,
-          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 35,
-          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Saco dos Limoes": {
-      "populacao": 11000,
-      "equipamentos": {
-        "ubs": 0,
-        "escola": 0,
-        "creche": 0,
-        "parque": 0,
-        "praca": 0
-      },
-      "gaps": [
-        "saude",
-        "educacao",
-        "creche",
-        "lazer"
-      ],
-      "sem_uso_count": 7,
-      "area_sem_uso_m2": 23437.11,
-      "vocacoes": [
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 95,
-          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 80,
-          "justificativa": "Gap crítico de UBS/Postos de Saúde, Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 45,
-          "justificativa": "Gap crítico de Parques/Praças, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 35,
-          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Campeche": {
-      "populacao": 28000,
-      "equipamentos": {
-        "ubs": 0,
-        "escola": 0,
-        "creche": 0,
-        "parque": 0,
-        "praca": 0
-      },
-      "gaps": [
-        "saude",
-        "educacao",
-        "creche",
-        "lazer"
-      ],
-      "sem_uso_count": 21,
-      "area_sem_uso_m2": 19436.89,
-      "vocacoes": [
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 115,
-          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 100,
-          "justificativa": "Gap crítico de UBS/Postos de Saúde, Imóveis sem uso disponíveis, Bairro com alta população, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 55,
-          "justificativa": "Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 45,
-          "justificativa": "Gap crítico de Parques/Praças, Área média dos imóveis > 500m²"
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Área média dos imóveis > 500m²"
         }
       ]
     },
@@ -594,32 +161,32 @@
         {
           "tipo": "educacao",
           "label": "🎓 Escola / Creche",
-          "score": 115,
-          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
+          "score": 85,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Alta densidade demográfica"
         },
         {
           "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
+          "label": "🏥 Unidade de Saúde (UBS)",
           "score": 70,
-          "justificativa": "Imóveis sem uso disponíveis, Bairro com alta população, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 70,
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 70,
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
         },
         {
           "tipo": "habitacao",
           "label": "🏘️ Habitação Social (HIS)",
           "score": 55,
-          "justificativa": "Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Área média dos imóveis > 500m²"
         }
       ]
     },
@@ -636,34 +203,428 @@
         "saude",
         "educacao",
         "creche",
-        "lazer"
+        "ambiental"
       ],
       "sem_uso_count": 9,
-      "area_sem_uso_m2": 16619.129999999997,
+      "area_sem_uso_m2": 16619.13,
       "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 100,
+          "justificativa": "Gap crítico de Saude, Imóveis sem uso disponíveis, Alta densidade demográfica, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
         {
           "tipo": "educacao",
           "label": "🎓 Escola / Creche",
-          "score": 95,
-          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+          "score": 85,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Alta densidade demográfica"
         },
         {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 85,
+          "justificativa": "Gap crítico de Ambiental, Imóveis sem uso disponíveis, Alta densidade demográfica, Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 70,
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 70,
+          "justificativa": "Imóveis sem uso disponíveis, Alta densidade demográfica, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        }
+      ]
+    },
+    "Agronômica": {
+      "populacao": 14000,
+      "equipamentos": {
+        "ubs": 56,
+        "escola": 13,
+        "creche": 7,
+        "parque": 17,
+        "praca": 14
+      },
+      "gaps": [],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
           "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 80,
-          "justificativa": "Gap crítico de UBS/Postos de Saúde, Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 50,
+          "justificativa": "Alta densidade demográfica, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
         },
         {
           "tipo": "infraestrutura",
           "label": "🏗️ Infraestrutura / Logística",
           "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
+          "justificativa": "Alta densidade demográfica, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Alta densidade demográfica, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "concessao",
+          "label": "🏢 Concessão / PPP",
+          "score": 50,
+          "justificativa": "Alta densidade — oportunidade de concessão, Zoneamento misto favorável, Área disponível para concessão"
+        },
+        {
+          "tipo": "habitacao",
+          "label": "🏘️ Habitação Social (HIS)",
+          "score": 35,
+          "justificativa": "Alta densidade demográfica, Área média dos imóveis > 500m²"
+        }
+      ]
+    },
+    "Trindade": {
+      "populacao": 20000,
+      "equipamentos": {
+        "ubs": 26,
+        "escola": 6,
+        "creche": 5,
+        "parque": 19,
+        "praca": 3
+      },
+      "gaps": [],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 20,
+          "justificativa": "Alta densidade demográfica"
+        },
+        {
+          "tipo": "habitacao",
+          "label": "🏘️ Habitação Social (HIS)",
+          "score": 20,
+          "justificativa": "Alta densidade demográfica"
         },
         {
           "tipo": "ambiental",
           "label": "🌳 Parque Urbano / Lazer",
-          "score": 45,
-          "justificativa": "Gap crítico de Parques/Praças, Área média dos imóveis > 500m²"
+          "score": 20,
+          "justificativa": "Alta densidade demográfica"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 20,
+          "justificativa": "Alta densidade demográfica"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 20,
+          "justificativa": "Alta densidade demográfica"
+        }
+      ]
+    },
+    "Itacorubi": {
+      "populacao": 16000,
+      "equipamentos": {
+        "ubs": 17,
+        "escola": 3,
+        "creche": 4,
+        "parque": 8,
+        "praca": 4
+      },
+      "gaps": [
+        "educacao"
+      ],
+      "sem_uso_count": 1,
+      "area_sem_uso_m2": 911.23,
+      "vocacoes": [
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 50,
+          "justificativa": "Gap crítico de Escolas, Imóveis sem uso disponíveis"
+        },
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 35,
+          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "habitacao",
+          "label": "🏘️ Habitação Social (HIS)",
+          "score": 35,
+          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 35,
+          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 35,
+          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        }
+      ]
+    },
+    "Córrego Grande": {
+      "populacao": 8000,
+      "equipamentos": {
+        "ubs": 15,
+        "escola": 6,
+        "creche": 4,
+        "parque": 19,
+        "praca": 1
+      },
+      "gaps": [],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": []
+    },
+    "Canasvieiras": {
+      "populacao": 12000,
+      "equipamentos": {
+        "ubs": 5,
+        "escola": 3,
+        "creche": 2,
+        "parque": 5,
+        "praca": 5
+      },
+      "gaps": [
+        "educacao",
+        "creche"
+      ],
+      "sem_uso_count": 13,
+      "area_sem_uso_m2": 3594.75,
+      "vocacoes": [
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 65,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis"
+        },
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "habitacao",
+          "label": "🏘️ Habitação Social (HIS)",
+          "score": 35,
+          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        }
+      ]
+    },
+    "Ingleses": {
+      "populacao": 35000,
+      "equipamentos": {
+        "ubs": 13,
+        "escola": 3,
+        "creche": 1,
+        "parque": 6,
+        "praca": 0
+      },
+      "gaps": [
+        "educacao",
+        "creche"
+      ],
+      "sem_uso_count": 3,
+      "area_sem_uso_m2": 9496.72,
+      "vocacoes": [
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 65,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis"
+        },
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "habitacao",
+          "label": "🏘️ Habitação Social (HIS)",
+          "score": 35,
+          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        }
+      ]
+    },
+    "Campeche": {
+      "populacao": 28000,
+      "equipamentos": {
+        "ubs": 0,
+        "escola": 0,
+        "creche": 0,
+        "parque": 0,
+        "praca": 0
+      },
+      "gaps": [
+        "saude",
+        "educacao",
+        "creche",
+        "ambiental"
+      ],
+      "sem_uso_count": 21,
+      "area_sem_uso_m2": 19436.89,
+      "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 80,
+          "justificativa": "Gap crítico de Saude, Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 65,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 65,
+          "justificativa": "Gap crítico de Ambiental, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        }
+      ]
+    },
+    "Saco dos Limoes": {
+      "populacao": 11000,
+      "equipamentos": {
+        "ubs": 0,
+        "escola": 0,
+        "creche": 0,
+        "parque": 0,
+        "praca": 0
+      },
+      "gaps": [
+        "saude",
+        "educacao",
+        "creche",
+        "ambiental"
+      ],
+      "sem_uso_count": 7,
+      "area_sem_uso_m2": 23437.11,
+      "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 80,
+          "justificativa": "Gap crítico de Saude, Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 65,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 65,
+          "justificativa": "Gap crítico de Ambiental, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        }
+      ]
+    },
+    "Roçado": {
+      "populacao": 9000,
+      "equipamentos": {
+        "ubs": 2,
+        "escola": 0,
+        "creche": 2,
+        "parque": 1,
+        "praca": 1
+      },
+      "gaps": [
+        "educacao"
+      ],
+      "sem_uso_count": 1,
+      "area_sem_uso_m2": 202.75,
+      "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 50,
+          "justificativa": "Gap crítico de Escolas, Imóveis sem uso disponíveis"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
         },
         {
           "tipo": "habitacao",
@@ -689,172 +650,28 @@
       "area_sem_uso_m2": 860.26,
       "vocacoes": [
         {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 65,
-          "justificativa": "Gap crítico de Creches, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
         },
         {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
           "score": 50,
           "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
         },
         {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
           "score": 35,
-          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Agronômica": {
-      "populacao": 14000,
-      "equipamentos": {
-        "ubs": 56,
-        "escola": 13,
-        "creche": 7,
-        "parque": 17,
-        "praca": 14
-      },
-      "gaps": [],
-      "sem_uso_count": 0,
-      "area_sem_uso_m2": 0,
-      "vocacoes": [
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 30,
-          "justificativa": "Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 30,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis"
-        },
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Carianos": {
-      "populacao": 4000,
-      "equipamentos": {
-        "ubs": 4,
-        "escola": 0,
-        "creche": 0,
-        "parque": 0,
-        "praca": 0
-      },
-      "gaps": [
-        "educacao",
-        "creche",
-        "lazer"
-      ],
-      "sem_uso_count": 1,
-      "area_sem_uso_m2": 1635.96,
-      "vocacoes": [
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 95,
-          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 50,
-          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 45,
-          "justificativa": "Gap crítico de Parques/Praças, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 35,
-          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Ratones": {
-      "populacao": 3000,
-      "equipamentos": {
-        "ubs": 0,
-        "escola": 0,
-        "creche": 0,
-        "parque": 0,
-        "praca": 0
-      },
-      "gaps": [
-        "saude",
-        "educacao",
-        "creche",
-        "lazer"
-      ],
-      "sem_uso_count": 4,
-      "area_sem_uso_m2": 6567.89,
-      "vocacoes": [
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 95,
-          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 80,
-          "justificativa": "Gap crítico de UBS/Postos de Saúde, Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 45,
-          "justificativa": "Gap crítico de Parques/Praças, Área média dos imóveis > 500m²"
+          "justificativa": "Gap crítico de Creches, Imóveis sem uso disponíveis"
         },
         {
           "tipo": "habitacao",
@@ -876,7 +693,7 @@
       "gaps": [
         "educacao",
         "creche",
-        "lazer"
+        "ambiental"
       ],
       "sem_uso_count": 16,
       "area_sem_uso_m2": 19592.49,
@@ -884,106 +701,182 @@
         {
           "tipo": "educacao",
           "label": "🎓 Escola / Creche",
-          "score": 95,
-          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+          "score": 65,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 65,
+          "justificativa": "Gap crítico de Ambiental, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
         },
         {
           "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
           "score": 50,
           "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 45,
-          "justificativa": "Gap crítico de Parques/Praças, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 35,
-          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
         }
       ]
     },
-    "Capoeiras": {
-      "populacao": 22000,
+    "Tapera": {
+      "populacao": 5000,
       "equipamentos": {
-        "ubs": 57,
-        "escola": 9,
-        "creche": 2,
-        "parque": 20,
-        "praca": 17
-      },
-      "gaps": [
-        "creche"
-      ],
-      "sem_uso_count": 4,
-      "area_sem_uso_m2": 0,
-      "vocacoes": [
-        {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 85,
-          "justificativa": "Gap crítico de Creches, Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 70,
-          "justificativa": "Imóveis sem uso disponíveis, Bairro com alta população, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "habitacao",
-          "label": "🏘️ Habitação Social (HIS)",
-          "score": 55,
-          "justificativa": "Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 50,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Grandes áreas disponíveis, Imóveis sem uso disponíveis"
-        },
-        {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Roçado": {
-      "populacao": 9000,
-      "equipamentos": {
-        "ubs": 2,
+        "ubs": 0,
         "escola": 0,
-        "creche": 2,
-        "parque": 1,
+        "creche": 0,
+        "parque": 0,
         "praca": 1
       },
       "gaps": [
-        "educacao"
+        "saude",
+        "educacao",
+        "creche",
+        "ambiental"
+      ],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 45,
+          "justificativa": "Gap crítico de Saude, Zoneamento compatível (AMC/ARP/ACI)"
+        },
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 45,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 30,
+          "justificativa": "Gap crítico de Ambiental"
+        }
+      ]
+    },
+    "Carianos": {
+      "populacao": 4000,
+      "equipamentos": {
+        "ubs": 4,
+        "escola": 0,
+        "creche": 0,
+        "parque": 0,
+        "praca": 0
+      },
+      "gaps": [
+        "educacao",
+        "creche",
+        "ambiental"
       ],
       "sem_uso_count": 1,
-      "area_sem_uso_m2": 202.75,
+      "area_sem_uso_m2": 1635.96,
       "vocacoes": [
         {
           "tipo": "educacao",
           "label": "🎓 Escola / Creche",
           "score": 65,
-          "justificativa": "Gap crítico de Escolas, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 65,
+          "justificativa": "Gap crítico de Ambiental, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
         },
         {
           "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        }
+      ]
+    },
+    "Rio Tavares": {
+      "populacao": 8000,
+      "equipamentos": {
+        "ubs": 6,
+        "escola": 2,
+        "creche": 1,
+        "parque": 4,
+        "praca": 0
+      },
+      "gaps": [
+        "educacao",
+        "creche"
+      ],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 45,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches"
+        }
+      ]
+    },
+    "Lagoa da Conceição": {
+      "populacao": 9000,
+      "equipamentos": {
+        "ubs": 6,
+        "escola": 0,
+        "creche": 2,
+        "parque": 4,
+        "praca": 0
+      },
+      "gaps": [
+        "educacao"
+      ],
+      "sem_uso_count": 10,
+      "area_sem_uso_m2": 46602.28,
+      "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 50,
+          "justificativa": "Gap crítico de Escolas, Imóveis sem uso disponíveis"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
           "score": 50,
           "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
         },
@@ -992,65 +885,381 @@
           "label": "🏘️ Habitação Social (HIS)",
           "score": 35,
           "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        }
+      ]
+    },
+    "Barra da Lagoa": {
+      "populacao": 4000,
+      "equipamentos": {
+        "ubs": 1,
+        "escola": 2,
+        "creche": 0,
+        "parque": 4,
+        "praca": 0
+      },
+      "gaps": [
+        "creche"
+      ],
+      "sem_uso_count": 9,
+      "area_sem_uso_m2": 14559.01,
+      "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
         },
         {
           "tipo": "infraestrutura",
           "label": "🏗️ Infraestrutura / Logística",
-          "score": 35,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI), Imóveis sem uso disponíveis"
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
         },
         {
-          "tipo": "ambiental",
-          "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
-        }
-      ]
-    },
-    "Itacorubi": {
-      "populacao": 16000,
-      "equipamentos": {
-        "ubs": 17,
-        "escola": 3,
-        "creche": 4,
-        "parque": 8,
-        "praca": 4
-      },
-      "gaps": [
-        "educacao"
-      ],
-      "sem_uso_count": 1,
-      "area_sem_uso_m2": 911.23,
-      "vocacoes": [
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        },
         {
           "tipo": "educacao",
           "label": "🎓 Escola / Creche",
-          "score": 85,
-          "justificativa": "Gap crítico de Escolas, Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 55,
-          "justificativa": "Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
+          "score": 35,
+          "justificativa": "Gap crítico de Creches, Imóveis sem uso disponíveis"
         },
         {
           "tipo": "habitacao",
           "label": "🏘️ Habitação Social (HIS)",
-          "score": 55,
-          "justificativa": "Imóveis sem uso disponíveis, Bairro com alta população, Área média dos imóveis > 500m²"
+          "score": 35,
+          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        }
+      ]
+    },
+    "Costeira do Pirajubaé": {
+      "populacao": 6000,
+      "equipamentos": {
+        "ubs": 2,
+        "escola": 1,
+        "creche": 2,
+        "parque": 1,
+        "praca": 0
+      },
+      "gaps": [
+        "educacao"
+      ],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 30,
+          "justificativa": "Gap crítico de Escolas"
+        }
+      ]
+    },
+    "Ribeirão da Ilha": {
+      "populacao": 8000,
+      "equipamentos": {
+        "ubs": 0,
+        "escola": 0,
+        "creche": 0,
+        "parque": 0,
+        "praca": 0
+      },
+      "gaps": [
+        "saude",
+        "educacao",
+        "creche",
+        "ambiental"
+      ],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 45,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches"
         },
         {
-          "tipo": "infraestrutura",
-          "label": "🏗️ Infraestrutura / Logística",
-          "score": 20,
-          "justificativa": "Imóveis sem uso disponíveis"
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 30,
+          "justificativa": "Gap crítico de Saude"
         },
         {
           "tipo": "ambiental",
           "label": "🌳 Parque Urbano / Lazer",
-          "score": 15,
-          "justificativa": "Área média dos imóveis > 500m²"
+          "score": 30,
+          "justificativa": "Gap crítico de Ambiental"
+        }
+      ]
+    },
+    "Pântano do Sul": {
+      "populacao": 3000,
+      "equipamentos": {
+        "ubs": 1,
+        "escola": 0,
+        "creche": 0,
+        "parque": 0,
+        "praca": 0
+      },
+      "gaps": [
+        "educacao",
+        "creche",
+        "ambiental"
+      ],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 45,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 30,
+          "justificativa": "Gap crítico de Ambiental"
+        }
+      ]
+    },
+    "Daniela": {
+      "populacao": 5000,
+      "equipamentos": {
+        "ubs": 0,
+        "escola": 0,
+        "creche": 0,
+        "parque": 0,
+        "praca": 0
+      },
+      "gaps": [
+        "saude",
+        "educacao",
+        "creche",
+        "ambiental"
+      ],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 45,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches"
+        },
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 30,
+          "justificativa": "Gap crítico de Saude"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 30,
+          "justificativa": "Gap crítico de Ambiental"
+        }
+      ]
+    },
+    "Jurerê Internacional": {
+      "populacao": 8000,
+      "equipamentos": {
+        "ubs": 0,
+        "escola": 0,
+        "creche": 0,
+        "parque": 1,
+        "praca": 0
+      },
+      "gaps": [
+        "saude",
+        "educacao",
+        "creche"
+      ],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 45,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches"
+        },
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 30,
+          "justificativa": "Gap crítico de Saude"
+        }
+      ]
+    },
+    "Ratones": {
+      "populacao": 3000,
+      "equipamentos": {
+        "ubs": 0,
+        "escola": 0,
+        "creche": 0,
+        "parque": 0,
+        "praca": 0
+      },
+      "gaps": [
+        "saude",
+        "educacao",
+        "creche",
+        "ambiental"
+      ],
+      "sem_uso_count": 4,
+      "area_sem_uso_m2": 6567.89,
+      "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 80,
+          "justificativa": "Gap crítico de Saude, Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 65,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 65,
+          "justificativa": "Gap crítico de Ambiental, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        }
+      ]
+    },
+    "Santo Antônio de Lisboa": {
+      "populacao": 4000,
+      "equipamentos": {
+        "ubs": 0,
+        "escola": 0,
+        "creche": 0,
+        "parque": 0,
+        "praca": 0
+      },
+      "gaps": [
+        "saude",
+        "educacao",
+        "creche",
+        "ambiental"
+      ],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 45,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches"
+        },
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 30,
+          "justificativa": "Gap crítico de Saude"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 30,
+          "justificativa": "Gap crítico de Ambiental"
+        }
+      ]
+    },
+    "Ponta das Canas": {
+      "populacao": 6000,
+      "equipamentos": {
+        "ubs": 4,
+        "escola": 2,
+        "creche": 1,
+        "parque": 1,
+        "praca": 1
+      },
+      "gaps": [
+        "creche"
+      ],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 30,
+          "justificativa": "Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 30,
+          "justificativa": "Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 30,
+          "justificativa": "Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "concessao",
+          "label": "🏢 Concessão / PPP",
+          "score": 30,
+          "justificativa": "Zoneamento misto favorável, Área disponível para concessão"
+        }
+      ]
+    },
+    "Santinho": {
+      "populacao": 3000,
+      "equipamentos": {
+        "ubs": 0,
+        "escola": 0,
+        "creche": 0,
+        "parque": 0,
+        "praca": 0
+      },
+      "gaps": [
+        "saude",
+        "educacao",
+        "creche",
+        "ambiental"
+      ],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 45,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches"
+        },
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 30,
+          "justificativa": "Gap crítico de Saude"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 30,
+          "justificativa": "Gap crítico de Ambiental"
         }
       ]
     },
@@ -1073,18 +1282,24 @@
         {
           "tipo": "educacao",
           "label": "🎓 Escola / Creche",
-          "score": 80,
+          "score": 65,
           "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis"
         },
         {
           "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
+          "label": "🏥 Unidade de Saúde (UBS)",
           "score": 20,
           "justificativa": "Imóveis sem uso disponíveis"
         },
         {
           "tipo": "habitacao",
           "label": "🏘️ Habitação Social (HIS)",
+          "score": 20,
+          "justificativa": "Imóveis sem uso disponíveis"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
           "score": 20,
           "justificativa": "Imóveis sem uso disponíveis"
         },
@@ -1096,73 +1311,170 @@
         }
       ]
     },
-    "Tapera": {
+    "Cachoeira do Bom Jesus": {
       "populacao": 5000,
       "equipamentos": {
         "ubs": 0,
-        "escola": 0,
+        "escola": 1,
         "creche": 0,
-        "parque": 0,
-        "praca": 1
+        "parque": 3,
+        "praca": 0
       },
       "gaps": [
         "saude",
         "educacao",
         "creche"
       ],
-      "sem_uso_count": 0,
-      "area_sem_uso_m2": 0,
+      "sem_uso_count": 3,
+      "area_sem_uso_m2": 7779.93,
       "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 80,
+          "justificativa": "Gap crítico de Saude, Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
         {
           "tipo": "educacao",
           "label": "🎓 Escola / Creche",
-          "score": 60,
-          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches"
-        },
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 45,
-          "justificativa": "Gap crítico de UBS/Postos de Saúde, Zoneamento compatível (AMC/ACI)"
+          "score": 65,
+          "justificativa": "Gap crítico de Escolas, Gap crítico de Creches, Imóveis sem uso disponíveis"
         },
         {
           "tipo": "infraestrutura",
           "label": "🏗️ Infraestrutura / Logística",
-          "score": 15,
-          "justificativa": "Zoneamento Industrial/Comercial (ACI)"
-        }
-      ]
-    },
-    "Trindade": {
-      "populacao": 20000,
-      "equipamentos": {
-        "ubs": 26,
-        "escola": 6,
-        "creche": 5,
-        "parque": 19,
-        "praca": 3
-      },
-      "gaps": [],
-      "sem_uso_count": 0,
-      "area_sem_uso_m2": 0,
-      "vocacoes": [
-        {
-          "tipo": "saude",
-          "label": "🏥 Unidade de Saúde",
-          "score": 20,
-          "justificativa": "Bairro com alta população"
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
         },
         {
-          "tipo": "educacao",
-          "label": "🎓 Escola / Creche",
-          "score": 20,
-          "justificativa": "Bairro com alta população"
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
         },
         {
           "tipo": "habitacao",
           "label": "🏘️ Habitação Social (HIS)",
-          "score": 20,
-          "justificativa": "Bairro com alta população"
+          "score": 35,
+          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        }
+      ]
+    },
+    "Vargem Grande": {
+      "populacao": 6000,
+      "equipamentos": {
+        "ubs": 1,
+        "escola": 2,
+        "creche": 0,
+        "parque": 0,
+        "praca": 0
+      },
+      "gaps": [
+        "saude",
+        "creche",
+        "ambiental"
+      ],
+      "sem_uso_count": 10,
+      "area_sem_uso_m2": 6297.79,
+      "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 80,
+          "justificativa": "Gap crítico de Saude, Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 65,
+          "justificativa": "Gap crítico de Ambiental, Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 35,
+          "justificativa": "Gap crítico de Creches, Imóveis sem uso disponíveis"
+        }
+      ]
+    },
+    "Vargem do Bom Jesus": {
+      "populacao": 4000,
+      "equipamentos": {
+        "ubs": 3,
+        "escola": 4,
+        "creche": 0,
+        "parque": 0,
+        "praca": 0
+      },
+      "gaps": [
+        "creche",
+        "ambiental"
+      ],
+      "sem_uso_count": 0,
+      "area_sem_uso_m2": 0,
+      "vocacoes": [
+        {
+          "tipo": "ambiental",
+          "label": "🌳 Parque Urbano / Lazer",
+          "score": 30,
+          "justificativa": "Gap crítico de Ambiental"
+        }
+      ]
+    },
+    "Não Identificado": {
+      "populacao": 0,
+      "equipamentos": {
+        "ubs": 91,
+        "escola": 15,
+        "creche": 5,
+        "parque": 27,
+        "praca": 27
+      },
+      "gaps": [],
+      "sem_uso_count": 60,
+      "area_sem_uso_m2": 5156736.69,
+      "vocacoes": [
+        {
+          "tipo": "saude",
+          "label": "🏥 Unidade de Saúde (UBS)",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ARP/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "infraestrutura",
+          "label": "🏗️ Infraestrutura / Logística",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "economico",
+          "label": "💼 Hub Econômico / Incubadora",
+          "score": 50,
+          "justificativa": "Imóveis sem uso disponíveis, Zoneamento compatível (AMC/ACI), Área média dos imóveis > 500m²"
+        },
+        {
+          "tipo": "educacao",
+          "label": "🎓 Escola / Creche",
+          "score": 35,
+          "justificativa": "Imóveis sem uso disponíveis, Área disponível"
+        },
+        {
+          "tipo": "habitacao",
+          "label": "🏘️ Habitação Social (HIS)",
+          "score": 35,
+          "justificativa": "Imóveis sem uso disponíveis, Área média dos imóveis > 500m²"
         }
       ]
     }

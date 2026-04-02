@@ -15,7 +15,14 @@
   --text:#e0e6f0;--text2:#8a9aba;--text3:#5a6a8a;--text4:#3a4a6a;
   --green:#4ade80;--cyan:#22d3ee;--red:#ef4444;--orange:#f97316;--blue:#3b82f6;
   --ng-orange:#FF6B00;--ng-blue:#0066CC;
-  --saude-color:#ef4444; --educacao-color:#3b82f6; --habitacao-color:#f59e0b; --ambiental-color:#22c56e; --infraestrutura-color:#6366f1; --economico-color:#ec4899; --concessao-color:#f97316; --cultural-color:#14b8a6;
+  --saude-color:#ef4444;
+  --educacao-color:#3b82f6;
+  --habitacao-color:#f59e0b;
+  --ambiental-color:#22c55e;
+  --infraestrutura-color:#6366f1;
+  --economico-color:#ec4899;
+  --concessao-color:#f97316;
+  --cultural-color:#14b8a6;
 }
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow:hidden;height:100vh}
 #map{position:absolute;top:56px;left:0;right:0;bottom:0;z-index:1;background:var(--bg)}
@@ -128,11 +135,19 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 /* Legend */
 #legend{position:absolute;bottom:16px;left:16px;z-index:1000;
   background:rgba(13,19,33,.9);border:1px solid var(--border);border-radius:8px;padding:10px 14px;
-  backdrop-filter:blur(8px);font-size:11px}
-#legend .leg-title{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px}
+  backdrop-filter:blur(8px);font-size:11px;min-width:160px}
+#legend .leg-title{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.7px;margin-bottom:8px}
 .leg-scale{display:flex;align-items:center;gap:6px}
 .leg-gradient{width:100px;height:6px;border-radius:3px;background:linear-gradient(90deg,rgba(255,107,0,.6),rgba(34,211,238,.9))}
 .leg-labels{display:flex;justify-content:space-between;font-size:9px;color:var(--text3);margin-top:3px;width:100px}
+/* Vocação legend */
+.leg-voc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px}
+.leg-voc-item{display:flex;align-items:center;gap:5px;font-size:9px;color:var(--text2)}
+.leg-voc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+/* Vocacao rank item extras */
+.voc-score-badge{display:inline-block;background:rgba(255,107,0,.15);color:var(--ng-orange);
+  font-size:9px;font-weight:700;padding:2px 6px;border-radius:8px;margin-left:4px}
 
 /* Scrollbar */
 #right-panel::-webkit-scrollbar{width:4px}
@@ -190,18 +205,17 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   <div id="detail-panel">
     <div class="detail-title" id="d-name">—</div>
     <div class="detail-sub" id="d-sub">Selecione um bairro no mapa</div>
-    <div class="detail-grid">
+    <div class="detail-grid" id="d-grid">
       <div class="detail-stat"><div class="dv" id="d-total">—</div><div class="dl">Imóveis</div></div>
       <div class="detail-stat"><div class="dv" id="d-semuso">—</div><div class="dl">Sem uso</div></div>
       <div class="detail-stat"><div class="dv" id="d-area">—</div><div class="dl">Área total m²</div></div>
       <div class="detail-stat"><div class="dv" id="d-pct">—</div><div class="dl">% sem uso</div></div>
     </div>
-    <div style="font-size:10px;color:var(--text3);margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.7px">Tipos</div>
     <div class="tipo-breakdown" id="d-tipos"></div>
   </div>
 
   <!-- Filters -->
-  <div class="panel-section">
+  <div class="panel-section" id="filters-panel">
     <h3>🔍 Filtros <span class="badge" id="filter-count">Todos</span></h3>
     <div class="filter-group">
       <span class="filter-label">Responsável</span>
@@ -219,16 +233,22 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
     </div>
   </div>
 
-  <!-- Rankings -->
+  <!-- Rankings (hidden in vocacao mode) -->
   <div class="panel-section" id="rank-list-wrapper">
     <h3>🏆 Ranking de Bairros</h3>
     <ul class="rank-list" id="rank-list"></ul>
   </div>
 
-  <!-- Top Oportunidades Baoba -->
+  <!-- Top Oportunidades Baoba (visible only in vocacao mode) -->
   <div class="panel-section" id="top-oportunidades-panel" style="display:none;">
-    <h3>🎯 Top Oportunidades Baoba</h3>
+    <h3>🎯 Top Oportunidades Baoba <span class="badge">Inteligência</span></h3>
     <ul class="rank-list" id="top-oportunidades-list"></ul>
+  </div>
+
+  <!-- Vocação bairros list (visible only in vocacao mode) -->
+  <div class="panel-section" id="vocacao-bairros-panel" style="display:none;">
+    <h3>📍 Todos os Bairros</h3>
+    <ul class="rank-list" id="vocacao-bairros-list"></ul>
   </div>
 </div>
 
@@ -236,10 +256,24 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 
 <div id="legend">
   <div class="leg-title" id="leg-title">Quantidade de imóveis</div>
-  <div class="leg-scale">
-    <div>
-      <div class="leg-gradient"></div>
-      <div class="leg-labels"><span>Poucos</span><span>Muitos</span></div>
+  <div id="leg-scale-wrap">
+    <div class="leg-scale">
+      <div>
+        <div class="leg-gradient" id="leg-gradient"></div>
+        <div class="leg-labels" id="leg-labels"><span>Poucos</span><span>Muitos</span></div>
+      </div>
+    </div>
+  </div>
+  <div id="leg-voc-wrap" style="display:none;">
+    <div class="leg-voc-grid">
+      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#ef4444"></div>Saúde</div>
+      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#3b82f6"></div>Educação</div>
+      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#f59e0b"></div>Habitação</div>
+      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#22c55e"></div>Ambiental</div>
+      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#6366f1"></div>Infraestrutura</div>
+      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#ec4899"></div>Econômico</div>
+      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#f97316"></div>Concessão</div>
+      <div class="leg-voc-item"><div class="leg-voc-dot" style="background:#14b8a6"></div>Cultural</div>
     </div>
   </div>
 </div>
@@ -272,14 +306,30 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   document.getElementById('pw-input').onkeydown=e=>{if(e.key==='Enter')tryLogin();};
 })();
 
+// ─── Vocação color map ────────────────────────────────────────────────────────
+const VOC_COLORS = {
+  saude:         '#ef4444',
+  educacao:      '#3b82f6',
+  habitacao:     '#f59e0b',
+  ambiental:     '#22c55e',
+  infraestrutura:'#6366f1',
+  economico:     '#ec4899',
+  concessao:     '#f97316',
+  cultural:      '#14b8a6'
+};
+
+function vocColor(tipo) {
+  return VOC_COLORS[tipo] || '#5a6a8a';
+}
+
+// ─── State ────────────────────────────────────────────────────────────────────
 let allImoveis = [];
 let bairrosStats = [];
-let vocacaoData = {};
 let activeMode = 'count';
 let filters = { resp: '', tipos: new Set(), semuso: false };
 let circles = {};
 let panelOpen = true;
-let selectedBairro = null;
+let bairroByName = {};   // bairro name → bairros_stats entry
 
 const map = L.map('map', {
   center: [-27.5800, -48.5200],
@@ -292,49 +342,37 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   subdomains: 'abcd', maxZoom: 19
 }).addTo(map);
 
-// Color scale
-function getColor(val, max, mode = activeMode) {
-  if (mode === 'vocacao') {
-    // If no specific bairro is selected, use a generic color or the color of the top vocation of the first bairro available
-    let mainVocacao = null;
-    if (selectedBairro && window.vocacaoData[selectedBairro] && window.vocacaoData[selectedBairro].vocacoes.length > 0) {
-        mainVocacao = window.vocacaoData[selectedBairro].vocacoes[0].tipo;
-    } else if (Object.keys(window.vocacaoData).length > 0 && window.vocacaoData[Object.keys(window.vocacaoData)[0]].vocacoes.length > 0) {
-        mainVocacao = window.vocacaoData[Object.keys(window.vocacaoData)[0]].vocacoes[0].tipo;
-    }
-
-    switch (mainVocacao) {
-      case 'saude': return 'var(--saude-color)';
-      case 'educacao': return 'var(--educacao-color)';
-      case 'habitacao': return 'var(--habitacao-color)';
-      case 'ambiental': return 'var(--ambiental-color)';
-      case 'infraestrutura': return 'var(--infraestrutura-color)';
-      case 'economico': return 'var(--economico-color)';
-      case 'concessao': return 'var(--concessao-color)';
-      case 'cultural': return 'var(--cultural-color)';
-      default: return 'var(--text3)'; // Default grey for unknown vocations
-    }
-  } else {
-    const t = Math.min(val / max, 1);
-    const r = Math.round(255 * (1-t) * 0.8 + 34 * t);
-    const g = Math.round(107 * (1-t) * 0.5 + 211 * t);
-    const b = Math.round(0 * (1-t) + 238 * t);
-    return `rgb(${r},${g},${b})`;
-  }
-}
-
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 function fmt(n) {
   if (n >= 1000000) return (n/1000000).toFixed(1) + 'M';
   if (n >= 1000) return (n/1000).toFixed(1) + 'k';
   return n.toLocaleString('pt-BR');
 }
 
+function getGradientColor(val, max) {
+  const t = Math.min(val / max, 1);
+  const r = Math.round(255 * (1-t) * 0.8 + 34 * t);
+  const g = Math.round(107 * (1-t) * 0.5 + 211 * t);
+  const b = Math.round(0 * (1-t) + 238 * t);
+  return `rgb(${r},${g},${b})`;
+}
+
+function getVocacaoColorForBairro(bairroName) {
+  const vd = window.vocacaoData && window.vocacaoData[bairroName];
+  if (vd && vd.vocacoes && vd.vocacoes.length > 0) {
+    return vocColor(vd.vocacoes[0].tipo);
+  }
+  return '#3a4a6a'; // dim grey for no data
+}
+
 function getMetric(b) {
   if (activeMode === 'count') return b.total;
   if (activeMode === 'area') return b.area_total;
   if (activeMode === 'sem_uso') return b.sem_uso;
-  if (activeMode === 'vocacao' && window.vocacaoData[b.bairro] && window.vocacaoData[b.bairro].vocacoes.length > 0) {
-    return window.vocacaoData[b.bairro].vocacoes[0].score;
+  if (activeMode === 'vocacao') {
+    const vd = window.vocacaoData && window.vocacaoData[b.bairro];
+    if (vd && vd.vocacoes && vd.vocacoes.length > 0) return vd.vocacoes[0].score;
+    return 0;
   }
   return 0;
 }
@@ -365,83 +403,88 @@ function reaggregate(filtered) {
     bd.tipos[im.tipo] = (bd.tipos[im.tipo]||0)+1;
     bd.responsaveis[im.responsavel] = (bd.responsaveis[im.responsavel]||0)+1;
   }
-  return Object.values(byBairro).filter(b => b.total > 0);
+  return Object.values(byBairro).filter(b => b.total > 0 || activeMode === 'vocacao');
 }
 
+// ─── Tab switching ────────────────────────────────────────────────────────────
 function setTab(mode) {
-  document.querySelectorAll('.mode-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelector(`.mode-tab[data-mode='${mode}']`).classList.add('active');
+  document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+  const btn = document.querySelector(`.mode-tab[data-mode='${mode}']`);
+  if (btn) btn.classList.add('active');
   activeMode = mode;
 
-  const legends = {
-    count: 'Quantidade de imóveis',
-    area: 'Área territorial (m²)',
+  const titles = {
+    count:   'Quantidade de imóveis',
+    area:    'Área territorial (m²)',
     sem_uso: 'Imóveis sem uso',
-    vocacao: 'Vocação Principal'
+    vocacao: 'Vocação Principal por Bairro'
   };
-  document.getElementById('leg-title').textContent = legends[activeMode];
+  document.getElementById('leg-title').textContent = titles[mode] || '';
 
-  // Show/hide vocation-specific panel section
-  document.getElementById('top-oportunidades-panel').style.display = (activeMode === 'vocacao') ? 'block' : 'none';
-  document.getElementById('rank-list-wrapper').style.display = (activeMode === 'vocacao') ? 'none' : 'block';
+  const isVoc = mode === 'vocacao';
+
+  // Legend switch
+  document.getElementById('leg-scale-wrap').style.display = isVoc ? 'none' : 'block';
+  document.getElementById('leg-voc-wrap').style.display   = isVoc ? 'block' : 'none';
+
+  // Panel sections
+  document.getElementById('rank-list-wrapper').style.display         = isVoc ? 'none'  : 'block';
+  document.getElementById('top-oportunidades-panel').style.display   = isVoc ? 'block' : 'none';
+  document.getElementById('vocacao-bairros-panel').style.display     = isVoc ? 'block' : 'none';
 
   updateMap();
 }
 
+// ─── Map update ───────────────────────────────────────────────────────────────
 function updateMap() {
   const filtered = applyFilters();
   const data = reaggregate(filtered);
-  const maxVal = Math.max(...data.map(b => getMetric(b)), 1);
-
-  // Update legend gradient based on activeMode
-  const legGradientEl = document.querySelector('#legend .leg-gradient');
-  const legLabelsEl = document.querySelector('#legend .leg-labels');
-  if (activeMode === 'vocacao') {
-    legGradientEl.style.background = 'none';
-    legLabelsEl.innerHTML = `
-      <div style="display:flex;flex-direction:column;gap:4px;">
-        <span style="color:var(--saude-color);">🏥 Saúde</span>
-        <span style="color:var(--educacao-color);">🎓 Educação</span>
-        <span style="color:var(--habitacao-color);">🏘️ Habitação</span>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:4px;">
-        <span style="color:var(--ambiental-color);">🌳 Ambiental</span>
-        <span style="color:var(--infraestrutura-color);">🏗️ Infraestrutura</span>
-        <span style="color:var(--economico-color);">💰 Econômico</span>
-      </div>
-    `; // Simplified legend for vocations
-  } else {
-    legGradientEl.style.background = 'linear-gradient(90deg,rgba(255,107,0,.6),rgba(34,211,238,.9))';
-    legLabelsEl.innerHTML = '<span>Poucos</span><span>Muitos</span>';
-  }
 
   // Remove old circles
   for (const key in circles) { circles[key].remove(); }
   circles = {};
 
+  let maxVal;
+  if (activeMode === 'vocacao') {
+    maxVal = 100; // scores are 0-100
+  } else {
+    maxVal = Math.max(...data.map(b => getMetric(b)), 1);
+  }
+
   for (const b of data) {
-    if (b.lat === -27.5969 && b.bairro === 'Não Identificado') continue;
+    if (b.bairro === 'Não Identificado') continue;
     const val = getMetric(b);
-    if (val === 0 && activeMode !== 'vocacao') continue; // Don't filter out 0 scores in vocacao mode, just show grey circle
+
+    // In vocacao mode: always show circles (even 0); other modes: skip 0
+    if (val === 0 && activeMode !== 'vocacao') continue;
+
     const radius = 1500 + (val / maxVal) * 18000;
-    const color = getColor(val, maxVal);
+    let color;
+    if (activeMode === 'vocacao') {
+      color = getVocacaoColorForBairro(b.bairro);
+    } else {
+      color = getGradientColor(val, maxVal);
+    }
 
     const circle = L.circle([b.lat, b.lng], {
-      radius: radius,
-      color: color,
+      radius,
+      color,
       fillColor: color,
       fillOpacity: 0.35,
       weight: 1.5,
       opacity: 0.8
     });
 
+    // Tooltip
     let tipRows = '';
     if (activeMode === 'vocacao') {
-      const vocacaoBairroData = window.vocacaoData[b.bairro];
-      if (vocacaoBairroData && vocacaoBairroData.vocacoes.length > 0) {
-        tipRows = vocacaoBairroData.vocacoes.map(v => `<div class="tt-row">${v.label}: <span>${v.score}</span></div>`).join('');
+      const vd = window.vocacaoData && window.vocacaoData[b.bairro];
+      if (vd && vd.vocacoes && vd.vocacoes.length > 0) {
+        tipRows = vd.vocacoes.slice(0,3).map(v =>
+          `<div class="tt-row">${v.label}: <span>${v.score}</span></div>`
+        ).join('');
       } else {
-        tipRows = '<div class="tt-row">Nenhuma vocação: <span>N/A</span></div>';
+        tipRows = '<div class="tt-row">Nenhuma vocação: <span>—</span></div>';
       }
     } else {
       tipRows = Object.entries(b.tipos).slice(0,4)
@@ -464,61 +507,94 @@ function updateMap() {
   updateRankings(data);
 }
 
+// ─── Stats ────────────────────────────────────────────────────────────────────
 function updateStats(filtered, data) {
-  const total = filtered.length;
-  const bairros = data.length;
-  const area = filtered.reduce((s,im) => s+im.area, 0);
-  const semuso = filtered.filter(im => im.sem_uso).length;
+  const total   = filtered.length;
+  const bairros = data.filter(b => b.bairro !== 'Não Identificado').length;
+  const area    = filtered.reduce((s, im) => s + im.area, 0);
+  const semuso  = filtered.filter(im => im.sem_uso).length;
 
-  document.getElementById('s-total').textContent = fmt(total);
+  document.getElementById('s-total').textContent  = fmt(total);
   document.getElementById('s-bairros').textContent = bairros;
-  document.getElementById('s-area').textContent = fmt(Math.round(area));
-  document.getElementById('s-semuso').textContent = semuso;
-  document.getElementById('h-total').textContent = fmt(total);
+  document.getElementById('s-area').textContent   = fmt(Math.round(area));
+  document.getElementById('s-semuso').textContent  = semuso;
+  document.getElementById('h-total').textContent  = fmt(total);
   document.getElementById('h-bairros').textContent = bairros;
 
   const active = (filters.resp ? 1 : 0) + filters.tipos.size + (filters.semuso ? 1 : 0);
   document.getElementById('filter-count').textContent = active > 0 ? `${active} filtro(s)` : 'Todos';
 }
 
+// ─── Rankings ─────────────────────────────────────────────────────────────────
 function updateRankings(data) {
-  const ul = document.getElementById('rank-list');
+  const ul    = document.getElementById('rank-list');
   const topUl = document.getElementById('top-oportunidades-list');
-  ul.innerHTML = '';
-  topUl.innerHTML = '';
+  const allUl = document.getElementById('vocacao-bairros-list');
+  ul.innerHTML = topUl.innerHTML = allUl.innerHTML = '';
 
   if (activeMode === 'vocacao') {
-    const vocacaoRankings = Object.entries(window.vocacaoData)
-      .filter(([bairro, vdata]) => vdata.vocacoes.length > 0)
-      .map(([bairro, vdata]) => ({
-        bairro: bairro,
-        principal_vocacao: vdata.vocacoes[0],
-        score: vdata.vocacoes[0].score,
-        area_sem_uso_m2: vdata.area_sem_uso_m2
-      }))
-      .sort((a,b) => b.score - a.score)
-      .slice(0, 10); // Top 10 for vocacao
+    const vd = window.vocacaoData || {};
 
-    topUl.innerHTML = vocacaoRankings.map((b, i) => `
-      <li class="rank-item" onclick="showDetail(bairroByName['${b.bairro}'])">
+    // Build ranked list from vocacao data
+    const ranked = Object.entries(vd)
+      .filter(([, v]) => v.vocacoes && v.vocacoes.length > 0 && v.populacao > 0)
+      .map(([bairro, v]) => ({
+        bairro,
+        voc: v.vocacoes[0],
+        score: v.vocacoes[0].score,
+        area_sem_uso: v.area_sem_uso_m2,
+        sem_uso_count: v.sem_uso_count
+      }))
+      .sort((a, b) => b.score - a.score);
+
+    // Top 10
+    ranked.slice(0, 10).forEach((item, i) => {
+      const color = vocColor(item.voc.tipo);
+      const li = document.createElement('li');
+      li.className = 'rank-item';
+      li.onclick = () => showDetail(bairroByName[item.bairro]);
+      li.innerHTML = `
         <span class="rn ${i<3?'top3':''}">${i+1}</span>
         <div style="flex:1;overflow:hidden">
-          <div style="display:flex;align-items:center;justify-content:space-between">
-            <span class="rname">${b.bairro}</span>
-            <span class="rval">${b.principal_vocacao.label} (${b.score})</span>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:4px">
+            <span class="rname">${item.bairro}</span>
+            <span style="font-size:9px;font-weight:700;color:${color};white-space:nowrap">${item.voc.label}</span>
+          </div>
+          <div class="rank-bar-wrap" style="margin-top:4px">
+            <div class="rank-bar" style="width:${item.score}%;background:${color}"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:3px">
+            <span style="font-size:9px;color:var(--text3)">Score: <strong style="color:${color}">${item.score}</strong></span>
+            <span style="font-size:9px;color:var(--text3)">${fmt(item.area_sem_uso)} m² livres</span>
+          </div>
+        </div>`;
+      topUl.appendChild(li);
+    });
+
+    // All bairros sorted by score
+    ranked.forEach((item, i) => {
+      const color = vocColor(item.voc.tipo);
+      const li = document.createElement('li');
+      li.className = 'rank-item';
+      li.onclick = () => showDetail(bairroByName[item.bairro]);
+      li.innerHTML = `
+        <span class="rn ${i<3?'top3':''}">${i+1}</span>
+        <div style="flex:1;overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:4px">
+            <span class="rname">${item.bairro}</span>
+            <span style="font-size:9px;color:${color};white-space:nowrap">${item.score} pts</span>
           </div>
           <div class="rank-bar-wrap">
-            <div class="rank-bar" style="width:${(b.score/100*100).toFixed(1)}%; background: var(--${b.principal_vocacao.tipo}-color)"></div>
+            <div class="rank-bar" style="width:${item.score}%;background:${color}"></div>
           </div>
-          <div style="font-size:9px;color:var(--text3);margin-top:2px">Área sem uso: ${fmt(b.area_sem_uso_m2)} m²</div>
-        </div>
-      </li>
-    `).join('');
+        </div>`;
+      allUl.appendChild(li);
+    });
 
   } else {
-    const sorted = [...data].sort((a,b) => getMetric(b) - getMetric(a)).slice(0,12);
-    const maxVal = Math.max(...sorted.map(b => getMetric(b)), 1);
-    ul.innerHTML = sorted.map((b, i) => `
+    const sorted  = [...data].sort((a,b) => getMetric(b) - getMetric(a)).slice(0,12);
+    const maxVal  = Math.max(...sorted.map(b => getMetric(b)), 1);
+    ul.innerHTML  = sorted.map((b, i) => `
       <li class="rank-item" onclick="showDetail(bairroByName['${b.bairro}'])">
         <span class="rn ${i<3?'top3':''}">${i+1}</span>
         <div style="flex:1;overflow:hidden">
@@ -530,80 +606,75 @@ function updateRankings(data) {
             <div class="rank-bar" style="width:${(getMetric(b)/maxVal*100).toFixed(1)}%"></div>
           </div>
         </div>
-      </li>
-    `).join('');
+      </li>`).join('');
   }
 }
 
+// ─── Detail panel ─────────────────────────────────────────────────────────────
 function showDetail(b) {
   if (!b) return;
-  selectedBairro = b.bairro;
+
   const dp = document.getElementById('detail-panel');
   dp.classList.add('visible');
   document.getElementById('d-name').textContent = b.bairro;
 
   if (activeMode === 'vocacao') {
-    const vocacaoBairroData = window.vocacaoData[b.bairro];
-    if (vocacaoBairroData && vocacaoBairroData.vocacoes.length > 0) {
-      document.getElementById('d-sub').textContent = `Vocação Principal: ${vocacaoBairroData.vocacoes[0].label} (${vocacaoBairroData.vocacoes[0].score})`;
+    const vd = window.vocacaoData && window.vocacaoData[b.bairro];
+    if (vd && vd.vocacoes && vd.vocacoes.length > 0) {
+      const top = vd.vocacoes[0];
+      document.getElementById('d-sub').textContent = `Vocação principal: ${top.label} — Score ${top.score}`;
 
-      const detailGrid = document.querySelector('#detail-panel .detail-grid');
-      detailGrid.innerHTML = `
-        <div class="detail-stat"><div class="dv">${fmt(vocacaoBairroData.populacao)}</div><div class="dl">População Estimada</div></div>
-        <div class="detail-stat"><div class="dv">${vocacaoBairroData.sem_uso_count}</div><div class="dl">Imóveis sem uso</div></div>
-        <div class="detail-stat"><div class="dv">${fmt(Math.round(vocacaoBairroData.area_sem_uso_m2))}</div><div class="dl">Área sem uso m²</div></div>
-        <div class="detail-stat"><div class="dv">${vocacaoBairroData.gaps.length}</div><div class="dl">Gaps de Equip.</div></div>
-      `;
-      
-      const tiposEl = document.getElementById('d-tipos');
-      tiposEl.innerHTML = `
-        <div style="font-size:10px;color:var(--text3);margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;margin-top:12px">Vocações</div>
-        ` + vocacaoBairroData.vocacoes.map(v => `
-        <div class="tipo-row">
-          <span class="tipo-name" style="color:var(--${v.tipo}-color)">${v.label}</span>
-          <div class="tipo-bar-w"><div class="tipo-bar" style="width:${(v.score/100*100).toFixed(1)}%; background: var(--${v.tipo}-color)"></div></div>
-          <span class="tipo-count">${v.score}</span>
-        </div>
-        <div style="font-size:9px;color:var(--text4);margin-bottom:8px">${v.justificativa}</div>
-      `).join('');
+      document.getElementById('d-grid').innerHTML = `
+        <div class="detail-stat"><div class="dv">${fmt(vd.populacao)}</div><div class="dl">Pop. estimada</div></div>
+        <div class="detail-stat"><div class="dv">${vd.sem_uso_count}</div><div class="dl">Imóveis sem uso</div></div>
+        <div class="detail-stat"><div class="dv">${fmt(Math.round(vd.area_sem_uso_m2))}</div><div class="dl">Área sem uso m²</div></div>
+        <div class="detail-stat"><div class="dv">${vd.gaps.length}</div><div class="dl">Gaps críticos</div></div>`;
+
+      document.getElementById('d-tipos').innerHTML =
+        `<div style="font-size:10px;color:var(--text3);margin-bottom:8px;margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.7px">Vocações identificadas</div>` +
+        vd.vocacoes.map(v => {
+          const c = vocColor(v.tipo);
+          return `
+          <div class="tipo-row">
+            <span class="tipo-name" style="color:${c}">${v.label}</span>
+            <div class="tipo-bar-w"><div class="tipo-bar" style="width:${v.score}%;background:${c}"></div></div>
+            <span class="tipo-count">${v.score}</span>
+          </div>
+          <div style="font-size:9px;color:var(--text4);margin-bottom:8px;padding-left:2px">${v.justificativa}</div>`;
+        }).join('');
 
     } else {
-      document.getElementById('d-sub').textContent = `Nenhuma vocação identificada para este bairro.`;
-      document.querySelector('#detail-panel .detail-grid').innerHTML = '';
+      document.getElementById('d-sub').textContent = 'Nenhuma vocação identificada para este bairro.';
+      document.getElementById('d-grid').innerHTML = '';
       document.getElementById('d-tipos').innerHTML = '';
     }
 
-  } else { // Existing logic for other modes
-    document.getElementById('d-sub').textContent = `Dados do patrimônio municipal`;
-    const detailGrid = document.querySelector('#detail-panel .detail-grid');
-    detailGrid.innerHTML = `
-      <div class="detail-stat"><div class="dv" id="d-total">${b.total}</div><div class="dl">Imóveis</div></div>
-      <div class="detail-stat"><div class="dv" id="d-semuso">${b.sem_uso}</div><div class="dl">Sem uso</div></div>
-      <div class="detail-stat"><div class="dv" id="d-area">${fmt(Math.round(b.area_total))}</div><div class="dl">Área total m²</div></div>
-      <div class="detail-stat"><div class="dv" id="d-pct">${b.total > 0 ? ((b.sem_uso/b.total)*100).toFixed(0) : 0}%</div><div class="dl">% sem uso</div></div>
-    `;
+  } else {
+    document.getElementById('d-sub').textContent = 'Dados do patrimônio municipal';
+    document.getElementById('d-grid').innerHTML = `
+      <div class="detail-stat"><div class="dv">${b.total}</div><div class="dl">Imóveis</div></div>
+      <div class="detail-stat"><div class="dv">${b.sem_uso}</div><div class="dl">Sem uso</div></div>
+      <div class="detail-stat"><div class="dv">${fmt(Math.round(b.area_total))}</div><div class="dl">Área total m²</div></div>
+      <div class="detail-stat"><div class="dv">${b.total > 0 ? ((b.sem_uso/b.total)*100).toFixed(0) : 0}%</div><div class="dl">% sem uso</div></div>`;
 
-    const tiposEl = document.getElementById('d-tipos');
-    const tiposArr = Object.entries(b.tipos).sort((a,b)=>b[1]-a[1]).slice(0,6);
-    const maxT = Math.max(...tiposArr.map(t=>t[1]), 1);
-    tiposEl.innerHTML = `
-      <div style="font-size:10px;color:var(--text3);margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.7px">Tipos</div>
-      ` + tiposArr.map(([t,c]) => `
+    const tiposArr = Object.entries(b.tipos).sort((a,b) => b[1]-a[1]).slice(0,6);
+    const maxT = Math.max(...tiposArr.map(t => t[1]), 1);
+    document.getElementById('d-tipos').innerHTML =
+      `<div style="font-size:10px;color:var(--text3);margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.7px">Tipos</div>` +
+      tiposArr.map(([t,c]) => `
       <div class="tipo-row">
         <span class="tipo-name">${t}</span>
         <div class="tipo-bar-w"><div class="tipo-bar" style="width:${(c/maxT*100).toFixed(1)}%"></div></div>
         <span class="tipo-count">${c}</span>
-      </div>
-    `).join('');
+      </div>`).join('');
   }
 
-  // Fly to bairro
   if (circles[b.bairro]) {
     map.flyTo([b.lat, b.lng], 14, {duration: 1});
   }
 }
 
-
+// ─── Panel toggle ─────────────────────────────────────────────────────────────
 function togglePanel() {
   panelOpen = !panelOpen;
   document.getElementById('right-panel').classList.toggle('collapsed', !panelOpen);
@@ -611,25 +682,23 @@ function togglePanel() {
   document.getElementById('panel-toggle').style.right = panelOpen ? '360px' : '0';
 }
 
-// Build bairroByName lookup for rankings click
-let bairroByName = {};
-
+// ─── Init ─────────────────────────────────────────────────────────────────────
 async function init() {
-  const [imoveisData, bairrosData, vocacaoData] = await Promise.all([
-    fetch('data/imoveis.json').then(r=>r.json()),
-    fetch('data/bairros_stats.json').then(r=>r.json()),
-    fetch('data/vocacao.json').then(r=>r.json())
+  const [imoveisData, bairrosData, vocacaoJson] = await Promise.all([
+    fetch('data/imoveis.json').then(r => r.json()),
+    fetch('data/bairros_stats.json').then(r => r.json()),
+    fetch('data/vocacao.json').then(r => r.json())
   ]);
 
-  allImoveis = imoveisData;
+  allImoveis   = imoveisData;
   bairrosStats = bairrosData;
-  window.vocacaoData = vocacaoData.bairros;
+  window.vocacaoData = vocacaoJson.bairros;
 
-  // Build lookup
+  // Build bairroByName lookup
   for (const b of bairrosData) bairroByName[b.bairro] = b;
 
-  // Build filter options
-  const resps = [...new Set(allImoveis.map(im=>im.responsavel))].filter(r=>r&&r!=='N/A').sort();
+  // Responsável filter
+  const resps = [...new Set(allImoveis.map(im => im.responsavel))].filter(r => r && r !== 'N/A').sort();
   const sel = document.getElementById('f-resp');
   resps.forEach(r => {
     const opt = document.createElement('option');
@@ -637,12 +706,11 @@ async function init() {
     sel.appendChild(opt);
   });
 
-  const tipos = [...new Set(allImoveis.map(im=>im.tipo))].filter(t=>t).sort();
-  const fc = document.getElementById('f-tipos');
-  // Top 8 tipos only
+  // Tipo chips (top 8)
   const tipoCount = {};
   allImoveis.forEach(im => { tipoCount[im.tipo] = (tipoCount[im.tipo]||0)+1; });
-  const topTipos = Object.entries(tipoCount).sort((a,b)=>b[1]-a[1]).slice(0,8).map(t=>t[0]);
+  const topTipos = Object.entries(tipoCount).sort((a,b) => b[1]-a[1]).slice(0,8).map(t => t[0]);
+  const fc = document.getElementById('f-tipos');
   topTipos.forEach(t => {
     const chip = document.createElement('div');
     chip.className = 'chip';
@@ -667,13 +735,10 @@ async function init() {
 
   // Mode tabs
   document.querySelectorAll('.mode-tab').forEach(tab => {
-    tab.onclick = () => {
-      setTab(tab.dataset.mode);
-    };
+    tab.onclick = () => setTab(tab.dataset.mode);
   });
 
-  setTab('count'); // Set initial tab
-  updateMap();
+  setTab('count');
 }
 
 init();
