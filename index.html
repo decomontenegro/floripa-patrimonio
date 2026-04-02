@@ -239,7 +239,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 <script>
 // Password protection
 (function(){
-  const PASS_HASH = '8d1b7b75'; // hash of "baoba"
+  const PASS_HASH = '0592c44f'; // hash of "baoba"
   function h(s){let h=0;for(let i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return (h>>>0).toString(16).slice(0,8);}
   const key='pmf_auth';
   if(sessionStorage.getItem(key)===PASS_HASH) return;
