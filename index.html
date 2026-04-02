@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Florianópolis — Patrimônio Imobiliário Municipal</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+:root{
+  --bg:#0a0e17;--surface:#111827;--surface2:#131a2e;--border:#1e2a45;--border2:#2a3555;
+  --text:#e0e6f0;--text2:#8a9aba;--text3:#5a6a8a;--text4:#3a4a6a;
+  --green:#4ade80;--cyan:#22d3ee;--red:#ef4444;--orange:#f97316;--blue:#3b82f6;
+  --ng-orange:#FF6B00;--ng-blue:#0066CC;
+}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow:hidden;height:100vh}
+#map{position:absolute;top:56px;left:0;right:0;bottom:0;z-index:1;background:var(--bg)}
+.leaflet-container{background:var(--bg)!important}
+.leaflet-control-zoom{border:none!important}
+.leaflet-control-zoom a{background:var(--surface2)!important;color:var(--text2)!important;border:1px solid var(--border)!important;width:32px!important;height:32px!important;line-height:32px!important;font-size:16px!important}
+.leaflet-control-zoom a:hover{background:#253050!important;color:#a0b0e0!important}
+.leaflet-control-attribution{display:none!important}
+
+/* Header */
+#header{position:fixed;top:0;left:0;right:0;z-index:1100;height:56px;
+  background:linear-gradient(135deg,#0d1321 0%,#131a2e 100%);
+  border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;gap:12px}
+#header .logo{display:flex;align-items:center;gap:10px;min-width:fit-content}
+#header .logo-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--ng-orange),var(--ng-blue));border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff}
+#header h1{font-size:14px;font-weight:600;color:var(--text);white-space:nowrap}
+#header h1 span{color:var(--text3);font-weight:400;font-size:12px}
+.header-sep{width:1px;height:28px;background:var(--border);margin:0 4px}
+
+/* Mode Tabs */
+#mode-tabs{display:flex;gap:2px;background:var(--surface);border-radius:8px;padding:3px;border:1px solid var(--border)}
+.mode-tab{padding:6px 14px;font-size:11px;font-weight:500;cursor:pointer;border-radius:6px;
+  color:var(--text3);border:none;background:transparent;font-family:inherit;letter-spacing:.2px;transition:all .2s;white-space:nowrap}
+.mode-tab.active{background:linear-gradient(135deg,rgba(255,107,0,.18),rgba(0,102,204,.18));color:var(--ng-orange);font-weight:600}
+.mode-tab:hover:not(.active){color:var(--text2);background:rgba(255,255,255,.03)}
+
+.header-right{margin-left:auto;display:flex;gap:8px;align-items:center}
+.stat-pill{padding:5px 12px;font-size:11px;font-weight:500;border-radius:20px;
+  background:var(--surface);border:1px solid var(--border);color:var(--text2);white-space:nowrap}
+.stat-pill strong{color:var(--ng-orange)}
+
+/* Right Panel */
+#right-panel{position:absolute;top:56px;right:0;bottom:0;width:360px;z-index:1000;
+  background:rgba(13,19,33,.97);border-left:1px solid var(--border);
+  backdrop-filter:blur(16px);overflow-y:auto;transition:transform .3s ease;display:flex;flex-direction:column}
+#right-panel.collapsed{transform:translateX(100%)}
+#panel-toggle{position:absolute;top:50%;right:360px;z-index:1001;transform:translateY(-50%);
+  background:var(--surface2);border:1px solid var(--border);border-right:none;
+  border-radius:8px 0 0 8px;padding:10px 5px;cursor:pointer;color:var(--text3);font-size:13px;transition:all .2s}
+#panel-toggle:hover{color:var(--text);background:#1a2a45}
+#right-panel.collapsed~#panel-toggle{right:0;border-radius:8px 0 0 8px}
+
+.panel-section{padding:16px;border-bottom:1px solid var(--border)}
+.panel-section h3{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.9px;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.panel-section h3 .badge{background:rgba(255,107,0,.2);color:var(--ng-orange);font-size:9px;padding:2px 7px;border-radius:10px;font-weight:700}
+
+/* Stats cards */
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.stat-card .sv{font-size:20px;font-weight:700;color:var(--text);line-height:1.2}
+.stat-card .sv.orange{color:var(--ng-orange)}
+.stat-card .sv.cyan{color:var(--cyan)}
+.stat-card .sv.red{color:var(--red)}
+.stat-card .sl{font-size:10px;color:var(--text3);margin-top:2px}
+
+/* Filters */
+.filter-group{margin-bottom:12px}
+.filter-label{font-size:10px;color:var(--text3);margin-bottom:6px;display:block}
+.filter-select{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:6px;
+  padding:7px 10px;font-size:11px;color:var(--text);font-family:inherit;cursor:pointer;outline:none}
+.filter-select:focus{border-color:var(--ng-orange)}
+.filter-chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{padding:4px 10px;font-size:10px;font-weight:500;border-radius:12px;cursor:pointer;
+  background:var(--surface);border:1px solid var(--border);color:var(--text3);transition:all .15s;white-space:nowrap}
+.chip.active{background:rgba(255,107,0,.15);border-color:rgba(255,107,0,.4);color:var(--ng-orange)}
+.chip:hover:not(.active){border-color:var(--border2);color:var(--text2)}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0}
+.toggle-label{font-size:11px;color:var(--text2)}
+.toggle{width:36px;height:20px;background:var(--border);border-radius:10px;cursor:pointer;position:relative;transition:background .2s}
+.toggle.on{background:var(--ng-orange)}
+.toggle::after{content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;background:#fff;border-radius:50%;transition:transform .2s}
+.toggle.on::after{transform:translateX(16px)}
+
+/* Rankings */
+.rank-list{list-style:none}
+.rank-item{display:flex;align-items:center;gap:8px;padding:8px 8px;border-radius:6px;cursor:pointer;
+  transition:background .15s;border-bottom:1px solid rgba(30,42,69,.4)}
+.rank-item:hover{background:rgba(255,107,0,.07)}
+.rank-item .rn{font-size:10px;font-weight:700;color:var(--text3);min-width:18px;text-align:center}
+.rank-item .rn.top3{color:var(--ng-orange)}
+.rank-item .rname{flex:1;font-weight:500;color:var(--text);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank-item .rval{font-size:11px;font-weight:600;color:var(--text2);text-align:right;min-width:55px}
+.rank-bar-wrap{position:relative;height:2px;background:var(--border);border-radius:1px;margin-top:3px}
+.rank-bar{height:2px;background:linear-gradient(90deg,var(--ng-orange),var(--cyan));border-radius:1px;transition:width .4s}
+
+/* Detail panel */
+#detail-panel{display:none;padding:16px;border-bottom:1px solid var(--border)}
+#detail-panel.visible{display:block}
+.detail-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.detail-sub{font-size:11px;color:var(--text3);margin-bottom:12px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.detail-stat{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 10px}
+.detail-stat .dv{font-size:16px;font-weight:700;color:var(--ng-orange)}
+.detail-stat .dl{font-size:9px;color:var(--text3);margin-top:1px}
+.tipo-breakdown{display:flex;flex-direction:column;gap:4px}
+.tipo-row{display:flex;align-items:center;gap:8px;font-size:11px}
+.tipo-name{flex:1;color:var(--text2)}
+.tipo-count{color:var(--text3);min-width:30px;text-align:right;font-size:10px}
+.tipo-bar-w{flex:2;height:4px;background:var(--border);border-radius:2px}
+.tipo-bar{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--ng-orange),var(--cyan))}
+
+/* Tooltip */
+.map-tooltip{background:rgba(13,19,33,.95)!important;border:1px solid var(--border2)!important;
+  border-radius:8px!important;color:var(--text)!important;font-size:12px!important;font-family:'Inter',sans-serif!important;
+  padding:10px 14px!important;box-shadow:0 8px 32px rgba(0,0,0,.6)!important}
+.map-tooltip .tt-title{font-weight:700;font-size:13px;color:var(--ng-orange);margin-bottom:4px}
+.map-tooltip .tt-row{display:flex;justify-content:space-between;gap:16px;font-size:11px;color:var(--text3);padding:1px 0}
+.map-tooltip .tt-row span{color:var(--text);font-weight:500}
+
+/* Legend */
+#legend{position:absolute;bottom:16px;left:16px;z-index:1000;
+  background:rgba(13,19,33,.9);border:1px solid var(--border);border-radius:8px;padding:10px 14px;
+  backdrop-filter:blur(8px);font-size:11px}
+#legend .leg-title{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px}
+.leg-scale{display:flex;align-items:center;gap:6px}
+.leg-gradient{width:100px;height:6px;border-radius:3px;background:linear-gradient(90deg,rgba(255,107,0,.6),rgba(34,211,238,.9))}
+.leg-labels{display:flex;justify-content:space-between;font-size:9px;color:var(--text3);margin-top:3px;width:100px}
+
+/* Scrollbar */
+#right-panel::-webkit-scrollbar{width:4px}
+#right-panel::-webkit-scrollbar-track{background:transparent}
+#right-panel::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+</style>
+</head>
+<body>
+
+<div id="header">
+  <div class="logo">
+    <div class="logo-icon">🏛️</div>
+    <h1>Florianópolis <span>— Patrimônio Municipal</span></h1>
+  </div>
+  <div class="header-sep"></div>
+  <div id="mode-tabs">
+    <button class="mode-tab active" data-mode="count">📊 Quantidade</button>
+    <button class="mode-tab" data-mode="area">📐 Área (m²)</button>
+    <button class="mode-tab" data-mode="sem_uso">⚠️ Sem Uso</button>
+  </div>
+  <div class="header-right">
+    <div class="stat-pill">Total: <strong id="h-total">—</strong></div>
+    <div class="stat-pill">Bairros: <strong id="h-bairros">—</strong></div>
+  </div>
+</div>
+
+<div id="map"></div>
+
+<div id="right-panel">
+  <!-- Stats -->
+  <div class="panel-section">
+    <h3>📈 Visão Geral</h3>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="sv orange" id="s-total">—</div>
+        <div class="sl">Imóveis cadastrados</div>
+      </div>
+      <div class="stat-card">
+        <div class="sv cyan" id="s-bairros">—</div>
+        <div class="sl">Bairros mapeados</div>
+      </div>
+      <div class="stat-card">
+        <div class="sv" id="s-area">—</div>
+        <div class="sl">Área total (m²)</div>
+      </div>
+      <div class="stat-card">
+        <div class="sv red" id="s-semuso">—</div>
+        <div class="sl">Sem uso identificado</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail panel (on bairro click) -->
+  <div id="detail-panel">
+    <div class="detail-title" id="d-name">—</div>
+    <div class="detail-sub" id="d-sub">Selecione um bairro no mapa</div>
+    <div class="detail-grid">
+      <div class="detail-stat"><div class="dv" id="d-total">—</div><div class="dl">Imóveis</div></div>
+      <div class="detail-stat"><div class="dv" id="d-semuso">—</div><div class="dl">Sem uso</div></div>
+      <div class="detail-stat"><div class="dv" id="d-area">—</div><div class="dl">Área total m²</div></div>
+      <div class="detail-stat"><div class="dv" id="d-pct">—</div><div class="dl">% sem uso</div></div>
+    </div>
+    <div style="font-size:10px;color:var(--text3);margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.7px">Tipos</div>
+    <div class="tipo-breakdown" id="d-tipos"></div>
+  </div>
+
+  <!-- Filters -->
+  <div class="panel-section">
+    <h3>🔍 Filtros <span class="badge" id="filter-count">Todos</span></h3>
+    <div class="filter-group">
+      <span class="filter-label">Responsável</span>
+      <select class="filter-select" id="f-resp">
+        <option value="">Todos os responsáveis</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Tipo de imóvel</span>
+      <div class="filter-chips" id="f-tipos"></div>
+    </div>
+    <div class="toggle-row">
+      <span class="toggle-label">Somente sem uso</span>
+      <div class="toggle" id="f-semuso"></div>
+    </div>
+  </div>
+
+  <!-- Rankings -->
+  <div class="panel-section">
+    <h3>🏆 Ranking de Bairros</h3>
+    <ul class="rank-list" id="rank-list"></ul>
+  </div>
+</div>
+
+<div id="panel-toggle" onclick="togglePanel()">◀</div>
+
+<div id="legend">
+  <div class="leg-title" id="leg-title">Quantidade de imóveis</div>
+  <div class="leg-scale">
+    <div>
+      <div class="leg-gradient"></div>
+      <div class="leg-labels"><span>Poucos</span><span>Muitos</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+let allImoveis = [];
+let bairrosStats = [];
+let activeMode = 'count';
+let filters = { resp: '', tipos: new Set(), semuso: false };
+let circles = {};
+let panelOpen = true;
+let selectedBairro = null;
+
+const map = L.map('map', {
+  center: [-27.5969, -48.5495],
+  zoom: 12,
+  zoomControl: true
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '©OpenStreetMap ©CartoDB',
+  subdomains: 'abcd', maxZoom: 19
+}).addTo(map);
+
+// Color scale
+function getColor(val, max) {
+  const t = Math.min(val / max, 1);
+  // Orange → Cyan gradient
+  const r = Math.round(255 * (1-t) * 0.8 + 34 * t);
+  const g = Math.round(107 * (1-t) * 0.5 + 211 * t);
+  const b = Math.round(0 * (1-t) + 238 * t);
+  return `rgb(${r},${g},${b})`;
+}
+
+function fmt(n) {
+  if (n >= 1000000) return (n/1000000).toFixed(1) + 'M';
+  if (n >= 1000) return (n/1000).toFixed(1) + 'k';
+  return n.toLocaleString('pt-BR');
+}
+
+function getMetric(b) {
+  if (activeMode === 'count') return b.total;
+  if (activeMode === 'area') return b.area_total;
+  if (activeMode === 'sem_uso') return b.sem_uso;
+  return b.total;
+}
+
+function applyFilters() {
+  let filtered = [...allImoveis];
+  if (filters.resp) filtered = filtered.filter(im => im.responsavel === filters.resp);
+  if (filters.tipos.size > 0) filtered = filtered.filter(im => filters.tipos.has(im.tipo));
+  if (filters.semuso) filtered = filtered.filter(im => im.sem_uso);
+  return filtered;
+}
+
+function reaggregate(filtered) {
+  const byBairro = {};
+  for (const b of bairrosStats) {
+    byBairro[b.bairro] = {
+      bairro: b.bairro, lat: b.lat, lng: b.lng,
+      total: 0, area_total: 0, sem_uso: 0,
+      tipos: {}, responsaveis: {}
+    };
+  }
+  for (const im of filtered) {
+    if (!byBairro[im.bairro]) continue;
+    const bd = byBairro[im.bairro];
+    bd.total++;
+    bd.area_total += im.area;
+    if (im.sem_uso) bd.sem_uso++;
+    bd.tipos[im.tipo] = (bd.tipos[im.tipo]||0)+1;
+    bd.responsaveis[im.responsavel] = (bd.responsaveis[im.responsavel]||0)+1;
+  }
+  return Object.values(byBairro).filter(b => b.total > 0);
+}
+
+function updateMap() {
+  const filtered = applyFilters();
+  const data = reaggregate(filtered);
+  const maxVal = Math.max(...data.map(b => getMetric(b)), 1);
+
+  // Remove old circles
+  for (const key in circles) { circles[key].remove(); }
+  circles = {};
+
+  for (const b of data) {
+    if (b.lat === -27.5969 && b.bairro === 'Não Identificado') continue;
+    const val = getMetric(b);
+    if (val === 0) continue;
+    const radius = 1500 + (val / maxVal) * 18000;
+    const color = getColor(val, maxVal);
+
+    const circle = L.circle([b.lat, b.lng], {
+      radius: radius,
+      color: color,
+      fillColor: color,
+      fillOpacity: 0.35,
+      weight: 1.5,
+      opacity: 0.8
+    });
+
+    const tipRows = Object.entries(b.tipos).slice(0,4)
+      .map(([t,c]) => `<div class="tt-row">${t}: <span>${c}</span></div>`).join('');
+
+    circle.bindTooltip(`
+      <div class="map-tooltip">
+        <div class="tt-title">${b.bairro}</div>
+        <div class="tt-row">Imóveis: <span>${b.total}</span></div>
+        <div class="tt-row">Área total: <span>${fmt(b.area_total)} m²</span></div>
+        <div class="tt-row">Sem uso: <span>${b.sem_uso}</span></div>
+        ${tipRows}
+      </div>
+    `, {permanent: false, className: 'leaflet-tooltip-custom', sticky: true});
+
+    circle.on('click', () => showDetail(b));
+    circle.addTo(map);
+    circles[b.bairro] = circle;
+  }
+
+  updateStats(filtered, data);
+  updateRankings(data);
+}
+
+function updateStats(filtered, data) {
+  const total = filtered.length;
+  const bairros = data.length;
+  const area = filtered.reduce((s,im) => s+im.area, 0);
+  const semuso = filtered.filter(im => im.sem_uso).length;
+
+  document.getElementById('s-total').textContent = fmt(total);
+  document.getElementById('s-bairros').textContent = bairros;
+  document.getElementById('s-area').textContent = fmt(Math.round(area));
+  document.getElementById('s-semuso').textContent = semuso;
+  document.getElementById('h-total').textContent = fmt(total);
+  document.getElementById('h-bairros').textContent = bairros;
+
+  const active = (filters.resp ? 1 : 0) + filters.tipos.size + (filters.semuso ? 1 : 0);
+  document.getElementById('filter-count').textContent = active > 0 ? `${active} filtro(s)` : 'Todos';
+}
+
+function updateRankings(data) {
+  const sorted = [...data].sort((a,b) => getMetric(b) - getMetric(a)).slice(0,12);
+  const maxVal = Math.max(...sorted.map(b => getMetric(b)), 1);
+  const ul = document.getElementById('rank-list');
+  ul.innerHTML = sorted.map((b, i) => `
+    <li class="rank-item" onclick="showDetail(bairroByName['${b.bairro}'])">
+      <span class="rn ${i<3?'top3':''}">${i+1}</span>
+      <div style="flex:1;overflow:hidden">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span class="rname">${b.bairro}</span>
+          <span class="rval">${fmt(getMetric(b))}</span>
+        </div>
+        <div class="rank-bar-wrap">
+          <div class="rank-bar" style="width:${(getMetric(b)/maxVal*100).toFixed(1)}%"></div>
+        </div>
+      </div>
+    </li>
+  `).join('');
+}
+
+function showDetail(b) {
+  if (!b) return;
+  selectedBairro = b.bairro;
+  const dp = document.getElementById('detail-panel');
+  dp.classList.add('visible');
+  document.getElementById('d-name').textContent = b.bairro;
+  document.getElementById('d-sub').textContent = `Dados do patrimônio municipal`;
+  document.getElementById('d-total').textContent = b.total;
+  document.getElementById('d-semuso').textContent = b.sem_uso;
+  document.getElementById('d-area').textContent = fmt(Math.round(b.area_total));
+  const pct = b.total > 0 ? ((b.sem_uso/b.total)*100).toFixed(0) : 0;
+  document.getElementById('d-pct').textContent = pct + '%';
+
+  const tiposEl = document.getElementById('d-tipos');
+  const tiposArr = Object.entries(b.tipos).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const maxT = Math.max(...tiposArr.map(t=>t[1]), 1);
+  tiposEl.innerHTML = tiposArr.map(([t,c]) => `
+    <div class="tipo-row">
+      <span class="tipo-name">${t}</span>
+      <div class="tipo-bar-w"><div class="tipo-bar" style="width:${(c/maxT*100).toFixed(1)}%"></div></div>
+      <span class="tipo-count">${c}</span>
+    </div>
+  `).join('');
+
+  // Fly to bairro
+  if (circles[b.bairro]) {
+    map.flyTo([b.lat, b.lng], 14, {duration: 1});
+  }
+}
+
+function togglePanel() {
+  panelOpen = !panelOpen;
+  document.getElementById('right-panel').classList.toggle('collapsed', !panelOpen);
+  document.getElementById('panel-toggle').textContent = panelOpen ? '▶' : '◀';
+  document.getElementById('panel-toggle').style.right = panelOpen ? '360px' : '0';
+}
+
+// Build bairroByName lookup for rankings click
+let bairroByName = {};
+
+async function init() {
+  const [imoveisData, bairrosData] = await Promise.all([
+    fetch('data/imoveis.json').then(r=>r.json()),
+    fetch('data/bairros_stats.json').then(r=>r.json())
+  ]);
+
+  allImoveis = imoveisData;
+  bairrosStats = bairrosData;
+
+  // Build lookup
+  for (const b of bairrosData) bairroByName[b.bairro] = b;
+
+  // Build filter options
+  const resps = [...new Set(allImoveis.map(im=>im.responsavel))].filter(r=>r&&r!=='N/A').sort();
+  const sel = document.getElementById('f-resp');
+  resps.forEach(r => {
+    const opt = document.createElement('option');
+    opt.value = r; opt.textContent = r;
+    sel.appendChild(opt);
+  });
+
+  const tipos = [...new Set(allImoveis.map(im=>im.tipo))].filter(t=>t).sort();
+  const fc = document.getElementById('f-tipos');
+  // Top 8 tipos only
+  const tipoCount = {};
+  allImoveis.forEach(im => { tipoCount[im.tipo] = (tipoCount[im.tipo]||0)+1; });
+  const topTipos = Object.entries(tipoCount).sort((a,b)=>b[1]-a[1]).slice(0,8).map(t=>t[0]);
+  topTipos.forEach(t => {
+    const chip = document.createElement('div');
+    chip.className = 'chip';
+    chip.textContent = t;
+    chip.onclick = () => {
+      chip.classList.toggle('active');
+      if (chip.classList.contains('active')) filters.tipos.add(t);
+      else filters.tipos.delete(t);
+      updateMap();
+    };
+    fc.appendChild(chip);
+  });
+
+  sel.onchange = () => { filters.resp = sel.value; updateMap(); };
+
+  const toggleEl = document.getElementById('f-semuso');
+  toggleEl.onclick = () => {
+    filters.semuso = !filters.semuso;
+    toggleEl.classList.toggle('on', filters.semuso);
+    updateMap();
+  };
+
+  // Mode tabs
+  document.querySelectorAll('.mode-tab').forEach(tab => {
+    tab.onclick = () => {
+      document.querySelectorAll('.mode-tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      activeMode = tab.dataset.mode;
+      const legends = {
+        count: 'Quantidade de imóveis',
+        area: 'Área territorial (m²)',
+        sem_uso: 'Imóveis sem uso'
+      };
+      document.getElementById('leg-title').textContent = legends[activeMode];
+      updateMap();
+    };
+  });
+
+  updateMap();
+}
+
+init();
+</script>
+</body>
+</html>
