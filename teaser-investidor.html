@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FII Patrimônio Florianópolis — Teaser Investidor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a0e17;
+      --surface:   #111827;
+      --surface2:  #161e2e;
+      --border:    #1e2a45;
+      --text:      #e0e6f0;
+      --text-muted:#8ca0c0;
+      --accent:    #FF6B00;
+      --accent2:   #ff8c3a;
+      --cyan:      #22d3ee;
+      --cyan2:     #06b6d4;
+      --green:     #10b981;
+      --yellow:    #f59e0b;
+      --red:       #ef4444;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ─── Header / Nav ─── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,14,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+
+    .header-brand .icon-wrap {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .header-brand .icon-wrap svg { color: #fff; width: 18px; height: 18px; }
+
+    .confidential-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: rgba(255,107,0,0.08);
+    }
+
+    .btn-print {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .btn-print:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(255,107,0,0.06);
+    }
+
+    /* ─── Main content ─── */
+    main { max-width: 1100px; margin: 0 auto; padding: 0 24px 60px; }
+
+    section { margin-bottom: 64px; }
+
+    /* ─── Section labels ─── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 12px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 3px; height: 14px;
+      background: var(--cyan);
+      border-radius: 2px;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      text-align: center;
+      padding: 72px 24px 60px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse at center, rgba(255,107,0,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-icon {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 20px;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 0 40px rgba(255,107,0,0.3);
+    }
+    .hero-icon svg { width: 36px; height: 36px; color: #fff; }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--text) 40%, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+
+    /* ─── Stats row ─── */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .stat-block {
+      flex: 1;
+      min-width: 180px;
+      max-width: 260px;
+      padding: 28px 24px;
+      text-align: center;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      position: relative;
+    }
+    .stat-block:first-child { border-radius: 12px 0 0 12px; }
+    .stat-block:last-child  { border-radius: 0 12px 12px 0; border-left: none; }
+    .stat-block:not(:first-child):not(:last-child) { border-left: none; }
+
+    .stat-value {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── Card grid ─── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    /* ─── Oportunidade ─── */
+    .oportunidade-text {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 820px;
+      margin-bottom: 28px;
+    }
+
+    .highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .highlight-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .highlight-chip svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .highlight-chip.accent { border-color: rgba(255,107,0,0.4); color: var(--accent); }
+    .highlight-chip.cyan   { border-color: rgba(34,211,238,0.4); color: var(--cyan); }
+    .highlight-chip.green  { border-color: rgba(16,185,129,0.4); color: var(--green); }
+
+    /* ─── Cotas cards ─── */
+    .cotas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 700px) {
+      .cotas-grid { grid-template-columns: 1fr; }
+      .stat-block:first-child { border-radius: 12px 12px 0 0; }
+      .stat-block:last-child  { border-radius: 0 0 12px 12px; border-left: 1px solid var(--border); border-top: none; }
+      .stat-block:not(:first-child):not(:last-child) { border-left: 1px solid var(--border); border-top: none; }
+    }
+
+    .cota-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .cota-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cota-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .badge-anchor { background: rgba(255,107,0,0.15); color: var(--accent); border: 1px solid rgba(255,107,0,0.4); }
+    .badge-public { background: rgba(34,211,238,0.1); color: var(--cyan); border: 1px solid rgba(34,211,238,0.3); }
+
+    .cota-name {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 2px;
+    }
+    .cota-class { font-size: 13px; color: var(--text-muted); }
+
+    .cota-body { padding: 20px 24px; }
+
+    .cota-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 13px;
+    }
+    .cota-feature:last-child { border-bottom: none; }
+
+    .cota-feature .feat-icon {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .feat-label { color: var(--text-muted); min-width: 160px; }
+    .feat-value { color: var(--text); font-weight: 600; }
+
+    /* Senior card highlight */
+    .cota-card.senior {
+      border-color: rgba(255,107,0,0.35);
+      box-shadow: 0 0 30px rgba(255,107,0,0.08);
+    }
+    .cota-card.senior .cota-header { background: rgba(255,107,0,0.05); }
+
+    .cota-card.subordinada .cota-feature .feat-value { color: var(--text-muted); }
+
+    .janela-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--yellow);
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.3);
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+
+    /* ─── Waterfall ─── */
+    .waterfall {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .wf-step {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      position: relative;
+    }
+
+    .wf-number {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .wf-connector {
+      position: absolute;
+      left: 17px;
+      top: 36px;
+      width: 2px;
+      height: 40px;
+      background: var(--border);
+    }
+
+    .wf-content {
+      flex: 1;
+      margin-left: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 40px;
+    }
+
+    .wf-step:last-child .wf-content { margin-bottom: 0; }
+    .wf-step:last-child .wf-connector { display: none; }
+
+    .wf-label { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .wf-desc  { font-size: 12px; color: var(--text-muted); }
+
+    .wf-step.step1 .wf-number { background: rgba(139,92,246,0.2); color: #a78bfa; border: 1px solid rgba(139,92,246,0.4); }
+    .wf-step.step2 .wf-number { background: rgba(255,107,0,0.2); color: var(--accent); border: 1px solid rgba(255,107,0,0.4); }
+    .wf-step.step3 .wf-number { background: rgba(34,211,238,0.15); color: var(--cyan); border: 1px solid rgba(34,211,238,0.35); }
+    .wf-step.step4 .wf-number { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.35); }
+
+    .wf-step.step1 .wf-content { border-color: rgba(139,92,246,0.25); }
+    .wf-step.step2 .wf-content { border-color: rgba(255,107,0,0.25); }
+    .wf-step.step3 .wf-content { border-color: rgba(34,211,238,0.2); }
+    .wf-step.step4 .wf-content { border-color: rgba(16,185,129,0.2); }
+
+    /* ─── Table ─── */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    thead tr {
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.15s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+    td {
+      padding: 13px 16px;
+      vertical-align: middle;
+    }
+
+    .td-rank {
+      font-weight: 700;
+      color: var(--text-muted);
+      width: 36px;
+    }
+
+    .td-bairro { font-weight: 600; color: var(--cyan); }
+    .td-area   { color: var(--text-muted); }
+    .td-val    { font-weight: 700; color: var(--accent); white-space: nowrap; }
+
+    .status-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .status-sem-uso { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+    .status-uso     { background: rgba(16,185,129,0.12); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(255,107,0,0.08) 0%, rgba(34,211,238,0.05) 100%);
+      border: 1px solid rgba(255,107,0,0.25);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .cta-sub { font-size: 15px; color: var(--text-muted); margin-bottom: 28px; }
+
+    .cta-metrics {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .cta-metric-item { text-align: center; }
+    .cta-metric-val  { font-size: 22px; font-weight: 800; color: var(--accent); }
+    .cta-metric-lbl  { font-size: 12px; color: var(--text-muted); }
+
+    .cta-contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 28px;
+      max-width: 560px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .cta-contact-box svg { width: 22px; height: 22px; color: var(--accent); flex-shrink: 0; }
+    .cta-contact-text { font-size: 14px; color: var(--text); text-align: left; }
+
+    .disclaimer {
+      font-size: 11px;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0.7;
+    }
+
+    /* ─── Footer ─── */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ─── Print ─── */
+    @media print {
+      body { background: #fff !important; color: #111 !important; }
+      .site-header { background: #fff !important; border-bottom: 1px solid #ddd !important; position: static !important; }
+      .btn-print { display: none !important; }
+      .hero::before { display: none; }
+      :root {
+        --bg: #fff;
+        --surface: #f8f9fb;
+        --surface2: #f0f2f6;
+        --border: #d1d9e6;
+        --text: #111827;
+        --text-muted: #4b5563;
+        --accent: #c94f00;
+        --cyan: #0891b2;
+        --green: #059669;
+        --yellow: #b45309;
+      }
+      .cta-section { border-color: #d1d9e6; }
+      .hero h1 { -webkit-text-fill-color: #111 !important; color: #111 !important; }
+      section { margin-bottom: 40px; }
+    }
+
+    /* ─── Skeleton / loading ─── */
+    .skeleton {
+      background: linear-gradient(90deg, var(--surface) 25%, var(--surface2) 50%, var(--surface) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 4px;
+      height: 14px;
+    }
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="site-header">
+  <div class="header-brand">
+    <div class="icon-wrap">
+      <i data-lucide="building-2"></i>
+    </div>
+    FII Patrimônio Florianópolis
+  </div>
+
+  <span class="confidential-badge">Confidencial — Restrito</span>
+
+  <button class="btn-print" onclick="window.print()">
+    <span>🖨️</span> Exportar PDF
+  </button>
+</header>
+
+<!-- ══════════════ MAIN ══════════════ -->
+<main>
+
+  <!-- ── 1. HERO ── -->
+  <section class="hero">
+    <div class="hero-icon">
+      <i data-lucide="building-2"></i>
+    </div>
+
+    <h1>FII Patrimônio Florianópolis</h1>
+    <p class="hero-sub">Oportunidade de Investimento Âncora — Fase Seed</p>
+
+    <div class="stats-row">
+      <div class="stat-block">
+        <div class="stat-value">R$ 17,9B</div>
+        <div class="stat-label">Portfólio Top 100</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-value">1.634</div>
+        <div class="stat-label">Ativos Mapeados</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-value">13,4M m²</div>
+        <div class="stat-label">Área Total</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 2. A OPORTUNIDADE ── -->
+  <section>
+    <div class="section-label">A Oportunidade</div>
+    <h2 class="card-title" style="font-size:22px; font-weight:800; margin-bottom:16px; letter-spacing:-0.01em;">
+      O maior portfólio de imóveis públicos de Florianópolis, estruturado como FII
+    </h2>
+
+    <p class="oportunidade-text">
+      Mapeamos com inteligência artificial todos os <strong>1.634 imóveis municipais</strong> de Florianópolis,
+      precificados com dados de mercado reais (FipeZap / CRECI-SC 2024/2025) e organizados por potencial de
+      geração de valor. O Top 100 ativos representa <strong>R$ 17,9 bilhões</strong> em valuation estimado —
+      um portfólio que será estruturado num Fundo de Investimento Imobiliário (FII) para captação privada.
+    </p>
+
+    <div class="highlights">
+      <div class="highlight-chip cyan">
+        <i data-lucide="trending-up" style="color:var(--cyan)"></i>
+        Florianópolis: mercado premium em tendência de alta
+      </div>
+      <div class="highlight-chip accent">
+        <i data-lucide="map-pin" style="color:var(--accent)"></i>
+        Jurerê Internacional · Lagoa · Coqueiros · Campeche
+      </div>
+      <div class="highlight-chip green">
+        <i data-lucide="zap" style="color:var(--green)"></i>
+        58 ativos sem uso = monetização imediata disponível
+      </div>
+      <div class="highlight-chip" style="border-color:rgba(245,158,11,0.4);color:var(--yellow)">
+        <i data-lucide="database" style="color:var(--yellow)"></i>
+        Dados: FipeZap / CRECI-SC 2024/2025
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3. ESTRUTURA DE COTAS ── -->
+  <section>
+    <div class="section-label">Estrutura de Cotas</div>
+    <div class="cotas-grid">
+
+      <!-- Classe A — Sênior -->
+      <div class="cota-card senior">
+        <div class="cota-header">
+          <div class="cota-badge badge-anchor">Investidor Âncora</div>
+          <div class="cota-name">Cota Sênior</div>
+          <div class="cota-class">Classe A — Fase Seed</div>
+        </div>
+        <div class="cota-body">
+
+          <div class="cota-feature">
+            <i data-lucide="circle-dollar-sign" class="feat-icon" style="color:var(--accent)"></i>
+            <div>
+              <div class="feat-label">Ticket mínimo</div>
+              <div class="feat-value" style="color:var(--accent); font-size:18px;">R$ 10 milhões</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="percent" class="feat-icon" style="color:var(--green)"></i>
+            <div>
+              <div class="feat-label">Retorno preferencial</div>
+              <div class="feat-value">IPCA + 6% a.a.</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="shield-check" class="feat-icon" style="color:var(--cyan)"></i>
+            <div>
+              <div class="feat-label">Proteção de capital</div>
+              <div class="feat-value">Principal protegido na saída</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="tag" class="feat-icon" style="color:var(--yellow)"></i>
+            <div>
+              <div class="feat-label">Deságio de entrada</div>
+              <div class="feat-value" style="color:var(--yellow)">20% sobre NAV</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="users" class="feat-icon" style="color:var(--cyan)"></i>
+            <div>
+              <div class="feat-label">Governança</div>
+              <div class="feat-value">Assento no Comitê de Investimento</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="eye" class="feat-icon" style="color:var(--accent)"></i>
+            <div>
+              <div class="feat-label">Pipeline</div>
+              <div class="feat-value">First look em novas emissões</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="link-2" class="feat-icon" style="color:var(--green)"></i>
+            <div>
+              <div class="feat-label">Co-investimento</div>
+              <div class="feat-value">Direto em ativos selecionados</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="star" class="feat-icon" style="color:var(--yellow)"></i>
+            <div>
+              <div class="feat-label">Naming rights</div>
+              <div class="feat-value">Em empreendimentos do portfólio</div>
+            </div>
+          </div>
+
+          <div class="janela-badge">
+            <i data-lucide="clock" style="width:14px;height:14px;"></i>
+            Janela seed: 6 meses — encerra Outubro/2026
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Classe B — Subordinada -->
+      <div class="cota-card subordinada">
+        <div class="cota-header">
+          <div class="cota-badge badge-public">Oferta Pública</div>
+          <div class="cota-name">Cota Subordinada</div>
+          <div class="cota-class">Classe B — Pós-seed</div>
+        </div>
+        <div class="cota-body">
+
+          <div class="cota-feature">
+            <i data-lucide="circle-dollar-sign" class="feat-icon" style="color:var(--text-muted)"></i>
+            <div>
+              <div class="feat-label">Disponibilidade</div>
+              <div class="feat-value">Após encerramento da fase seed</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="percent" class="feat-icon" style="color:var(--text-muted)"></i>
+            <div>
+              <div class="feat-label">Preferência</div>
+              <div class="feat-value">Sem preferência na distribuição</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="shield" class="feat-icon" style="color:var(--text-muted)"></i>
+            <div>
+              <div class="feat-label">Proteção de capital</div>
+              <div class="feat-value">Sem proteção de principal</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="tag" class="feat-icon" style="color:var(--text-muted)"></i>
+            <div>
+              <div class="feat-label">Deságio de entrada</div>
+              <div class="feat-value">Sem deságio — preço de mercado</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="users" class="feat-icon" style="color:var(--text-muted)"></i>
+            <div>
+              <div class="feat-label">Governança</div>
+              <div class="feat-value">Sem direitos de governança</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="eye-off" class="feat-icon" style="color:var(--text-muted)"></i>
+            <div>
+              <div class="feat-label">Pipeline</div>
+              <div class="feat-value">Sem acesso preferencial</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="minus-circle" class="feat-icon" style="color:var(--text-muted)"></i>
+            <div>
+              <div class="feat-label">Co-investimento</div>
+              <div class="feat-value">Não disponível nesta classe</div>
+            </div>
+          </div>
+
+          <div class="cota-feature">
+            <i data-lucide="minus-circle" class="feat-icon" style="color:var(--text-muted)"></i>
+            <div>
+              <div class="feat-label">Naming rights</div>
+              <div class="feat-value">Não disponível nesta classe</div>
+            </div>
+          </div>
+
+          <div class="janela-badge" style="color:var(--text-muted); border-color:var(--border); background:var(--surface2);">
+            <i data-lucide="calendar" style="width:14px;height:14px;"></i>
+            Disponível a partir de Outubro/2026
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 4. WATERFALL ── -->
+  <section>
+    <div class="section-label">Waterfall de Distribuição</div>
+    <h2 class="card-title" style="font-size:18px; font-weight:700; margin-bottom:28px;">
+      Cascata de distribuição de resultados
+    </h2>
+
+    <div class="waterfall">
+
+      <div class="wf-step step1">
+        <div class="wf-connector"></div>
+        <div class="wf-number">1</div>
+        <div class="wf-content">
+          <div class="wf-label">Despesas Operacionais do Fundo</div>
+          <div class="wf-desc">Administração, gestão, custódia, auditoria e despesas regulatórias CVM</div>
+        </div>
+      </div>
+
+      <div class="wf-step step2">
+        <div class="wf-connector"></div>
+        <div class="wf-number">2</div>
+        <div class="wf-content">
+          <div class="wf-label">Retorno Preferencial — Classe A</div>
+          <div class="wf-desc">Hurdle rate IPCA + 6% a.a. com proteção de principal pago prioritariamente aos cotistas sêniores</div>
+        </div>
+      </div>
+
+      <div class="wf-step step3">
+        <div class="wf-connector"></div>
+        <div class="wf-number">3</div>
+        <div class="wf-content">
+          <div class="wf-label">Catch-up — Classe B</div>
+          <div class="wf-desc">Distribuição compensatória para cotistas subordinados até equiparar retorno proporcional</div>
+        </div>
+      </div>
+
+      <div class="wf-step step4">
+        <div class="wf-number">4</div>
+        <div class="wf-content">
+          <div class="wf-label">Distribuição Proporcional — 80/20</div>
+          <div class="wf-desc">Excedente distribuído proporcionalmente: <strong>80% Classe A</strong> · <strong>20% Classe B</strong></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 5. TOP 5 ATIVOS ── -->
+  <section>
+    <div class="section-label">Top Ativos do Portfólio</div>
+    <h2 class="card-title" style="font-size:18px; font-weight:700; margin-bottom:16px;">
+      5 maiores ativos por valuation estimado
+    </h2>
+
+    <div class="table-wrap">
+      <table id="top5-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Bairro / Localização</th>
+            <th>Área (m²)</th>
+            <th>Valuation Estimado</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="top5-body">
+          <!-- skeleton rows while loading -->
+          <tr>
+            <td colspan="5" style="padding:24px; text-align:center; color:var(--text-muted); font-size:13px;">
+              <span id="table-loading">Carregando ativos…</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:10px; font-size:11px; color:var(--text-muted);">
+      * Valuations estimados com base em dados FipeZap/CRECI-SC 2024/2025. Não constitui avaliação formal ABNT.
+    </p>
+  </section>
+
+  <!-- ── 6. CTA ── -->
+  <section>
+    <div class="cta-section">
+      <div class="section-label" style="justify-content:center;">Próximos Passos</div>
+
+      <h2 class="cta-title">Janela Seed: 6 meses — Abril a Outubro/2026</h2>
+      <p class="cta-sub">Vagas limitadas para investidores âncora Classe A</p>
+
+      <div class="cta-metrics">
+        <div class="cta-metric-item">
+          <div class="cta-metric-val">R$ 10M</div>
+          <div class="cta-metric-lbl">Ticket mínimo Classe A</div>
+        </div>
+        <div class="cta-metric-item">
+          <div class="cta-metric-val">IPCA+6%</div>
+          <div class="cta-metric-lbl">Retorno preferencial</div>
+        </div>
+        <div class="cta-metric-item">
+          <div class="cta-metric-val">20%</div>
+          <div class="cta-metric-lbl">Deságio sobre NAV</div>
+        </div>
+        <div class="cta-metric-item">
+          <div class="cta-metric-val">6 meses</div>
+          <div class="cta-metric-lbl">Janela seed exclusiva</div>
+        </div>
+      </div>
+
+      <div class="cta-contact-box">
+        <i data-lucide="mail"></i>
+        <div class="cta-contact-text">
+          <strong>Para informações sobre participação,</strong><br/>
+          entre em contato com a equipe de estruturação do FII Patrimônio Florianópolis.
+        </div>
+      </div>
+
+      <p class="disclaimer">
+        Este documento é de caráter informativo e não constitui oferta pública de valores mobiliários nos termos da Instrução CVM nº 400/03
+        e da Resolução CVM nº 160/22. As informações aqui contidas são baseadas em dados públicos e estimativas de mercado.
+        A estruturação do fundo está sujeita a aprovação regulatória pela Comissão de Valores Mobiliários (CVM).
+        Rentabilidade passada ou estimada não garante rentabilidade futura.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="site-footer">
+  <div>FII Patrimônio Florianópolis &copy; 2026 — Documento Confidencial</div>
+  <div>Dados: FipeZap / CRECI-SC 2024/2025 · IA: OpenClaw Analytics</div>
+</footer>
+
+<!-- ══════════════ SCRIPTS ══════════════ -->
+<script>
+  // ── Init Lucide icons ──
+  lucide.createIcons();
+
+  // ── Load Top 5 assets from JSON ──
+  (async function loadTop5() {
+    const tbody = document.getElementById('top5-body');
+    const loadingEl = document.getElementById('table-loading');
+
+    function fmtArea(n) {
+      return new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 }).format(n) + ' m²';
+    }
+    function fmtVal(n) {
+      if (n >= 1e9) return 'R$ ' + (n / 1e9).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + 'B';
+      if (n >= 1e6) return 'R$ ' + (n / 1e6).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + 'M';
+      return 'R$ ' + new Intl.NumberFormat('pt-BR').format(n);
+    }
+    function truncate(str, max) {
+      if (!str) return '—';
+      return str.length > max ? str.substring(0, max) + '…' : str;
+    }
+
+    try {
+      const res  = await fetch('./data/top100.json');
+      const data = await res.json();
+
+      // Sort by valuation descending, pick top 5
+      const top5 = data
+        .filter(d => d.valuation > 0)
+        .sort((a, b) => b.valuation - a.valuation)
+        .slice(0, 5);
+
+      tbody.innerHTML = top5.map((item, i) => {
+        const semUso = item.sem_uso || item.caracterizacao === 'Sem uso';
+        const statusText = truncate(item.caracterizacao || (semUso ? 'Sem uso' : 'Em uso'), 40);
+        const statusClass = semUso ? 'status-sem-uso' : 'status-uso';
+        const statusLabel = semUso ? 'Sem uso' : statusText;
+
+        return `
+          <tr>
+            <td class="td-rank">${i + 1}</td>
+            <td class="td-bairro">${item.bairro || '—'}</td>
+            <td class="td-area">${fmtArea(item.area)}</td>
+            <td class="td-val">${fmtVal(item.valuation)}</td>
+            <td><span class="status-badge ${statusClass}">${statusLabel}</span></td>
+          </tr>
+        `;
+      }).join('');
+
+    } catch (err) {
+      // Fallback com dados hardcoded se fetch falhar (ex: file://)
+      tbody.innerHTML = `
+        <tr>
+          <td class="td-rank">1</td>
+          <td class="td-bairro">Lagoa da Conceição</td>
+          <td class="td-area">476.110 m²</td>
+          <td class="td-val">R$ 5,71B</td>
+          <td><span class="status-badge status-uso">Centro de Convivência</span></td>
+        </tr>
+        <tr>
+          <td class="td-rank">2</td>
+          <td class="td-bairro">Lagoa da Conceição</td>
+          <td class="td-area">118.354 m²</td>
+          <td class="td-val">R$ 1,42B</td>
+          <td><span class="status-badge status-uso">Praça da Tapera</span></td>
+        </tr>
+        <tr>
+          <td class="td-rank">3</td>
+          <td class="td-bairro">Armação</td>
+          <td class="td-area">88.224 m²</td>
+          <td class="td-val">R$ 749,9M</td>
+          <td><span class="status-badge status-uso">Sistema Viário</span></td>
+        </tr>
+        <tr>
+          <td class="td-rank">4</td>
+          <td class="td-bairro">Jurerê Internacional</td>
+          <td class="td-area">31.392 m²</td>
+          <td class="td-val">R$ 596,5M</td>
+          <td><span class="status-badge status-uso">SME / Creche</span></td>
+        </tr>
+        <tr>
+          <td class="td-rank">5</td>
+          <td class="td-bairro">Jurerê Internacional</td>
+          <td class="td-area">31.392 m²</td>
+          <td class="td-val">R$ 596,5M</td>
+          <td><span class="status-badge status-sem-uso">Sem uso</span></td>
+        </tr>
+      `;
+    }
+  })();
+</script>
+
+</body>
+</html>
