@@ -189,6 +189,111 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 #right-panel::-webkit-scrollbar-track{background:transparent}
 #right-panel::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 
+/* ─── Relatório Modal ─── */
+#relatorio-modal-overlay{
+  display:none;position:fixed;inset:0;z-index:9000;
+  background:rgba(0,0,0,.72);backdrop-filter:blur(12px);
+  align-items:center;justify-content:center
+}
+#relatorio-modal-overlay.open{display:flex}
+#relatorio-modal{
+  background:var(--surface);border:1px solid var(--border2);border-radius:14px;
+  padding:0;width:min(640px,96vw);max-height:88vh;overflow:hidden;
+  display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(0,0,0,.7)
+}
+.rel-modal-header{
+  padding:20px 24px 16px;border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;gap:12px
+}
+.rel-modal-icon{
+  width:40px;height:40px;border-radius:10px;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(255,107,0,.2),rgba(0,102,204,.15));
+  border:1px solid rgba(255,107,0,.3);display:flex;align-items:center;justify-content:center;font-size:20px
+}
+.rel-modal-title{font-size:16px;font-weight:700;color:var(--text);line-height:1.2}
+.rel-modal-sub{font-size:11px;color:var(--text3);margin-top:3px}
+.rel-modal-close{
+  margin-left:auto;background:none;border:none;color:var(--text3);cursor:pointer;
+  font-size:20px;padding:0 4px;line-height:1;transition:color .15s
+}
+.rel-modal-close:hover{color:var(--text)}
+.rel-modal-body{padding:20px 24px;overflow-y:auto;flex:1}
+.rel-modal-body::-webkit-scrollbar{width:4px}
+.rel-modal-body::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+.rel-section{margin-bottom:18px}
+.rel-section-title{
+  font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;
+  letter-spacing:.9px;margin-bottom:10px;display:flex;align-items:center;gap:6px
+}
+.rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rel-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.rel-card{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:11px 14px}
+.rel-card .rv{font-size:18px;font-weight:700;color:var(--text);line-height:1.2}
+.rel-card .rv.orange{color:var(--ng-orange)}
+.rel-card .rv.cyan{color:var(--cyan)}
+.rel-card .rv.green{color:#10b981}
+.rel-card .rv.red{color:var(--red)}
+.rel-card .rl{font-size:10px;color:var(--text3);margin-top:2px}
+.rel-tag{
+  display:inline-block;padding:3px 9px;border-radius:8px;font-size:11px;font-weight:600;
+  margin-right:6px;margin-bottom:6px
+}
+.rel-tag.green{background:rgba(16,185,129,.15);color:#10b981;border:1px solid rgba(16,185,129,.25)}
+.rel-tag.red{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.25)}
+.rel-tag.orange{background:rgba(255,107,0,.15);color:var(--ng-orange);border:1px solid rgba(255,107,0,.3)}
+.rel-tag.blue{background:rgba(59,130,246,.15);color:#3b82f6;border:1px solid rgba(59,130,246,.3)}
+
+.rel-pricing-box{
+  background:linear-gradient(135deg,rgba(245,158,11,.12),rgba(16,185,129,.08));
+  border:1px solid rgba(245,158,11,.3);border-radius:10px;padding:14px 16px;margin-bottom:8px
+}
+.rel-pricing-val{font-size:26px;font-weight:800;color:#f59e0b;line-height:1.1}
+.rel-pricing-label{font-size:10px;color:var(--text3);margin-top:2px}
+.rel-pricing-range{font-size:11px;color:var(--text2);margin-top:8px}
+.rel-pricing-range span{color:#10b981;font-weight:600}
+.rel-empty{text-align:center;padding:20px;color:var(--text3);font-size:12px}
+
+/* Relatório panel (aba lateral) */
+#relatorio-panel-section{display:none}
+.rel-export-btn{
+  width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,107,0,.35);
+  background:rgba(255,107,0,.1);color:var(--ng-orange);font-size:12px;font-weight:600;
+  cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;
+  transition:all .2s;margin-bottom:12px
+}
+.rel-export-btn:hover{background:rgba(255,107,0,.2);border-color:var(--ng-orange)}
+.rel-table-wrap{overflow-x:auto;margin-top:6px}
+.rel-table{width:100%;border-collapse:collapse;font-size:10px}
+.rel-table th{
+  text-align:left;padding:6px 8px;color:var(--text3);font-weight:600;
+  border-bottom:1px solid var(--border);white-space:nowrap;font-size:9px;
+  text-transform:uppercase;letter-spacing:.5px
+}
+.rel-table td{padding:5px 8px;color:var(--text2);border-bottom:1px solid rgba(30,42,69,.4);font-size:10px}
+.rel-table tr:hover td{background:rgba(255,255,255,.02)}
+.rel-table td.val{color:#f59e0b;font-weight:600}
+.rel-table td.name{color:var(--text);font-weight:500;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rel-badge-sem-uso{display:inline-block;padding:1px 6px;border-radius:5px;font-size:9px;font-weight:700;background:rgba(239,68,68,.15);color:#ef4444}
+
+/* Report button in popup */
+.btn-relatorio{
+  display:block;width:100%;margin-top:10px;padding:8px 12px;border-radius:7px;
+  background:rgba(255,107,0,.12);border:1px solid rgba(255,107,0,.3);
+  color:var(--ng-orange);font-size:11px;font-weight:600;cursor:pointer;
+  font-family:'Inter',sans-serif;text-align:center;transition:all .15s
+}
+.btn-relatorio:hover{background:rgba(255,107,0,.22);border-color:var(--ng-orange)}
+
+/* Individual property popup */
+.imovel-popup .leaflet-popup-content-wrapper{
+  background:rgba(13,19,33,.97)!important;border:1px solid var(--border2)!important;
+  border-radius:10px!important;box-shadow:0 8px 32px rgba(0,0,0,.7)!important;
+  color:var(--text)!important;font-family:'Inter',sans-serif!important
+}
+.imovel-popup .leaflet-popup-tip{background:rgba(13,19,33,.97)!important}
+.imovel-popup .leaflet-popup-close-button{color:var(--text3)!important;font-size:16px!important}
+
 /* Lucide icons */
 .lc{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
 .lc svg{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -212,6 +317,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
     <button class="mode-tab" data-mode="sem_uso"><span class="lc"><i data-lucide="alert-triangle" style="width:13px;height:13px"></i></span>Sem Uso</button>
     <button class="mode-tab" data-mode="vocacao"><span class="lc"><i data-lucide="target" style="width:13px;height:13px"></i></span>Vocação</button>
     <button class="mode-tab" data-mode="mercado"><span class="lc"><i data-lucide="building-2" style="width:13px;height:13px"></i></span>Mercado</button>
+    <button class="mode-tab" data-mode="relatorio"><span class="lc"><i data-lucide="file-bar-chart" style="width:13px;height:13px"></i></span>Relatório</button>
   </div>
   <div class="header-right">
     <div class="stat-pill">Total: <strong id="h-total">—</strong></div>
@@ -324,6 +430,72 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
   <div class="panel-section" id="mercado-ppp-panel" style="display:none;">
     <h3><span class="lc"><i data-lucide="building-2" style="width:12px;height:12px"></i></span>🏗️ Top Oportunidades PPP <span class="badge">VGV</span></h3>
     <div id="mercado-ppp-list"></div>
+  </div>
+
+  <!-- Relatório panel (visible only in relatorio mode) -->
+  <div class="panel-section" id="relatorio-panel-section" style="display:none;">
+    <h3><span class="lc"><i data-lucide="file-bar-chart" style="width:12px;height:12px"></i></span>Relatório Gerencial <span class="badge">PMF</span></h3>
+
+    <button class="rel-export-btn" onclick="exportCSV()">
+      <span class="lc"><i data-lucide="download" style="width:13px;height:13px"></i></span>
+      ⬇️ Exportar CSV
+    </button>
+
+    <div style="margin-bottom:14px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="stat-card">
+          <div class="sv orange" id="rel-total-valuado">—</div>
+          <div class="sl">Com valuation</div>
+        </div>
+        <div class="stat-card">
+          <div class="sv" style="color:var(--text3)" id="rel-total-sem-area">—</div>
+          <div class="sl">Sem área cadastrada</div>
+        </div>
+        <div class="stat-card" style="grid-column:1/-1">
+          <div class="sv" style="color:#f59e0b;font-size:18px" id="rel-valuation-total">—</div>
+          <div class="sl">Valuation total do portfólio</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.9px;margin-bottom:8px">Top 10 por Valor de Mercado</div>
+    <div class="rel-table-wrap">
+      <table class="rel-table" id="rel-top10-table">
+        <thead><tr><th>#</th><th>Imóvel</th><th>Bairro</th><th>Área m²</th><th>Valor Est.</th></tr></thead>
+        <tbody id="rel-top10-body"></tbody>
+      </table>
+    </div>
+
+    <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.9px;margin:14px 0 8px">Top 10 Oportunidades Sem Uso</div>
+    <div class="rel-table-wrap">
+      <table class="rel-table" id="rel-semuso-table">
+        <thead><tr><th>#</th><th>Imóvel</th><th>Bairro</th><th>Área m²</th><th>Valor Est.</th></tr></thead>
+        <tbody id="rel-semuso-body"></tbody>
+      </table>
+    </div>
+
+    <div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.9px;margin:14px 0 8px">Resumo por Bairro</div>
+    <div class="rel-table-wrap">
+      <table class="rel-table" id="rel-bairro-table">
+        <thead><tr><th>Bairro</th><th>Qtde</th><th>Área m²</th><th>Valuation</th></tr></thead>
+        <tbody id="rel-bairro-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Relatório Individual Modal -->
+<div id="relatorio-modal-overlay" onclick="closeRelatorioModal(event)">
+  <div id="relatorio-modal">
+    <div class="rel-modal-header">
+      <div class="rel-modal-icon">📄</div>
+      <div>
+        <div class="rel-modal-title" id="rel-modal-title">Relatório do Imóvel</div>
+        <div class="rel-modal-sub" id="rel-modal-sub">Patrimônio Municipal de Florianópolis</div>
+      </div>
+      <button class="rel-modal-close" onclick="closeRelatorioModal()">✕</button>
+    </div>
+    <div class="rel-modal-body" id="rel-modal-body"></div>
   </div>
 </div>
 
@@ -493,7 +665,7 @@ function getVocacaoColorForBairro(bairroName) {
 }
 
 function getMetric(b) {
-  if (activeMode === 'count') return b.total;
+  if (activeMode === 'count' || activeMode === 'relatorio') return b.total;
   if (activeMode === 'area') return b.area_total;
   if (activeMode === 'sem_uso') return b.sem_uso;
   if (activeMode === 'vocacao') {
@@ -545,33 +717,95 @@ function setTab(mode) {
   activeMode = mode;
 
   const titles = {
-    count:   'Quantidade de imóveis',
-    area:    'Área territorial (m²)',
-    sem_uso: 'Imóveis sem uso',
-    vocacao: 'Vocação Principal por Bairro',
-    mercado: 'Potencial de Incorporação (0-100)'
+    count:    'Quantidade de imóveis',
+    area:     'Área territorial (m²)',
+    sem_uso:  'Imóveis sem uso',
+    vocacao:  'Vocação Principal por Bairro',
+    mercado:  'Potencial de Incorporação (0-100)',
+    relatorio:'Relatório Gerencial'
   };
   document.getElementById('leg-title').textContent = titles[mode] || '';
 
-  const isVoc     = mode === 'vocacao';
-  const isMercado = mode === 'mercado';
+  const isVoc      = mode === 'vocacao';
+  const isMercado  = mode === 'mercado';
+  const isRelatorio= mode === 'relatorio';
 
   // Legend switch
-  document.getElementById('leg-scale-wrap').style.display    = (!isVoc && !isMercado) ? 'block' : 'none';
-  document.getElementById('leg-voc-wrap').style.display      = isVoc     ? 'block' : 'none';
-  document.getElementById('leg-mercado-wrap').style.display  = isMercado ? 'block' : 'none';
+  document.getElementById('leg-scale-wrap').style.display    = (!isVoc && !isMercado && !isRelatorio) ? 'block' : 'none';
+  document.getElementById('leg-voc-wrap').style.display      = isVoc      ? 'block' : 'none';
+  document.getElementById('leg-mercado-wrap').style.display  = isMercado  ? 'block' : 'none';
 
   // Panel sections
-  document.getElementById('rank-list-wrapper').style.display         = (!isVoc && !isMercado) ? 'block' : 'none';
-  document.getElementById('filters-panel').style.display             = (!isVoc && !isMercado) ? 'block' : 'none';
-  document.getElementById('top-oportunidades-panel').style.display   = isVoc     ? 'block' : 'none';
-  document.getElementById('vocacao-bairros-panel').style.display     = isVoc     ? 'block' : 'none';
-  document.getElementById('mercado-vgv-panel').style.display         = isMercado ? 'block' : 'none';
-  document.getElementById('mercado-ranking-panel').style.display     = isMercado ? 'block' : 'none';
-  document.getElementById('mercado-ppp-panel').style.display         = isMercado ? 'block' : 'none';
+  document.getElementById('rank-list-wrapper').style.display           = (!isVoc && !isMercado && !isRelatorio) ? 'block' : 'none';
+  document.getElementById('filters-panel').style.display               = (!isVoc && !isMercado && !isRelatorio) ? 'block' : 'none';
+  document.getElementById('top-oportunidades-panel').style.display     = isVoc      ? 'block' : 'none';
+  document.getElementById('vocacao-bairros-panel').style.display       = isVoc      ? 'block' : 'none';
+  document.getElementById('mercado-vgv-panel').style.display           = isMercado  ? 'block' : 'none';
+  document.getElementById('mercado-ranking-panel').style.display       = isMercado  ? 'block' : 'none';
+  document.getElementById('mercado-ppp-panel').style.display           = isMercado  ? 'block' : 'none';
+  document.getElementById('relatorio-panel-section').style.display     = isRelatorio? 'block' : 'none';
 
-  if (isMercado) renderMercadoPanel();
+  if (isMercado)   renderMercadoPanel();
+  if (isRelatorio) renderRelatorioPanel();
   updateMap();
+}
+
+// ─── Individual property markers ─────────────────────────────────────────────
+let propertyLayer = null;
+let propertyMarkersGroup = null;
+
+function formatBRL(val) {
+  if (val === null || val === undefined || val === 0) return '—';
+  if (val >= 1e9) return 'R$ ' + (val/1e9).toFixed(2) + 'B';
+  if (val >= 1e6) return 'R$ ' + (val/1e6).toFixed(1) + 'M';
+  if (val >= 1e3) return 'R$ ' + (val/1e3).toFixed(0) + 'k';
+  return 'R$ ' + val.toLocaleString('pt-BR');
+}
+
+function updatePropertyMarkers() {
+  if (propertyMarkersGroup) { propertyMarkersGroup.remove(); propertyMarkersGroup = null; }
+  const zoom = map.getZoom();
+  if (zoom < 14) return; // Only show individual markers when zoomed in
+
+  const bounds = map.getBounds();
+  const filtered = applyFilters();
+  const visible = filtered.filter(im => {
+    if (!im.lat || !im.lng) return false;
+    return bounds.contains([im.lat, im.lng]);
+  }).slice(0, 300); // cap for performance
+
+  propertyMarkersGroup = L.layerGroup();
+  visible.forEach(im => {
+    const color = im.sem_uso ? '#ef4444' : '#22d3ee';
+    const dot = L.circleMarker([im.lat, im.lng], {
+      radius: 6,
+      color: color,
+      fillColor: color,
+      fillOpacity: 0.85,
+      weight: 1.5
+    });
+
+    const areaStr = (im.area && im.area > 0) ? im.area.toLocaleString('pt-BR') + ' m²' : 'Não informada';
+    const statusStr = im.sem_uso ? '⚠️ Sem uso' : '✅ Em uso';
+
+    dot.bindPopup(`
+      <div style="font-family:'Inter',sans-serif;min-width:220px;padding:4px 0">
+        <div style="font-weight:700;font-size:13px;color:#FF6B00;margin-bottom:6px">${im.caracterizacao || 'Imóvel'}</div>
+        <div style="font-size:11px;color:#8a9aba;margin-bottom:3px">📍 ${im.bairro}</div>
+        <div style="font-size:11px;color:#8a9aba;margin-bottom:3px">📐 Área: <span style="color:#e0e6f0">${areaStr}</span></div>
+        <div style="font-size:11px;color:#8a9aba;margin-bottom:3px">🏷️ Tipo: <span style="color:#e0e6f0">${im.tipo}</span></div>
+        <div style="font-size:11px;color:#8a9aba;margin-bottom:8px">🔵 Status: <span style="color:#e0e6f0">${statusStr}</span></div>
+        <button class="btn-relatorio" onclick="openRelatorioModal(${im.fid})">📄 Relatório</button>
+      </div>
+    `, {
+      className: 'imovel-popup',
+      maxWidth: 260
+    });
+
+    dot.addTo(propertyMarkersGroup);
+  });
+
+  propertyMarkersGroup.addTo(map);
 }
 
 // ─── Map update ───────────────────────────────────────────────────────────────
@@ -662,6 +896,7 @@ function updateMap() {
 
   updateStats(filtered, data);
   updateRankings(data);
+  updatePropertyMarkers();
 }
 
 // ─── Stats ────────────────────────────────────────────────────────────────────
@@ -983,6 +1218,180 @@ function renderMercadoPanel() {
   if (window.lucide) lucide.createIcons();
 }
 
+// ─── Relatório Individual ────────────────────────────────────────────────────
+let imoveisById = {};
+
+function openRelatorioModal(fid) {
+  const im = imoveisById[fid];
+  if (!im) return;
+
+  document.getElementById('rel-modal-title').textContent = im.caracterizacao || 'Imóvel';
+  document.getElementById('rel-modal-sub').textContent = `${im.bairro} · FID ${im.fid}`;
+
+  const areaStr   = (im.area && im.area > 0) ? im.area.toLocaleString('pt-BR') + ' m²' : 'Não informada';
+  const statusStr = im.sem_uso ? 'Sem uso' : 'Em uso';
+  const statusColor = im.sem_uso ? '#ef4444' : '#10b981';
+  const latLng    = `${im.lat?.toFixed(5)}, ${im.lng?.toFixed(5)}`;
+
+  const hasArea   = im.area && im.area > 0;
+  const hasVal    = im.valuation && im.valuation > 0;
+  const hasM2     = im.valor_m2_bairro && im.valor_m2_bairro > 0;
+
+  let pricingHtml = '';
+  if (!hasArea) {
+    pricingHtml = `
+      <div style="background:rgba(90,106,138,.08);border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center;color:var(--text3);font-size:12px">
+        Área não cadastrada — informe a área para calcular o valor de mercado.
+      </div>`;
+  } else if (hasVal && hasM2) {
+    const low  = im.valuation * 0.8;
+    const high = im.valuation * 1.2;
+    pricingHtml = `
+      <div class="rel-pricing-box">
+        <div class="rel-pricing-label">Valor estimado de mercado</div>
+        <div class="rel-pricing-val">${formatBRL(im.valuation)}</div>
+        <div class="rel-pricing-range">
+          Faixa (±20%): <span>${formatBRL(low)}</span> — <span>${formatBRL(high)}</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="rel-card"><div class="rv orange">R$ ${(im.valor_m2_bairro).toLocaleString('pt-BR')}</div><div class="rl">Valor m² no bairro</div></div>
+        <div class="rel-card"><div class="rv" style="color:var(--text2);font-size:13px">FipeZap/CRECI-SC</div><div class="rl">Fonte de referência</div></div>
+      </div>`;
+  } else if (hasArea && hasM2) {
+    const valCalc = im.area * im.valor_m2_bairro;
+    const low  = valCalc * 0.8;
+    const high = valCalc * 1.2;
+    pricingHtml = `
+      <div class="rel-pricing-box">
+        <div class="rel-pricing-label">Valor estimado de mercado (${im.area.toLocaleString('pt-BR')} m² × R$ ${im.valor_m2_bairro.toLocaleString('pt-BR')}/m²)</div>
+        <div class="rel-pricing-val">${formatBRL(valCalc)}</div>
+        <div class="rel-pricing-range">
+          Faixa (±20%): <span>${formatBRL(low)}</span> — <span>${formatBRL(high)}</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="rel-card"><div class="rv orange">R$ ${im.valor_m2_bairro.toLocaleString('pt-BR')}</div><div class="rl">Valor m² no bairro</div></div>
+        <div class="rel-card"><div class="rv" style="color:var(--text2);font-size:13px">FipeZap/CRECI-SC</div><div class="rl">Fonte de referência</div></div>
+      </div>`;
+  } else {
+    pricingHtml = `
+      <div style="background:rgba(90,106,138,.08);border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center;color:var(--text3);font-size:12px">
+        Dados de mercado não disponíveis para este bairro.
+      </div>`;
+  }
+
+  document.getElementById('rel-modal-body').innerHTML = `
+    <div class="rel-section">
+      <div class="rel-section-title"><i data-lucide="info" style="width:12px;height:12px"></i> Identificação</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="rel-card" style="grid-column:1/-1"><div class="rv" style="font-size:14px">${im.caracterizacao || '—'}</div><div class="rl">Caracterização</div></div>
+        <div class="rel-card"><div class="rv">${im.bairro || '—'}</div><div class="rl">Bairro</div></div>
+        <div class="rel-card"><div class="rv" style="font-size:12px;color:var(--text2)">${latLng}</div><div class="rl">Coordenadas</div></div>
+        <div class="rel-card"><div class="rv">${areaStr}</div><div class="rl">Área</div></div>
+        <div class="rel-card"><div class="rv" style="color:${statusColor}">${statusStr}</div><div class="rl">Status</div></div>
+        <div class="rel-card"><div class="rv" style="font-size:12px">${im.zoneamento || '—'}</div><div class="rl">Zoneamento</div></div>
+        <div class="rel-card"><div class="rv" style="font-size:12px">${im.tipo || '—'}</div><div class="rl">Tipo</div></div>
+        <div class="rel-card" style="grid-column:1/-1"><div class="rv" style="font-size:12px">${im.responsavel || '—'}</div><div class="rl">Responsável</div></div>
+      </div>
+    </div>
+    <div class="rel-section">
+      <div class="rel-section-title"><i data-lucide="trending-up" style="width:12px;height:12px"></i> Precificação de Mercado</div>
+      ${pricingHtml}
+    </div>
+  `;
+
+  document.getElementById('relatorio-modal-overlay').classList.add('open');
+  if (window.lucide) lucide.createIcons();
+}
+
+function closeRelatorioModal(e) {
+  if (e && e.target !== document.getElementById('relatorio-modal-overlay')) return;
+  document.getElementById('relatorio-modal-overlay').classList.remove('open');
+}
+
+// ─── Relatório Panel Render ──────────────────────────────────────────────────
+function renderRelatorioPanel() {
+  const comValuation = allImoveis.filter(im => im.valuation && im.valuation > 0);
+  const semArea      = allImoveis.filter(im => !im.area || im.area === 0);
+  const totalVal     = comValuation.reduce((s, im) => s + im.valuation, 0);
+
+  document.getElementById('rel-total-valuado').textContent  = comValuation.length;
+  document.getElementById('rel-total-sem-area').textContent = semArea.length;
+  document.getElementById('rel-valuation-total').textContent = formatBRL(totalVal);
+
+  // Top 10 por valuation
+  const top10 = [...comValuation].sort((a,b) => b.valuation - a.valuation).slice(0, 10);
+  document.getElementById('rel-top10-body').innerHTML = top10.map((im, i) => `
+    <tr style="cursor:pointer" onclick="openRelatorioModal(${im.fid})">
+      <td style="color:${i<3?'var(--ng-orange)':'var(--text3)'};font-weight:700">${i+1}</td>
+      <td class="name">${im.caracterizacao || '—'}</td>
+      <td style="color:var(--text2)">${im.bairro}</td>
+      <td style="color:var(--text2)">${im.area.toLocaleString('pt-BR')}</td>
+      <td class="val">${formatBRL(im.valuation)}</td>
+    </tr>`).join('');
+
+  // Top 10 sem uso por valuation
+  const semUsoComVal = comValuation.filter(im => im.sem_uso).sort((a,b) => b.valuation - a.valuation).slice(0, 10);
+  document.getElementById('rel-semuso-body').innerHTML = semUsoComVal.length > 0
+    ? semUsoComVal.map((im, i) => `
+      <tr style="cursor:pointer" onclick="openRelatorioModal(${im.fid})">
+        <td style="color:${i<3?'#ef4444':'var(--text3)'};font-weight:700">${i+1}</td>
+        <td class="name">${im.caracterizacao || '—'}</td>
+        <td style="color:var(--text2)">${im.bairro}</td>
+        <td style="color:var(--text2)">${im.area.toLocaleString('pt-BR')}</td>
+        <td class="val">${formatBRL(im.valuation)}</td>
+      </tr>`).join('')
+    : '<tr><td colspan="5" style="text-align:center;color:var(--text3);padding:12px">Nenhum imóvel sem uso com valuation</td></tr>';
+
+  // Resumo por bairro
+  const bairroMap = {};
+  allImoveis.forEach(im => {
+    if (!bairroMap[im.bairro]) bairroMap[im.bairro] = { qtde: 0, area: 0, valuation: 0 };
+    bairroMap[im.bairro].qtde++;
+    bairroMap[im.bairro].area += (im.area || 0);
+    bairroMap[im.bairro].valuation += (im.valuation || 0);
+  });
+  const bairroArr = Object.entries(bairroMap)
+    .filter(([b]) => b && b !== 'Não Identificado')
+    .map(([bairro, d]) => ({ bairro, ...d }))
+    .sort((a,b) => b.valuation - a.valuation);
+  document.getElementById('rel-bairro-body').innerHTML = bairroArr.map((b) => `
+    <tr>
+      <td class="name">${b.bairro}</td>
+      <td style="color:var(--text2)">${b.qtde}</td>
+      <td style="color:var(--text2)">${b.area > 0 ? b.area.toLocaleString('pt-BR', {maximumFractionDigits:0}) : '—'}</td>
+      <td class="val">${b.valuation > 0 ? formatBRL(b.valuation) : '—'}</td>
+    </tr>`).join('');
+
+  if (window.lucide) lucide.createIcons();
+}
+
+// ─── Export CSV ──────────────────────────────────────────────────────────────
+function exportCSV() {
+  const comArea = allImoveis.filter(im => im.area && im.area > 0);
+  const header = ['fid','caracterizacao','bairro','area','zoneamento','tipo','valor_m2_bairro','valuation','sem_uso'];
+  const rows = comArea.map(im => [
+    im.fid,
+    '"' + (im.caracterizacao || '').replace(/"/g, '""') + '"',
+    '"' + (im.bairro || '').replace(/"/g, '""') + '"',
+    im.area || 0,
+    '"' + (im.zoneamento || '').replace(/"/g, '""') + '"',
+    '"' + (im.tipo || '').replace(/"/g, '""') + '"',
+    im.valor_m2_bairro || 0,
+    im.valuation || 0,
+    im.sem_uso ? 'sim' : 'nao'
+  ].join(','));
+  const csv = [header.join(','), ...rows].join('\n');
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = 'floripa-patrimonio-valuation.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 // ─── Panel toggle ─────────────────────────────────────────────────────────────
 function togglePanel() {
   panelOpen = !panelOpen;
@@ -1004,6 +1413,12 @@ async function init() {
   bairrosStats = bairrosData;
   window.vocacaoData = vocacaoJson.bairros;
   window.mercadoData = mercadoJson.bairros;
+
+  // Build fid lookup for modal
+  allImoveis.forEach(im => { imoveisById[im.fid] = im; });
+
+  // Update individual markers on zoom/move
+  map.on('moveend zoomend', updatePropertyMarkers);
 
   // Build bairroByName lookup
   for (const b of bairrosData) bairroByName[b.bairro] = b;
