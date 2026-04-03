@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Florianópolis — Top 100 Imóveis por Potencial de Valorização</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --surface: #111827;
+      --surface2: #161f2e;
+      --border: #1e2a45;
+      --text: #e0e6f0;
+      --text-muted: #6b7a99;
+      --orange: #FF6B00;
+      --orange-light: #ff8c38;
+      --cyan: #22d3ee;
+      --cyan-light: #67e8f9;
+      --green: #10b981;
+      --yellow: #f59e0b;
+      --red: #ef4444;
+      --purple: #8b5cf6;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* ─── PRINT ─── */
+    @media print {
+      body { background: white; color: #111; font-size: 11px; }
+      .no-print { display: none !important; }
+      .header { background: #111 !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .section { page-break-inside: avoid; }
+      table { font-size: 10px; }
+      .expand-row { display: none; }
+      .card { border: 1px solid #ccc !important; background: #fafafa !important; }
+    }
+
+    /* ─── LAYOUT ─── */
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── HEADER ─── */
+    .header {
+      background: linear-gradient(135deg, #0d1526 0%, #111827 50%, #0a1929 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 32px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .header-brand { display: flex; align-items: center; gap: 16px; }
+    .header-logo {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .header-title { font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
+    .header-subtitle { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+    .header-meta { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+    .header-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+      cursor: pointer; border: none; text-decoration: none; transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--cyan);
+      border: 1px solid var(--cyan);
+    }
+    .btn-secondary:hover { background: rgba(34,211,238,0.1); transform: translateY(-1px); }
+
+    /* ─── SECTIONS ─── */
+    .section { padding: 40px 0; }
+    .section-title {
+      font-size: 18px; font-weight: 700; color: var(--text);
+      margin-bottom: 8px; display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::before {
+      content: '';
+      display: block; width: 4px; height: 20px;
+      background: var(--orange); border-radius: 2px;
+    }
+    .section-subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* ─── SUMMARY CARDS ─── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .card-icon { font-size: 24px; margin-bottom: 10px; }
+    .card-value {
+      font-size: 28px; font-weight: 800; color: var(--text);
+      letter-spacing: -1px; line-height: 1;
+    }
+    .card-value.orange { color: var(--orange); }
+    .card-value.cyan { color: var(--cyan); }
+    .card-value.green { color: var(--green); }
+    .card-value.yellow { color: var(--yellow); }
+    .card-label { font-size: 12px; color: var(--text-muted); margin-top: 6px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+    .card-sub { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+    /* ─── FILTERS ─── */
+    .filters-bar {
+      display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 16px; margin-bottom: 16px;
+    }
+    .filter-group { display: flex; flex-direction: column; gap: 4px; }
+    .filter-label { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .filter-input, .filter-select {
+      background: var(--surface2); border: 1px solid var(--border);
+      color: var(--text); border-radius: 8px; padding: 8px 12px;
+      font-size: 13px; font-family: inherit; outline: none;
+      min-width: 150px; transition: border-color 0.2s;
+    }
+    .filter-input:focus, .filter-select:focus { border-color: var(--orange); }
+    .filter-input::placeholder { color: var(--text-muted); }
+    .filter-count {
+      margin-left: auto; font-size: 13px; color: var(--text-muted);
+      align-self: flex-end; padding-bottom: 8px;
+    }
+    .filter-count span { color: var(--cyan); font-weight: 700; }
+
+    /* ─── TABLE ─── */
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    table {
+      width: 100%; border-collapse: collapse;
+      background: var(--surface);
+    }
+    thead tr {
+      background: var(--surface2);
+      border-bottom: 2px solid var(--border);
+    }
+    th {
+      padding: 12px 14px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px; color: var(--text-muted);
+      text-align: left; white-space: nowrap; user-select: none;
+    }
+    th.sortable { cursor: pointer; }
+    th.sortable:hover { color: var(--text); }
+    th.sort-asc::after { content: ' ↑'; color: var(--orange); }
+    th.sort-desc::after { content: ' ↓'; color: var(--orange); }
+    tbody tr.data-row {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+      cursor: pointer;
+    }
+    tbody tr.data-row:hover { background: rgba(255,107,0,0.05); }
+    tbody tr.data-row.expanded { background: rgba(34,211,238,0.04); }
+    td { padding: 12px 14px; vertical-align: middle; }
+    .rank { font-weight: 700; color: var(--text-muted); font-size: 13px; min-width: 32px; }
+    .rank.top3 { color: var(--orange); font-size: 15px; }
+    .imovel-name { font-weight: 600; color: var(--text); max-width: 200px; }
+    .imovel-cd { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+    /* ─── BADGES ─── */
+    .badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-green { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+    .badge-red { background: rgba(239,68,68,0.15); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+    .badge-score-green { background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid rgba(16,185,129,0.4); }
+    .badge-score-yellow { background: rgba(245,158,11,0.2); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+    .badge-score-orange { background: rgba(255,107,0,0.2); color: var(--orange-light); border: 1px solid rgba(255,107,0,0.4); }
+    .badge-score-gray { background: rgba(107,122,153,0.2); color: var(--text-muted); border: 1px solid rgba(107,122,153,0.3); }
+    .pill {
+      display: inline-flex; align-items: center;
+      padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 500;
+      background: rgba(34,211,238,0.1); color: var(--cyan-light);
+      border: 1px solid rgba(34,211,238,0.2); margin: 1px;
+      white-space: nowrap;
+    }
+    .pill-ppp {
+      background: rgba(139,92,246,0.1); color: #a78bfa;
+      border: 1px solid rgba(139,92,246,0.2);
+    }
+    .tendencia-alta { color: #34d399; font-weight: 700; font-size: 16px; }
+    .tendencia-estavel { color: var(--text-muted); font-weight: 700; font-size: 16px; }
+    .tendencia-queda { color: var(--red); font-weight: 700; font-size: 16px; }
+    .valuation-cell { font-weight: 700; color: var(--text); white-space: nowrap; }
+    .vm2-cell { color: var(--text-muted); white-space: nowrap; }
+    .area-cell { color: var(--text-muted); white-space: nowrap; }
+
+    /* ─── EXPAND ROW ─── */
+    .expand-row { display: none; }
+    .expand-row.open { display: table-row; }
+    .expand-content {
+      background: var(--surface2);
+      border-bottom: 2px solid var(--border);
+      padding: 20px 24px;
+    }
+    .expand-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .expand-field label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px; color: var(--text-muted); display: block; margin-bottom: 4px;
+    }
+    .expand-field value { font-size: 13px; color: var(--text); font-weight: 500; }
+    .expand-pills { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+    .expand-close {
+      float: right; background: none; border: none;
+      color: var(--text-muted); cursor: pointer; font-size: 18px; padding: 0;
+    }
+    .expand-close:hover { color: var(--text); }
+
+    /* ─── NO RESULTS ─── */
+    .no-results {
+      text-align: center; padding: 48px;
+      color: var(--text-muted);
+    }
+    .no-results .icon { font-size: 40px; margin-bottom: 12px; }
+
+    /* ─── BAIRRO CARDS ─── */
+    .bairro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .bairro-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.2s;
+    }
+    .bairro-card:hover { border-color: var(--cyan); transform: translateY(-2px); }
+    .bairro-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .bairro-name { font-size: 15px; font-weight: 700; color: var(--text); }
+    .bairro-count {
+      background: rgba(255,107,0,0.15);
+      color: var(--orange); font-size: 12px; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px;
+      border: 1px solid rgba(255,107,0,0.3);
+    }
+    .bairro-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .bairro-stat label {
+      font-size: 10px; color: var(--text-muted); font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 2px;
+    }
+    .bairro-stat value { font-size: 14px; font-weight: 700; color: var(--text); }
+    .bairro-pot-bar {
+      margin-top: 12px;
+      background: var(--surface2); border-radius: 4px; height: 4px; overflow: hidden;
+    }
+    .bairro-pot-fill {
+      height: 100%; border-radius: 4px;
+      background: linear-gradient(90deg, var(--cyan), var(--orange));
+      transition: width 0.6s ease;
+    }
+
+    /* ─── METHODOLOGY ─── */
+    .methodology-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--cyan);
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 20px;
+    }
+    .methodology-box h3 {
+      font-size: 15px; font-weight: 700; color: var(--cyan);
+      margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
+    }
+    .method-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .method-item {
+      background: var(--surface2); border-radius: 8px; padding: 16px;
+      border: 1px solid var(--border);
+    }
+    .method-item .icon { font-size: 20px; margin-bottom: 8px; }
+    .method-item h4 { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .method-item p { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    .formula-box {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 16px; margin-top: 16px;
+      font-family: 'Courier New', monospace; font-size: 12px;
+      color: var(--cyan-light); line-height: 1.8;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0; margin-top: 40px;
+      text-align: center;
+      color: var(--text-muted); font-size: 12px;
+    }
+    .footer a { color: var(--cyan); text-decoration: none; }
+
+    /* ─── LOADING ─── */
+    .loading-screen {
+      position: fixed; inset: 0;
+      background: var(--bg);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s;
+    }
+    .loading-spinner {
+      width: 48px; height: 48px;
+      border: 3px solid var(--border);
+      border-top-color: var(--orange);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text { color: var(--text-muted); font-size: 14px; }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .header-inner { flex-direction: column; align-items: flex-start; }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .filters-bar { flex-direction: column; align-items: stretch; }
+      .filter-input, .filter-select { min-width: 100%; }
+      th, td { padding: 8px 10px; font-size: 12px; }
+      .bairro-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">Carregando dados do patrimônio municipal...</div>
+</div>
+
+<!-- HEADER -->
+<header class="header no-print" id="mainHeader" style="display:none;">
+  <div class="container">
+    <div class="header-inner">
+      <div class="header-brand">
+        <div class="header-logo">🏛️</div>
+        <div>
+          <div class="header-title">Florianópolis — Top 100 Imóveis por Potencial de Valorização</div>
+          <div class="header-subtitle">Relatório Gerencial | Patrimônio Municipal</div>
+          <div class="header-meta" id="gerationDate">Gerado em —</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-secondary" onclick="exportCSV()">⬇️ Baixar CSV</button>
+        <button class="btn btn-primary" onclick="window.print()">⬇️ Exportar PDF</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PRINT HEADER (visible only on print) -->
+<div style="display:none;" id="printHeader">
+  <h1 style="font-size:18px; font-weight:800; margin-bottom:4px;">Florianópolis — Top 100 Imóveis por Potencial de Valorização</h1>
+  <p style="font-size:13px; color:#666; margin-bottom:4px;">Relatório Gerencial | Patrimônio Municipal</p>
+  <p style="font-size:11px; color:#999;" id="printDate"></p>
+  <hr style="margin: 12px 0; border-top: 2px solid #111;">
+</div>
+<style>
+@media print {
+  #printHeader { display: block !important; padding: 20px; }
+}
+</style>
+
+<main id="mainContent" style="display:none;">
+
+  <!-- SECTION 1: RESUMO EXECUTIVO -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">Resumo Executivo</div>
+      <div class="section-subtitle">Panorama consolidado dos 100 imóveis com maior potencial de valorização</div>
+      <div class="cards-grid" id="summaryCards">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SECTION 2: TABELA -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">Ranking Completo — Top 100 Imóveis</div>
+      <div class="section-subtitle">Clique em uma linha para expandir os detalhes. Clique nos cabeçalhos para ordenar.</div>
+
+      <div class="filters-bar no-print">
+        <div class="filter-group">
+          <span class="filter-label">Buscar</span>
+          <input class="filter-input" type="text" id="searchInput" placeholder="Nome do imóvel..." oninput="applyFilters()">
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Bairro</span>
+          <select class="filter-select" id="bairroFilter" onchange="applyFilters()">
+            <option value="">Todos os bairros</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Status</span>
+          <select class="filter-select" id="statusFilter" onchange="applyFilters()">
+            <option value="">Todos</option>
+            <option value="sem_uso">Sem Uso</option>
+            <option value="em_uso">Em Uso</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Tendência</span>
+          <select class="filter-select" id="tendenciaFilter" onchange="applyFilters()">
+            <option value="">Todas</option>
+            <option value="alta">↑ Alta</option>
+            <option value="estável">→ Estável</option>
+            <option value="queda">↓ Queda</option>
+          </select>
+        </div>
+        <div class="filter-count no-print">Exibindo <span id="resultCount">100</span> de 100</div>
+      </div>
+
+      <div class="table-wrapper">
+        <table id="mainTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Imóvel</th>
+              <th>Bairro</th>
+              <th class="sortable" data-col="area" onclick="sortTable('area')" title="Ordenar por área">Área (m²)</th>
+              <th>Status</th>
+              <th>Valor m²</th>
+              <th class="sortable" data-col="valuation" onclick="sortTable('valuation')" title="Ordenar por valuation">Valuation</th>
+              <th class="sortable" data-col="score" onclick="sortTable('score')" title="Ordenar por score">Score</th>
+              <th>Tendência</th>
+              <th>Vocações</th>
+              <th>Modelos PPP</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- Injected by JS -->
+          </tbody>
+        </table>
+        <div class="no-results" id="noResults" style="display:none;">
+          <div class="icon">🔍</div>
+          <div>Nenhum imóvel encontrado com os filtros aplicados.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SECTION 3: RANKING POR BAIRRO -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">Ranking por Bairro</div>
+      <div class="section-subtitle">Distribuição dos top 100 imóveis por bairro — valuation agregado e potencial de incorporação</div>
+      <div class="bairro-grid" id="bairroGrid">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SECTION 4: METODOLOGIA -->
+  <section class="section">
+    <div class="container">
+      <div class="section-title">Metodologia de Scoring</div>
+      <div class="section-subtitle">Como o índice de potencial de valorização foi calculado</div>
+
+      <div class="methodology-box">
+        <h3>🧮 Composição do Score (0–100+)</h3>
+
+        <div class="method-items">
+          <div class="method-item">
+            <div class="icon">💰</div>
+            <h4>Valuation Absoluto</h4>
+            <p>Peso baseado no logaritmo do valor estimado do imóvel (m² × valor/m² do bairro). Imóveis com maior valor absoluto recebem score base mais alto, com escala log para não distorcer extremos.</p>
+          </div>
+          <div class="method-item">
+            <div class="icon">🏗️</div>
+            <h4>Potencial de Incorporação</h4>
+            <p>Score 0–100 derivado de dados FipeZap e CRECI-SC 2024/2025. Considera: demanda habitacional do bairro, infraestrutura existente, zoneamento permissivo e histórico de lançamentos.</p>
+          </div>
+          <div class="method-item">
+            <div class="icon">⚡</div>
+            <h4>Bônus Sem Uso</h4>
+            <p>Imóveis sem uso recebem bônus adicional (+10 pts) por representarem oportunidade imediata de extração de valor sem necessidade de realocação ou desapropriação.</p>
+          </div>
+          <div class="method-item">
+            <div class="icon">📈</div>
+            <h4>Multiplicador de Tendência</h4>
+            <p>Tendência <strong>"alta"</strong> aplica multiplicador 1.2× sobre o score base. Tendência <strong>"estável"</strong> mantém 1.0×. Tendência <strong>"queda"</strong> aplica penalização 0.85×.</p>
+          </div>
+          <div class="method-item">
+            <div class="icon">📐</div>
+            <h4>Penalização Sem Área</h4>
+            <p>Imóveis sem área cadastrada (area = 0) recebem penalização no componente de valuation. O score ainda considera potencial estimado, mas com peso reduzido.</p>
+          </div>
+          <div class="method-item">
+            <div class="icon">🔢</div>
+            <h4>Fontes de Dados</h4>
+            <p>Base patrimonial PMF (Prefeitura Municipal de Florianópolis), COMCAP, FipeZap Q1 2025, CRECI-SC Relatório de Mercado 2024/2025, SMA-SC.</p>
+          </div>
+        </div>
+
+        <div class="formula-box">
+Score = (log_score × 0.35 + pot_incorporacao × 0.40 + sem_uso_bonus × 0.15) × tendencia_mult<br><br>
+onde:<br>
+  log_score     = normalize(log10(valuation), min=4, max=9) × 100<br>
+  sem_uso_bonus = 10 se sem_uso == true, 0 caso contrário<br>
+  tendencia_mult = 1.20 (alta) | 1.00 (estável) | 0.85 (queda)<br>
+  Penalização área zero: valuation estimado com 50% de descerto no log_score
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" id="mainFooter" style="display:none;">
+  <div class="container">
+    <p>Relatório gerado automaticamente a partir do portfólio patrimonial municipal.</p>
+    <p style="margin-top:6px;">Dados: PMF · COMCAP · FipeZap Q1/2025 · CRECI-SC 2024/2025 &nbsp;|&nbsp;
+      <a href="https://decomontenegro.github.io/floripa-patrimonio/" target="_blank">← Ver Dashboard</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────
+let allData = [];
+let filteredData = [];
+let sortCol = 'score';
+let sortDir = 'desc';
+let expandedRow = null;
+
+// ─────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────
+function fmtValuation(v) {
+  if (!v || v === 0) return 'N/A';
+  if (v >= 1e9) return 'R$ ' + (v / 1e9).toFixed(1) + 'B';
+  if (v >= 1e6) return 'R$ ' + (v / 1e6).toFixed(1) + 'M';
+  if (v >= 1e3) return 'R$ ' + (v / 1e3).toFixed(0) + 'K';
+  return 'R$ ' + v.toLocaleString('pt-BR');
+}
+
+function fmtArea(a) {
+  if (!a || a === 0) return 'N/A';
+  return a.toLocaleString('pt-BR', {maximumFractionDigits: 0}) + ' m²';
+}
+
+function fmtVM2(v) {
+  if (!v || v === 0) return '—';
+  return 'R$ ' + v.toLocaleString('pt-BR') + '/m²';
+}
+
+function fmtScore(s) {
+  const score = Math.min(Math.round(s), 110);
+  let cls = 'badge-score-gray';
+  if (s > 90) cls = 'badge-score-green';
+  else if (s > 75) cls = 'badge-score-yellow';
+  else if (s > 60) cls = 'badge-score-orange';
+  return `<span class="badge ${cls}">${score}</span>`;
+}
+
+function fmtTendencia(t) {
+  if (!t) return '—';
+  const map = {
+    'alta': '<span class="tendencia-alta" title="Tendência de alta">↑</span>',
+    'estável': '<span class="tendencia-estavel" title="Tendência estável">→</span>',
+    'queda': '<span class="tendencia-queda" title="Tendência de queda">↓</span>'
+  };
+  return map[t] || t;
+}
+
+function fmtStatus(sem_uso) {
+  return sem_uso
+    ? '<span class="badge badge-red">Sem Uso</span>'
+    : '<span class="badge badge-green">Em Uso</span>';
+}
+
+function fmtVocacoes(v, max) {
+  if (!v || v.length === 0) return '<span style="color:var(--text-muted);font-size:11px;">—</span>';
+  const items = max ? v.slice(0, max) : v;
+  return items.map(x => `<span class="pill">${x}</span>`).join('');
+}
+
+function fmtPPP(m, max) {
+  if (!m || m.length === 0) return '<span style="color:var(--text-muted);font-size:11px;">—</span>';
+  const items = max ? m.slice(0, max) : m;
+  return items.map(x => `<span class="pill pill-ppp">${x}</span>`).join('');
+}
+
+function fmtValuationBilhoes(total) {
+  return 'R$ ' + (total / 1e9).toFixed(1) + 'B';
+}
+
+function escapeHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ─────────────────────────────────────────────
+// RENDER SUMMARY CARDS
+// ─────────────────────────────────────────────
+function renderSummary(data) {
+  const semUso = data.filter(d => d.sem_uso).length;
+  const totalVal = data.reduce((s, d) => s + (d.valuation || 0), 0);
+
+  // Top bairros
+  const bairroCount = {};
+  data.forEach(d => { bairroCount[d.bairro] = (bairroCount[d.bairro] || 0) + 1; });
+  const top3 = Object.entries(bairroCount).sort((a,b) => b[1]-a[1]).slice(0, 3);
+
+  document.getElementById('summaryCards').innerHTML = `
+    <div class="card">
+      <div class="card-icon">🏛️</div>
+      <div class="card-value">1.634</div>
+      <div class="card-label">Total de Imóveis Analisados</div>
+      <div class="card-sub">Portfólio patrimonial municipal</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🏆</div>
+      <div class="card-value orange">100</div>
+      <div class="card-label">Imóveis no Top 100</div>
+      <div class="card-sub">Por potencial de valorização</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔓</div>
+      <div class="card-value yellow">${semUso}</div>
+      <div class="card-label">Sem Uso no Top 100</div>
+      <div class="card-sub">Oportunidade imediata de extração de valor</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">💰</div>
+      <div class="card-value cyan">${fmtValuationBilhoes(totalVal)}</div>
+      <div class="card-label">Valuation Total Top 100</div>
+      <div class="card-sub">${totalVal.toLocaleString('pt-BR', {style:'currency', currency:'BRL', maximumFractionDigits:0})}</div>
+    </div>
+    <div class="card" style="grid-column: span 1;">
+      <div class="card-icon">📍</div>
+      <div style="margin-top:4px;">
+        ${top3.map((b, i) => `
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;${i < top3.length-1 ? 'border-bottom:1px solid var(--border);' : ''}">
+            <span style="font-size:13px;font-weight:600;color:var(--text);">${b[0]}</span>
+            <span style="font-size:12px;color:var(--orange);font-weight:700;">${b[1]} imóveis</span>
+          </div>
+        `).join('')}
+      </div>
+      <div class="card-label" style="margin-top:10px;">Top 3 Bairros Representados</div>
+    </div>
+  `;
+}
+
+// ─────────────────────────────────────────────
+// RENDER TABLE
+// ─────────────────────────────────────────────
+function renderTable(data) {
+  const tbody = document.getElementById('tableBody');
+  const noResults = document.getElementById('noResults');
+  document.getElementById('resultCount').textContent = data.length;
+
+  if (data.length === 0) {
+    tbody.innerHTML = '';
+    noResults.style.display = 'block';
+    return;
+  }
+  noResults.style.display = 'none';
+
+  let html = '';
+  data.forEach((item, idx) => {
+    const rank = allData.indexOf(item) + 1;
+    const rowId = `row-${item.fid}`;
+    const expandId = `expand-${item.fid}`;
+    const rankClass = rank <= 3 ? 'rank top3' : 'rank';
+
+    html += `
+      <tr class="data-row" id="${rowId}" onclick="toggleExpand(${item.fid}, '${expandId}', '${rowId}')">
+        <td><span class="${rankClass}">${rank}</span></td>
+        <td>
+          <div class="imovel-name">${escapeHtml(item.caracterizacao || 'Sem denominação')}</div>
+          <div class="imovel-cd">${escapeHtml(item.cd_lote || item.fid)}</div>
+        </td>
+        <td style="white-space:nowrap;">${escapeHtml(item.bairro || '—')}</td>
+        <td class="area-cell">${fmtArea(item.area)}</td>
+        <td>${fmtStatus(item.sem_uso)}</td>
+        <td class="vm2-cell">${fmtVM2(item.valor_m2_bairro)}</td>
+        <td class="valuation-cell">${fmtValuation(item.valuation)}</td>
+        <td>${fmtScore(item.score)}</td>
+        <td style="text-align:center;">${fmtTendencia(item.tendencia)}</td>
+        <td><div style="display:flex;flex-wrap:wrap;gap:2px;max-width:180px;">${fmtVocacoes(item.vocacoes, 2)}</div></td>
+        <td><div style="display:flex;flex-wrap:wrap;gap:2px;max-width:200px;">${fmtPPP(item.modelos_ppp, 2)}</div></td>
+      </tr>
+      <tr class="expand-row" id="${expandId}">
+        <td colspan="11">
+          <div class="expand-content">
+            <button class="expand-close no-print" onclick="closeExpand('${expandId}', '${rowId}'); event.stopPropagation();">✕</button>
+            <div style="font-size:13px;font-weight:700;color:var(--cyan);margin-bottom:14px;">📋 Detalhes — ${escapeHtml(item.caracterizacao || 'Sem denominação')}</div>
+            <div class="expand-grid">
+              <div class="expand-field"><label>FID</label><value>${item.fid}</value></div>
+              <div class="expand-field"><label>Código do Lote</label><value>${escapeHtml(item.cd_lote || '—')}</value></div>
+              <div class="expand-field"><label>Bairro</label><value>${escapeHtml(item.bairro || '—')}</value></div>
+              <div class="expand-field"><label>Tipo</label><value>${escapeHtml(item.tipo || '—')}</value></div>
+              <div class="expand-field"><label>Responsável</label><value>${escapeHtml(item.responsavel || '—')}</value></div>
+              <div class="expand-field"><label>Zoneamento</label><value>${escapeHtml(item.zoneamento || '—')}</value></div>
+              <div class="expand-field"><label>Finalidade</label><value>${escapeHtml(item.finalidade || '—')}</value></div>
+              <div class="expand-field"><label>Fonte</label><value>${escapeHtml(item.fonte || '—')}</value></div>
+              <div class="expand-field"><label>Área Registrada</label><value>${fmtArea(item.area)}</value></div>
+              <div class="expand-field"><label>Coordenadas</label><value>${item.lat ? item.lat + ', ' + item.lng : '—'}</value></div>
+              <div class="expand-field"><label>Valor m² (bairro)</label><value>${fmtVM2(item.valor_m2_bairro)}</value></div>
+              <div class="expand-field"><label>Valuation Estimado</label><value style="color:var(--orange);font-weight:800;">${fmtValuation(item.valuation)}</value></div>
+              <div class="expand-field"><label>Score Composto</label><value style="color:var(--cyan);font-weight:800;">${Math.round(item.score)}/100+</value></div>
+              <div class="expand-field"><label>Pot. Incorporação</label><value>${item.pot_incorporacao}/100</value></div>
+              <div class="expand-field"><label>Tendência de Mercado</label><value>${item.tendencia || '—'}</value></div>
+              <div class="expand-field"><label>Status de Uso</label><value>${item.sem_uso ? '🔴 Sem Uso' : '🟢 Em Uso'}</value></div>
+            </div>
+            <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+              <div>
+                <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-muted);margin-bottom:6px;">Vocações do Bairro</div>
+                <div class="expand-pills">${fmtVocacoes(item.vocacoes)}</div>
+              </div>
+              <div>
+                <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-muted);margin-bottom:6px;">Modelos PPP Recomendados</div>
+                <div class="expand-pills">${fmtPPP(item.modelos_ppp)}</div>
+              </div>
+            </div>
+            ${item.lat ? `<div style="margin-top:12px;"><a href="https://maps.google.com/?q=${item.lat},${item.lng}" target="_blank" style="font-size:12px;color:var(--cyan);text-decoration:none;">🗺️ Ver no Google Maps →</a></div>` : ''}
+          </div>
+        </td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = html;
+}
+
+// ─────────────────────────────────────────────
+// EXPAND/COLLAPSE
+// ─────────────────────────────────────────────
+function toggleExpand(fid, expandId, rowId) {
+  const expandRow = document.getElementById(expandId);
+  const dataRow = document.getElementById(rowId);
+  if (!expandRow) return;
+
+  if (expandRow.classList.contains('open')) {
+    closeExpand(expandId, rowId);
+    return;
+  }
+
+  // Close previous
+  if (expandedRow && expandedRow !== expandId) {
+    const prev = document.getElementById(expandedRow);
+    if (prev) {
+      prev.classList.remove('open');
+      const prevRowId = expandedRow.replace('expand-', 'row-');
+      const prevRow = document.getElementById(prevRowId);
+      if (prevRow) prevRow.classList.remove('expanded');
+    }
+  }
+
+  expandRow.classList.add('open');
+  dataRow.classList.add('expanded');
+  expandedRow = expandId;
+}
+
+function closeExpand(expandId, rowId) {
+  const expandRow = document.getElementById(expandId);
+  const dataRow = document.getElementById(rowId);
+  if (expandRow) expandRow.classList.remove('open');
+  if (dataRow) dataRow.classList.remove('expanded');
+  if (expandedRow === expandId) expandedRow = null;
+}
+
+// ─────────────────────────────────────────────
+// SORT
+// ─────────────────────────────────────────────
+function sortTable(col) {
+  if (sortCol === col) {
+    sortDir = sortDir === 'desc' ? 'asc' : 'desc';
+  } else {
+    sortCol = col;
+    sortDir = 'desc';
+  }
+
+  // Update headers
+  document.querySelectorAll('th.sortable').forEach(th => {
+    th.classList.remove('sort-asc', 'sort-desc');
+    if (th.dataset.col === col) {
+      th.classList.add(sortDir === 'asc' ? 'sort-asc' : 'sort-desc');
+    }
+  });
+
+  filteredData.sort((a, b) => {
+    const av = a[col] || 0;
+    const bv = b[col] || 0;
+    return sortDir === 'asc' ? av - bv : bv - av;
+  });
+
+  renderTable(filteredData);
+}
+
+// ─────────────────────────────────────────────
+// FILTERS
+// ─────────────────────────────────────────────
+function applyFilters() {
+  const search = document.getElementById('searchInput').value.toLowerCase().trim();
+  const bairro = document.getElementById('bairroFilter').value;
+  const status = document.getElementById('statusFilter').value;
+  const tendencia = document.getElementById('tendenciaFilter').value;
+
+  filteredData = allData.filter(d => {
+    if (search && !(d.caracterizacao || '').toLowerCase().includes(search) &&
+        !(d.bairro || '').toLowerCase().includes(search) &&
+        !(d.cd_lote || '').toLowerCase().includes(search)) return false;
+    if (bairro && d.bairro !== bairro) return false;
+    if (status === 'sem_uso' && !d.sem_uso) return false;
+    if (status === 'em_uso' && d.sem_uso) return false;
+    if (tendencia && d.tendencia !== tendencia) return false;
+    return true;
+  });
+
+  // Keep current sort
+  filteredData.sort((a, b) => {
+    const av = a[sortCol] || 0;
+    const bv = b[sortCol] || 0;
+    return sortDir === 'asc' ? av - bv : bv - av;
+  });
+
+  renderTable(filteredData);
+}
+
+// ─────────────────────────────────────────────
+// BAIRRO GRID
+// ─────────────────────────────────────────────
+function renderBairroGrid(data) {
+  const bairros = {};
+  data.forEach(d => {
+    if (!bairros[d.bairro]) {
+      bairros[d.bairro] = {
+        count: 0, valuation: 0, pot: [], tendencias: {}
+      };
+    }
+    bairros[d.bairro].count++;
+    bairros[d.bairro].valuation += d.valuation || 0;
+    bairros[d.bairro].pot.push(d.pot_incorporacao || 0);
+    const t = d.tendencia || 'estável';
+    bairros[d.bairro].tendencias[t] = (bairros[d.bairro].tendencias[t] || 0) + 1;
+  });
+
+  const sorted = Object.entries(bairros).sort((a,b) => b[1].count - a[1].count);
+
+  const html = sorted.map(([name, b]) => {
+    const avgPot = Math.round(b.pot.reduce((s,x) => s+x, 0) / b.pot.length);
+    const dominantTend = Object.entries(b.tendencias).sort((a,z) => z[1]-a[1])[0][0];
+    const tendIcon = dominantTend === 'alta' ? '↑' : dominantTend === 'queda' ? '↓' : '→';
+    const tendColor = dominantTend === 'alta' ? 'var(--green)' : dominantTend === 'queda' ? 'var(--red)' : 'var(--text-muted)';
+
+    return `
+      <div class="bairro-card">
+        <div class="bairro-header">
+          <div class="bairro-name">${escapeHtml(name)}</div>
+          <div class="bairro-count">${b.count} imóv.</div>
+        </div>
+        <div class="bairro-stats">
+          <div class="bairro-stat">
+            <label>Valuation Total</label>
+            <value>${fmtValuation(b.valuation)}</value>
+          </div>
+          <div class="bairro-stat">
+            <label>Tend. Dominante</label>
+            <value style="color:${tendColor};">${tendIcon} ${dominantTend}</value>
+          </div>
+          <div class="bairro-stat" style="grid-column:span 2;">
+            <label>Potencial de Incorporação — ${avgPot}/100</label>
+            <div class="bairro-pot-bar">
+              <div class="bairro-pot-fill" style="width:${avgPot}%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('bairroGrid').innerHTML = html;
+}
+
+// ─────────────────────────────────────────────
+// BAIRRO FILTER POPULATE
+// ─────────────────────────────────────────────
+function populateBairroFilter(data) {
+  const bairros = [...new Set(data.map(d => d.bairro))].sort();
+  const sel = document.getElementById('bairroFilter');
+  bairros.forEach(b => {
+    const opt = document.createElement('option');
+    opt.value = b;
+    opt.textContent = b;
+    sel.appendChild(opt);
+  });
+}
+
+// ─────────────────────────────────────────────
+// CSV EXPORT
+// ─────────────────────────────────────────────
+function exportCSV() {
+  const headers = ['rank','fid','cd_lote','bairro','caracterizacao','area','sem_uso','status',
+    'valor_m2_bairro','valuation','score','pot_incorporacao','tendencia',
+    'zoneamento','finalidade','tipo','responsavel','lat','lng','vocacoes','modelos_ppp'];
+
+  const rows = allData.map((d, i) => [
+    i+1, d.fid, d.cd_lote, d.bairro,
+    '"' + (d.caracterizacao || '').replace(/"/g,'""') + '"',
+    d.area, d.sem_uso ? 'true' : 'false',
+    d.sem_uso ? 'Sem Uso' : 'Em Uso',
+    d.valor_m2_bairro, d.valuation, d.score, d.pot_incorporacao,
+    d.tendencia, d.zoneamento, d.finalidade, d.tipo, d.responsavel,
+    d.lat, d.lng,
+    '"' + (d.vocacoes || []).join('; ').replace(/"/g,'""') + '"',
+    '"' + (d.modelos_ppp || []).join('; ').replace(/"/g,'""') + '"'
+  ]);
+
+  const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'floripa-top100-imoveis.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+// ─────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────
+async function init() {
+  try {
+    const res = await fetch('data/top100.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+
+    allData = data;
+    filteredData = [...data];
+
+    // Set dates
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('pt-BR', {
+      day: '2-digit', month: 'long', year: 'numeric',
+      hour: '2-digit', minute: '2-digit'
+    });
+    document.getElementById('gerationDate').textContent = 'Gerado em ' + dateStr;
+    document.getElementById('printDate').textContent = 'Gerado em ' + dateStr;
+
+    // Set initial sort header
+    document.querySelector('th[data-col="score"]').classList.add('sort-desc');
+
+    // Render
+    renderSummary(data);
+    populateBairroFilter(data);
+    renderTable(filteredData);
+    renderBairroGrid(data);
+
+    // Hide loading, show content
+    document.getElementById('loadingScreen').style.opacity = '0';
+    setTimeout(() => {
+      document.getElementById('loadingScreen').style.display = 'none';
+      document.getElementById('mainHeader').style.display = '';
+      document.getElementById('mainContent').style.display = '';
+      document.getElementById('mainFooter').style.display = '';
+    }, 500);
+
+  } catch (err) {
+    document.querySelector('.loading-text').textContent = 'Erro ao carregar dados: ' + err.message;
+    document.querySelector('.loading-spinner').style.borderTopColor = 'var(--red)';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
