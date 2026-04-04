@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     :root {
       --bg: #0a0e17;
@@ -203,6 +204,8 @@
     }
     .badge-green { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
     .badge-red { background: rgba(239,68,68,0.15); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+    .badge-disponivel { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.35); }
+    .badge-emuso { background: rgba(245,124,0,0.15); color: #fb923c; border: 1px solid rgba(245,124,0,0.35); }
     .badge-score-green { background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid rgba(16,185,129,0.4); }
     .badge-score-yellow { background: rgba(245,158,11,0.2); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
     .badge-score-orange { background: rgba(255,107,0,0.2); color: var(--orange-light); border: 1px solid rgba(255,107,0,0.4); }
@@ -429,6 +432,28 @@
 
   <hr class="divider">
 
+  <!-- SECTION 1.5: MAPA INTERATIVO -->
+  <section class="section" id="mapaSection">
+    <div class="container">
+      <div class="section-title">Mapa Interativo — Top 100 Imóveis</div>
+      <div class="section-subtitle">Visualização geoespacial dos imóveis com maior potencial. Clique em um pin para ver detalhes.</div>
+      <div id="mapLeaflet" style="height:500px;border-radius:12px;border:1px solid var(--border);overflow:hidden;"></div>
+      <div style="display:flex;gap:20px;margin-top:10px;font-size:12px;color:var(--text-muted);">
+        <span style="display:flex;align-items:center;gap:6px;">
+          <span style="width:14px;height:14px;border-radius:50%;background:#10b981;display:inline-block;"></span>
+          🟢 Disponível (sem uso)
+        </span>
+        <span style="display:flex;align-items:center;gap:6px;">
+          <span style="width:14px;height:14px;border-radius:50%;background:#fb923c;display:inline-block;"></span>
+          🟠 Em uso
+        </span>
+        <span style="margin-left:auto;font-size:11px;">Número no pin = posição no ranking</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
   <!-- SECTION 2: TABELA -->
   <section class="section">
     <div class="container">
@@ -576,10 +601,12 @@ onde:<br>
   </div>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 // ─────────────────────────────────────────────
 // STATE
 // ─────────────────────────────────────────────
+let leafletMap = null;
 let allData = [];
 let filteredData = [];
 let sortCol = 'score';
@@ -628,8 +655,8 @@ function fmtTendencia(t) {
 
 function fmtStatus(sem_uso) {
   return sem_uso
-    ? '<span class="badge badge-red">Sem Uso</span>'
-    : '<span class="badge badge-green">Em Uso</span>';
+    ? '<span class="badge badge-disponivel">🟢 Disponível</span>'
+    : '<span class="badge badge-emuso">🟠 Em uso</span>';
 }
 
 function fmtVocacoes(v, max) {
@@ -776,7 +803,7 @@ function renderTable(data) {
                 <div class="expand-pills">${fmtPPP(item.modelos_ppp)}</div>
               </div>
             </div>
-            ${item.lat ? `<div style="margin-top:12px;"><a href="https://maps.google.com/?q=${item.lat},${item.lng}" target="_blank" style="font-size:12px;color:var(--cyan);text-decoration:none;">🗺️ Ver no Google Maps →</a></div>` : ''}
+            ${item.lat ? `<div style="margin-top:12px;"><a href="https://maps.google.com/?q=${item.lat},${item.lng}" target="_blank" style="display:inline-block;padding:6px 14px;background:var(--cyan);color:#0a0e17;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;">🗺️ Ver no Google Maps</a></div>` : ''}
           </div>
         </td>
       </tr>
@@ -983,6 +1010,94 @@ function exportCSV() {
 }
 
 // ─────────────────────────────────────────────
+// LEAFLET MAP
+// ─────────────────────────────────────────────
+function renderMap(data) {
+  if (leafletMap) {
+    leafletMap.remove();
+    leafletMap = null;
+  }
+
+  leafletMap = L.map('mapLeaflet', {
+    center: [-27.58, -48.49],
+    zoom: 11,
+    scrollWheelZoom: true
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19
+  }).addTo(leafletMap);
+
+  const validItems = data.filter(d => d.lat && d.lng);
+
+  validItems.forEach((item, idx) => {
+    const rank = data.indexOf(item) + 1;
+    const isDisponivel = item.sem_uso === true;
+    const markerColor = isDisponivel ? '#10b981' : '#fb923c';
+    const borderColor = isDisponivel ? '#065f46' : '#9a3412';
+
+    const iconHtml = `<div style="
+      width:28px;height:28px;border-radius:50%;
+      background:${markerColor};border:2px solid ${borderColor};
+      display:flex;align-items:center;justify-content:center;
+      font-size:10px;font-weight:800;color:white;
+      box-shadow:0 2px 6px rgba(0,0,0,0.4);
+    ">${rank <= 99 ? rank : '+'}</div>`;
+
+    const icon = L.divIcon({
+      html: iconHtml,
+      className: '',
+      iconSize: [28, 28],
+      iconAnchor: [14, 14],
+      popupAnchor: [0, -16]
+    });
+
+    const areaFlagHtml = item.area_flag === 'revisar'
+      ? `<div style="font-size:10px;color:#f59e0b;margin-top:2px;">&#9888; Área sob revisão</div>`
+      : '';
+
+    const popupContent = `
+      <div style="font-family:sans-serif;min-width:220px;max-width:280px;">
+        <div style="font-size:13px;font-weight:700;color:#111;margin-bottom:6px;line-height:1.4;">
+          ${escapeHtml(item.caracterizacao || 'Sem denominação')}
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:11px;color:#555;margin-bottom:8px;">
+          <div><strong>Bairro:</strong><br>${escapeHtml(item.bairro || '—')}</div>
+          <div><strong>Área:</strong><br>${fmtArea(item.area)}${item.area_flag === 'revisar' ? ' ⚠️' : ''}</div>
+          <div><strong>Valuation:</strong><br><span style="color:#e85c00;font-weight:700;">${fmtValuation(item.valuation)}</span></div>
+          <div><strong>Score:</strong><br><span style="color:#0369a1;font-weight:700;">${Math.round(item.score)}</span></div>
+        </div>
+        <div style="margin-bottom:6px;">
+          <span style="display:inline-block;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:700;
+            background:${isDisponivel ? '#d1fae5' : '#ffedd5'};color:${isDisponivel ? '#065f46' : '#9a3412'};">
+            ${isDisponivel ? '🟢 Disponível' : '🟠 Em uso'}
+          </span>
+        </div>
+        ${areaFlagHtml}
+        <div style="margin-top:8px;">
+          <a href="https://maps.google.com/?q=${item.lat},${item.lng}" target="_blank"
+            style="display:inline-block;padding:4px 10px;background:#1a73e8;color:white;
+            border-radius:6px;font-size:11px;font-weight:600;text-decoration:none;">
+            🗺️ Ver no Google Maps
+          </a>
+        </div>
+      </div>
+    `;
+
+    L.marker([item.lat, item.lng], { icon })
+      .addTo(leafletMap)
+      .bindPopup(popupContent, { maxWidth: 300 });
+  });
+
+  // Fit bounds if we have markers
+  if (validItems.length > 0) {
+    const bounds = L.latLngBounds(validItems.map(d => [d.lat, d.lng]));
+    leafletMap.fitBounds(bounds, { padding: [30, 30] });
+  }
+}
+
+// ─────────────────────────────────────────────
 // INIT
 // ─────────────────────────────────────────────
 async function init() {
@@ -1019,6 +1134,8 @@ async function init() {
       document.getElementById('mainHeader').style.display = '';
       document.getElementById('mainContent').style.display = '';
       document.getElementById('mainFooter').style.display = '';
+      // Render Leaflet map after content is visible (needs DOM dimensions)
+      renderMap(data);
     }, 500);
 
   } catch (err) {
