@@ -3,8 +3,8 @@
     "fid": 446,
     "cd_lote": "24540170170",
     "bairro": "Jurere Internacional",
-    "lat": -27.4628,
-    "lng": -48.5015,
+    "lat": -27.440266,
+    "lng": -48.502748,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -22,14 +22,16 @@
     "modelos_ppp": [
       "Concessão Onerosa Premium",
       "PPP Marina Internacional"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Jurere Internacional, Florianópolis, SC, Brasil"
   },
   {
     "fid": 6,
     "cd_lote": "66470910410",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -51,14 +53,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 421,
     "cd_lote": "66470910395",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -80,14 +84,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 408,
     "cd_lote": "66490780990",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem Uso",
@@ -109,14 +115,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 126,
     "cd_lote": "66590192287",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -138,14 +146,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 453,
     "cd_lote": "51560310896",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -167,14 +177,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 409,
     "cd_lote": "66490781540",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -196,14 +208,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 407,
     "cd_lote": "66490781260",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -225,14 +239,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 550,
     "cd_lote": "67740010117",
     "bairro": "Campeche",
-    "lat": -27.6791,
-    "lng": -48.488,
+    "lat": -27.700548,
+    "lng": -48.50014,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "ACI - sem uso, com condicionantes",
@@ -254,14 +270,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Hotel-Boutique / Pousada Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Campeche, Florianópolis, SC, Brasil"
   },
   {
     "fid": 120,
     "cd_lote": "66230961120",
     "bairro": "Campeche",
-    "lat": -27.6791,
-    "lng": -48.488,
+    "lat": -27.700548,
+    "lng": -48.50014,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "sem uso",
@@ -283,14 +301,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Hotel-Boutique / Pousada Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Campeche, Florianópolis, SC, Brasil"
   },
   {
     "fid": 851,
     "cd_lote": "66340883881",
     "bairro": "Armacao",
-    "lat": -27.7264,
-    "lng": -48.5033,
+    "lat": -27.736035,
+    "lng": -48.507903,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -312,14 +332,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Turismo Premium",
       "RPPNM — Reserva Particular do Patrimônio Natural"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Armacao, Florianópolis, SC, Brasil"
   },
   {
     "fid": 125,
     "cd_lote": "66470910405",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -341,14 +363,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 69,
     "cd_lote": "66590191828",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -370,14 +394,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 393,
     "cd_lote": "66810590306",
     "bairro": "Armacao",
-    "lat": -27.7264,
-    "lng": -48.5033,
+    "lat": -27.736035,
+    "lng": -48.507903,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -399,14 +425,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Turismo Premium",
       "RPPNM — Reserva Particular do Patrimônio Natural"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Armacao, Florianópolis, SC, Brasil"
   },
   {
     "fid": 807,
     "cd_lote": "66710216463",
     "bairro": "Barra da Lagoa",
-    "lat": -27.5744,
-    "lng": -48.4319,
+    "lat": -27.574778,
+    "lng": -48.425835,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -428,14 +456,16 @@
     "modelos_ppp": [
       "PPP Turismo Náutico",
       "Concessão Onerosa — Residencial Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Barra da Lagoa, Florianópolis, SC, Brasil"
   },
   {
     "fid": 996,
     "cd_lote": "66240154278",
     "bairro": "Campeche",
-    "lat": -27.6791,
-    "lng": -48.488,
+    "lat": -27.700548,
+    "lng": -48.50014,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -457,14 +487,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Hotel-Boutique / Pousada Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Campeche, Florianópolis, SC, Brasil"
   },
   {
     "fid": 224,
     "cd_lote": "66770481611",
     "bairro": "Barra da Lagoa",
-    "lat": -27.5744,
-    "lng": -48.4319,
+    "lat": -27.572509,
+    "lng": -48.429323,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -486,14 +518,16 @@
     "modelos_ppp": [
       "PPP Turismo Náutico",
       "Concessão Onerosa — Residencial Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "AV-03, Barra da Lagoa, Florianópolis, SC, Brasil"
   },
   {
     "fid": 600,
     "cd_lote": "24610381510",
     "bairro": "Canasvieiras",
-    "lat": -27.4744,
-    "lng": -48.4672,
+    "lat": -27.429567,
+    "lng": -48.460244,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -515,14 +549,16 @@
     "modelos_ppp": [
       "Concessão Onerosa de Uso",
       "PPP Hotel-Boutique"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Canasvieiras, Florianópolis, SC, Brasil"
   },
   {
     "fid": 861,
     "cd_lote": "51570510024",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -544,14 +580,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 375,
     "cd_lote": "51550851550",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -573,14 +611,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 392,
     "cd_lote": "66810590040",
     "bairro": "Armacao",
-    "lat": -27.7264,
-    "lng": -48.5033,
+    "lat": -27.736035,
+    "lng": -48.507903,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -602,14 +642,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Turismo Premium",
       "RPPNM — Reserva Particular do Patrimônio Natural"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Armacao, Florianópolis, SC, Brasil"
   },
   {
     "fid": 21,
     "cd_lote": "66770481436",
     "bairro": "Barra da Lagoa",
-    "lat": -27.5744,
-    "lng": -48.4319,
+    "lat": -27.573642,
+    "lng": -48.430993,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -631,14 +673,16 @@
     "modelos_ppp": [
       "PPP Turismo Náutico",
       "Concessão Onerosa — Residencial Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "AV-02, Barra da Lagoa, Florianópolis, SC, Brasil"
   },
   {
     "fid": 1009,
     "cd_lote": "24180510295",
     "bairro": "Sambaqui",
-    "lat": -27.4944,
-    "lng": -48.5478,
+    "lat": -27.492403,
+    "lng": -48.526831,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -656,14 +700,16 @@
     "modelos_ppp": [
       "PPP Cultural / Gastronômico",
       "Pagamento por Serviços Ambientais"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Sambaqui, Florianópolis, SC, Brasil"
   },
   {
     "fid": 223,
     "cd_lote": "66770481736",
     "bairro": "Barra da Lagoa",
-    "lat": -27.5744,
-    "lng": -48.4319,
+    "lat": -27.573461,
+    "lng": -48.430784,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -685,14 +731,16 @@
     "modelos_ppp": [
       "PPP Turismo Náutico",
       "Concessão Onerosa — Residencial Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "AV-01, Barra da Lagoa, Florianópolis, SC, Brasil"
   },
   {
     "fid": 10,
     "cd_lote": "23730580211",
     "bairro": "Ingleses",
-    "lat": -27.4367,
-    "lng": -48.399,
+    "lat": -27.439907,
+    "lng": -48.401143,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -714,14 +762,16 @@
     "modelos_ppp": [
       "Concessão Onerosa de Uso",
       "PPP Residencial Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Ingleses, Florianópolis, SC, Brasil"
   },
   {
     "fid": 35,
     "cd_lote": "66770481565",
     "bairro": "Barra da Lagoa",
-    "lat": -27.5744,
-    "lng": -48.4319,
+    "lat": -27.572585,
+    "lng": -48.429234,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -743,14 +793,16 @@
     "modelos_ppp": [
       "PPP Turismo Náutico",
       "Concessão Onerosa — Residencial Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "AV-04, Barra da Lagoa, Florianópolis, SC, Brasil"
   },
   {
     "fid": 222,
     "cd_lote": "66770481492",
     "bairro": "Barra da Lagoa",
-    "lat": -27.5744,
-    "lng": -48.4319,
+    "lat": -27.574778,
+    "lng": -48.425835,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -772,14 +824,16 @@
     "modelos_ppp": [
       "PPP Turismo Náutico",
       "Concessão Onerosa — Residencial Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Barra da Lagoa, Florianópolis, SC, Brasil"
   },
   {
     "fid": 221,
     "cd_lote": "66770481678",
     "bairro": "Barra da Lagoa",
-    "lat": -27.5744,
-    "lng": -48.4319,
+    "lat": -27.574778,
+    "lng": -48.425835,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -801,14 +855,16 @@
     "modelos_ppp": [
       "PPP Turismo Náutico",
       "Concessão Onerosa — Residencial Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Barra da Lagoa, Florianópolis, SC, Brasil"
   },
   {
     "fid": 752,
     "cd_lote": "52790920202",
     "bairro": "Itacorubi",
-    "lat": -27.5817,
-    "lng": -48.4978,
+    "lat": -27.58158,
+    "lng": -48.504426,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -830,14 +886,16 @@
     "modelos_ppp": [
       "Distrito de Inovação / Tech Hub",
       "CEPAC — Polo Tecnológico"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Itacorubi, Florianópolis, SC, Brasil"
   },
   {
     "fid": 41,
     "cd_lote": "23450260413",
     "bairro": "Cachoeira do Bom Jesus",
-    "lat": -27.46,
-    "lng": -48.45,
+    "lat": -27.426531,
+    "lng": -48.423675,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -859,14 +917,16 @@
     "modelos_ppp": [
       "PPP Turismo Residencial",
       "Concessão Onerosa"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Cachoeira do Bom Jesus, Florianópolis, SC, Brasil"
   },
   {
     "fid": 72,
     "cd_lote": "67740010128",
     "bairro": "Campeche",
-    "lat": -27.6791,
-    "lng": -48.488,
+    "lat": -27.700548,
+    "lng": -48.50014,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -888,14 +948,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Hotel-Boutique / Pousada Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Campeche, Florianópolis, SC, Brasil"
   },
   {
     "fid": 457,
     "cd_lote": "24740890170",
     "bairro": "Vargem Grande",
-    "lat": -27.4717,
-    "lng": -48.4278,
+    "lat": -27.462082,
+    "lng": -48.44852,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -917,14 +979,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "Pagamento por Serviços Ambientais"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Vargem Grande, Florianópolis, SC, Brasil"
   },
   {
     "fid": 873,
     "cd_lote": "44940340010",
     "bairro": "Morro das Pedras",
-    "lat": -27.7017,
-    "lng": -48.5067,
+    "lat": -27.71433,
+    "lng": -48.506549,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -946,14 +1010,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Residencial de Interesse Turístico"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Morro das Pedras, Florianópolis, SC, Brasil"
   },
   {
     "fid": 396,
     "cd_lote": "66690930236",
     "bairro": "Barra da Lagoa",
-    "lat": -27.5744,
-    "lng": -48.4319,
+    "lat": -27.574778,
+    "lng": -48.425835,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -975,14 +1041,16 @@
     "modelos_ppp": [
       "PPP Turismo Náutico",
       "Concessão Onerosa — Residencial Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Barra da Lagoa, Florianópolis, SC, Brasil"
   },
   {
     "fid": 145,
     "cd_lote": "44900230241",
     "bairro": "Morro das Pedras",
-    "lat": -27.7017,
-    "lng": -48.5067,
+    "lat": -27.71433,
+    "lng": -48.506549,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1004,14 +1072,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Residencial de Interesse Turístico"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Morro das Pedras, Florianópolis, SC, Brasil"
   },
   {
     "fid": 449,
     "cd_lote": "51680711163",
     "bairro": "Estreito",
-    "lat": -27.5753,
-    "lng": -48.5811,
+    "lat": -27.58836,
+    "lng": -48.59048,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem Uso",
@@ -1033,14 +1103,16 @@
     "modelos_ppp": [
       "Operação Urbana Consorciada",
       "Coworking Municipal PPP"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Estreito, Florianópolis, SC, Brasil"
   },
   {
     "fid": 586,
     "cd_lote": "23940720860",
     "bairro": "Ratones",
-    "lat": -27.495,
-    "lng": -48.505,
+    "lat": -27.504516,
+    "lng": -48.490399,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1062,14 +1134,16 @@
     "modelos_ppp": [
       "PPP Ecoturismo / Agroecoturismo",
       "RPPNM / PSA"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Ratones, Florianópolis, SC, Brasil"
   },
   {
     "fid": 154,
     "cd_lote": "23940721125",
     "bairro": "Ratones",
-    "lat": -27.495,
-    "lng": -48.505,
+    "lat": -27.504516,
+    "lng": -48.490399,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1091,14 +1165,16 @@
     "modelos_ppp": [
       "PPP Ecoturismo / Agroecoturismo",
       "RPPNM / PSA"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Ratones, Florianópolis, SC, Brasil"
   },
   {
     "fid": 357,
     "cd_lote": "51060940371",
     "bairro": "Estreito",
-    "lat": -27.5753,
-    "lng": -48.5811,
+    "lat": -27.58836,
+    "lng": -48.59048,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1120,14 +1196,16 @@
     "modelos_ppp": [
       "Operação Urbana Consorciada",
       "Coworking Municipal PPP"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Estreito, Florianópolis, SC, Brasil"
   },
   {
     "fid": 155,
     "cd_lote": "23940721072",
     "bairro": "Ratones",
-    "lat": -27.495,
-    "lng": -48.505,
+    "lat": -27.504516,
+    "lng": -48.490399,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1149,14 +1227,16 @@
     "modelos_ppp": [
       "PPP Ecoturismo / Agroecoturismo",
       "RPPNM / PSA"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Ratones, Florianópolis, SC, Brasil"
   },
   {
     "fid": 474,
     "cd_lote": "23420340717",
     "bairro": "Cachoeira do Bom Jesus",
-    "lat": -27.46,
-    "lng": -48.45,
+    "lat": -27.426531,
+    "lng": -48.423675,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1178,14 +1258,16 @@
     "modelos_ppp": [
       "PPP Turismo Residencial",
       "Concessão Onerosa"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Cachoeira do Bom Jesus, Florianópolis, SC, Brasil"
   },
   {
     "fid": 164,
     "cd_lote": "23620240514",
     "bairro": "Ingleses",
-    "lat": -27.4367,
-    "lng": -48.399,
+    "lat": -27.439907,
+    "lng": -48.401143,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1207,14 +1289,16 @@
     "modelos_ppp": [
       "Concessão Onerosa de Uso",
       "PPP Residencial Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Ingleses, Florianópolis, SC, Brasil"
   },
   {
     "fid": 585,
     "cd_lote": "23940720865",
     "bairro": "Ratones",
-    "lat": -27.495,
-    "lng": -48.505,
+    "lat": -27.504516,
+    "lng": -48.490399,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1236,14 +1320,16 @@
     "modelos_ppp": [
       "PPP Ecoturismo / Agroecoturismo",
       "RPPNM / PSA"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Ratones, Florianópolis, SC, Brasil"
   },
   {
     "fid": 19,
     "cd_lote": "24750300132",
     "bairro": "Vargem Grande",
-    "lat": -27.4717,
-    "lng": -48.4278,
+    "lat": -27.462082,
+    "lng": -48.44852,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1265,14 +1351,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "Pagamento por Serviços Ambientais"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Vargem Grande, Florianópolis, SC, Brasil"
   },
   {
     "fid": 64,
     "cd_lote": "24750300151",
     "bairro": "Vargem Grande",
-    "lat": -27.4717,
-    "lng": -48.4278,
+    "lat": -27.462082,
+    "lng": -48.44852,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1294,14 +1382,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "Pagamento por Serviços Ambientais"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Vargem Grande, Florianópolis, SC, Brasil"
   },
   {
     "fid": 80,
     "cd_lote": "24750300169",
     "bairro": "Vargem Grande",
-    "lat": -27.4717,
-    "lng": -48.4278,
+    "lat": -27.462082,
+    "lng": -48.44852,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1323,14 +1413,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "Pagamento por Serviços Ambientais"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Vargem Grande, Florianópolis, SC, Brasil"
   },
   {
     "fid": 395,
     "cd_lote": "24750300078",
     "bairro": "Vargem Grande",
-    "lat": -27.4717,
-    "lng": -48.4278,
+    "lat": -27.462082,
+    "lng": -48.44852,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1352,14 +1444,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "Pagamento por Serviços Ambientais"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Vargem Grande, Florianópolis, SC, Brasil"
   },
   {
     "fid": 471,
     "cd_lote": "24750300060",
     "bairro": "Vargem Grande",
-    "lat": -27.4717,
-    "lng": -48.4278,
+    "lat": -27.462082,
+    "lng": -48.44852,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1381,14 +1475,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "Pagamento por Serviços Ambientais"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Vargem Grande, Florianópolis, SC, Brasil"
   },
   {
     "fid": 489,
     "cd_lote": "51670300974",
     "bairro": "Estreito",
-    "lat": -27.5753,
-    "lng": -48.5811,
+    "lat": -27.58836,
+    "lng": -48.59048,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem Uso",
@@ -1410,14 +1506,16 @@
     "modelos_ppp": [
       "Operação Urbana Consorciada",
       "Coworking Municipal PPP"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Estreito, Florianópolis, SC, Brasil"
   },
   {
     "fid": 509,
     "cd_lote": "24750300044",
     "bairro": "Vargem Grande",
-    "lat": -27.4717,
-    "lng": -48.4278,
+    "lat": -27.462082,
+    "lng": -48.44852,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1439,14 +1537,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "Pagamento por Serviços Ambientais"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Vargem Grande, Florianópolis, SC, Brasil"
   },
   {
     "fid": 510,
     "cd_lote": "24750300096",
     "bairro": "Vargem Grande",
-    "lat": -27.4717,
-    "lng": -48.4278,
+    "lat": -27.462082,
+    "lng": -48.44852,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1468,14 +1568,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "Pagamento por Serviços Ambientais"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Vargem Grande, Florianópolis, SC, Brasil"
   },
   {
     "fid": 511,
     "cd_lote": "24750300052",
     "bairro": "Vargem Grande",
-    "lat": -27.4717,
-    "lng": -48.4278,
+    "lat": -27.462082,
+    "lng": -48.44852,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1497,14 +1599,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "Pagamento por Serviços Ambientais"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Vargem Grande, Florianópolis, SC, Brasil"
   },
   {
     "fid": 513,
     "cd_lote": "24750300114",
     "bairro": "Vargem Grande",
-    "lat": -27.4717,
-    "lng": -48.4278,
+    "lat": -27.462082,
+    "lng": -48.44852,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1526,14 +1630,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "Pagamento por Serviços Ambientais"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Vargem Grande, Florianópolis, SC, Brasil"
   },
   {
     "fid": 872,
     "cd_lote": "51070190015",
     "bairro": "Estreito",
-    "lat": -27.5753,
-    "lng": -48.5811,
+    "lat": -27.58836,
+    "lng": -48.59048,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Sem uso",
@@ -1555,14 +1661,16 @@
     "modelos_ppp": [
       "Operação Urbana Consorciada",
       "Coworking Municipal PPP"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Estreito, Florianópolis, SC, Brasil"
   },
   {
     "fid": 65,
     "cd_lote": "24510830263",
     "bairro": "Jurere Internacional",
-    "lat": -27.4628,
-    "lng": -48.5015,
+    "lat": -27.440266,
+    "lng": -48.502748,
     "tipo": "Creche",
     "responsavel": "SME",
     "caracterizacao": "SME - NEIM Creche Vila União, CCFV",
@@ -1580,14 +1688,16 @@
     "modelos_ppp": [
       "Concessão Onerosa Premium",
       "PPP Marina Internacional"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Jurere Internacional, Florianópolis, SC, Brasil"
   },
   {
     "fid": 74,
     "cd_lote": "24510640458",
     "bairro": "Jurere Internacional",
-    "lat": -27.4628,
-    "lng": -48.5015,
+    "lat": -27.440266,
+    "lng": -48.502748,
     "tipo": "Praça",
     "responsavel": "N/A",
     "caracterizacao": "Praça",
@@ -1605,14 +1715,16 @@
     "modelos_ppp": [
       "Concessão Onerosa Premium",
       "PPP Marina Internacional"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Jurere Internacional, Florianópolis, SC, Brasil"
   },
   {
     "fid": 75,
     "cd_lote": "24510640471",
     "bairro": "Jurere Internacional",
-    "lat": -27.4628,
-    "lng": -48.5015,
+    "lat": -27.440266,
+    "lng": -48.502748,
     "tipo": "Praça",
     "responsavel": "N/A",
     "caracterizacao": "Praça",
@@ -1630,14 +1742,16 @@
     "modelos_ppp": [
       "Concessão Onerosa Premium",
       "PPP Marina Internacional"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Jurere Internacional, Florianópolis, SC, Brasil"
   },
   {
     "fid": 76,
     "cd_lote": "24510640576",
     "bairro": "Jurere Internacional",
-    "lat": -27.4628,
-    "lng": -48.5015,
+    "lat": -27.440266,
+    "lng": -48.502748,
     "tipo": "Praça",
     "responsavel": "N/A",
     "caracterizacao": "Praça",
@@ -1655,14 +1769,16 @@
     "modelos_ppp": [
       "Concessão Onerosa Premium",
       "PPP Marina Internacional"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Jurere Internacional, Florianópolis, SC, Brasil"
   },
   {
     "fid": 77,
     "cd_lote": "24510640404",
     "bairro": "Jurere Internacional",
-    "lat": -27.4628,
-    "lng": -48.5015,
+    "lat": -27.440266,
+    "lng": -48.502748,
     "tipo": "Praça",
     "responsavel": "N/A",
     "caracterizacao": "Praça",
@@ -1680,14 +1796,16 @@
     "modelos_ppp": [
       "Concessão Onerosa Premium",
       "PPP Marina Internacional"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Jurere Internacional, Florianópolis, SC, Brasil"
   },
   {
     "fid": 78,
     "cd_lote": "24510830268",
     "bairro": "Jurere Internacional",
-    "lat": -27.4628,
-    "lng": -48.5015,
+    "lat": -27.440266,
+    "lng": -48.502748,
     "tipo": "AVL",
     "responsavel": "N/A",
     "caracterizacao": "AVL - Área Verde de Lazer",
@@ -1705,14 +1823,16 @@
     "modelos_ppp": [
       "Concessão Onerosa Premium",
       "PPP Marina Internacional"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Jurere Internacional, Florianópolis, SC, Brasil"
   },
   {
     "fid": 173,
     "cd_lote": "24510830352",
     "bairro": "Jurere Internacional",
-    "lat": -27.4628,
-    "lng": -48.5015,
+    "lat": -27.440266,
+    "lng": -48.502748,
     "tipo": "AVL",
     "responsavel": "N/A",
     "caracterizacao": "AVL - Área Verde de Lazer",
@@ -1730,14 +1850,16 @@
     "modelos_ppp": [
       "Concessão Onerosa Premium",
       "PPP Marina Internacional"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Jurere Internacional, Florianópolis, SC, Brasil"
   },
   {
     "fid": 555,
     "cd_lote": "24580180295",
     "bairro": "Jurere Internacional",
-    "lat": -27.4628,
-    "lng": -48.5015,
+    "lat": -27.440266,
+    "lng": -48.502748,
     "tipo": "AVL",
     "responsavel": "N/A",
     "caracterizacao": "AVL - Área Verde de Lazer",
@@ -1755,14 +1877,16 @@
     "modelos_ppp": [
       "Concessão Onerosa Premium",
       "PPP Marina Internacional"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Jurere Internacional, Florianópolis, SC, Brasil"
   },
   {
     "fid": 653,
     "cd_lote": "24530160225",
     "bairro": "Jurere Internacional",
-    "lat": -27.4628,
-    "lng": -48.5015,
+    "lat": -27.440266,
+    "lng": -48.502748,
     "tipo": "Outros",
     "responsavel": "N/A",
     "caracterizacao": "Ocupada, habitação",
@@ -1780,14 +1904,16 @@
     "modelos_ppp": [
       "Concessão Onerosa Premium",
       "PPP Marina Internacional"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Jurere Internacional, Florianópolis, SC, Brasil"
   },
   {
     "fid": 4,
     "cd_lote": "66510701831",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Outros",
     "responsavel": "SEMAS",
     "caracterizacao": "Centro de Convivência de Fortalecimento de Vínculos",
@@ -1809,14 +1935,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 410,
     "cd_lote": "66490782275",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Praça",
     "responsavel": "N/A",
     "caracterizacao": "Praça da Tapera",
@@ -1838,14 +1966,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 431,
     "cd_lote": "66590102454",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Sistema Viário",
     "responsavel": "SMI",
     "caracterizacao": "Sistema Viário",
@@ -1867,14 +1997,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 473,
     "cd_lote": "66580900155",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "AVL",
     "responsavel": "N/A",
     "caracterizacao": "AVL - Área Verde de Lazer",
@@ -1896,14 +2028,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 241,
     "cd_lote": "66590102080",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Sistema Viário",
     "responsavel": "SMI",
     "caracterizacao": "Sistema Viário",
@@ -1925,14 +2059,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 400,
     "cd_lote": "66590192034",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Praça",
     "responsavel": "N/A",
     "caracterizacao": "Praça na Rua Bacupari e Camarinhas",
@@ -1954,14 +2090,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 198,
     "cd_lote": "51550851100",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "Praça",
     "responsavel": "N/A",
     "caracterizacao": "Parque Aventura",
@@ -1983,14 +2121,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 367,
     "cd_lote": "52670360054",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "Outros",
     "responsavel": "SMI",
     "caracterizacao": "Terminal do Saco dos Limões",
@@ -2012,14 +2152,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 803,
     "cd_lote": "52680820521",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "Creche",
     "responsavel": "SME",
     "caracterizacao": "SME - NEIM Nossa Senhora Aparecida/ EBM Beatriz de Souza Brito/ Igreja Santo Agostino",
@@ -2041,14 +2183,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 433,
     "cd_lote": "51560390635",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "Outros",
     "responsavel": "SMA - CEDIDO",
     "caracterizacao": "Cedido para a PMSC, para construção da sede do Batalhao da Polícia Ambiental",
@@ -2070,14 +2214,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 789,
     "cd_lote": "51580430819",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "Escola",
     "responsavel": "SME",
     "caracterizacao": "EBM Almirante Carvalhal",
@@ -2099,14 +2245,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 1695,
     "cd_lote": "51550851050",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "Outros",
     "responsavel": "SMA - CEDIDO",
     "caracterizacao": "Cedido para a PMSC, para construção da sede do Batalhao da Polícia Ambiental",
@@ -2128,14 +2276,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 118,
     "cd_lote": "66110540060",
     "bairro": "Campeche",
-    "lat": -27.6791,
-    "lng": -48.488,
+    "lat": -27.665783,
+    "lng": -48.503702,
     "tipo": "Outros",
     "responsavel": "SMI",
     "caracterizacao": "Terminal do Rio Tavares",
@@ -2157,14 +2307,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Hotel-Boutique / Pousada Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Terminal do Rio Tavares, Campeche, Florianópolis, SC, Brasil"
   },
   {
     "fid": 230,
     "cd_lote": "66110540450",
     "bairro": "Campeche",
-    "lat": -27.6791,
-    "lng": -48.488,
+    "lat": -27.700548,
+    "lng": -48.50014,
     "tipo": "Outros",
     "responsavel": "SMA - CEDIDO",
     "caracterizacao": "Cedido - Corpo de Bombeiros Rio Tavares",
@@ -2186,14 +2338,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Hotel-Boutique / Pousada Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Campeche, Florianópolis, SC, Brasil"
   },
   {
     "fid": 237,
     "cd_lote": "66110540135",
     "bairro": "Campeche",
-    "lat": -27.6791,
-    "lng": -48.488,
+    "lat": -27.700548,
+    "lng": -48.50014,
     "tipo": "Centro de Saúde",
     "responsavel": "SMS",
     "caracterizacao": "CS UPA SUL - em estudo para implantação do CRAS",
@@ -2215,14 +2369,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Hotel-Boutique / Pousada Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Campeche, Florianópolis, SC, Brasil"
   },
   {
     "fid": 551,
     "cd_lote": "67610890631",
     "bairro": "Campeche",
-    "lat": -27.6791,
-    "lng": -48.488,
+    "lat": -27.700548,
+    "lng": -48.50014,
     "tipo": "Praça",
     "responsavel": "N/A",
     "caracterizacao": "Praça no Jardim Campeche",
@@ -2244,7 +2400,9 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Hotel-Boutique / Pousada Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Campeche, Florianópolis, SC, Brasil"
   },
   {
     "fid": 153,
@@ -2275,8 +2433,8 @@
     "fid": 238,
     "cd_lote": "67850200098",
     "bairro": "Campeche",
-    "lat": -27.6791,
-    "lng": -48.488,
+    "lat": -27.70422,
+    "lng": -48.498607,
     "tipo": "Praça",
     "responsavel": "N/A",
     "caracterizacao": "Praça das Areias",
@@ -2298,14 +2456,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Hotel-Boutique / Pousada Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Praça das Areias, Campeche, Florianópolis, SC, Brasil"
   },
   {
     "fid": 1857,
     "cd_lote": "66230290045",
     "bairro": "Campeche",
-    "lat": -27.6791,
-    "lng": -48.488,
+    "lat": -27.700548,
+    "lng": -48.50014,
     "tipo": "Sistema Viário",
     "responsavel": "SMI",
     "caracterizacao": "Sistema Viário",
@@ -2327,14 +2487,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Hotel-Boutique / Pousada Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Campeche, Florianópolis, SC, Brasil"
   },
   {
     "fid": 362,
     "cd_lote": "51550420281",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "AVL",
     "responsavel": "N/A",
     "caracterizacao": "AVL - Área Verde de Lazer",
@@ -2356,14 +2518,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 364,
     "cd_lote": "51550530535",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "Praça",
     "responsavel": "N/A",
     "caracterizacao": "Praça Gil do Continente",
@@ -2385,14 +2549,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 548,
     "cd_lote": "67620170079",
     "bairro": "Campeche",
-    "lat": -27.6791,
-    "lng": -48.488,
+    "lat": -27.700548,
+    "lng": -48.50014,
     "tipo": "AVL",
     "responsavel": "N/A",
     "caracterizacao": "AVL - Área Verde de Lazer",
@@ -2414,14 +2580,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Hotel-Boutique / Pousada Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Campeche, Florianópolis, SC, Brasil"
   },
   {
     "fid": 886,
     "cd_lote": "52600180939",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "Praça",
     "responsavel": "N/A",
     "caracterizacao": "Parque Linear do Córrego Grande",
@@ -2443,14 +2611,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 127,
     "cd_lote": "66590193523",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Sistema Viário",
     "responsavel": "SMI",
     "caracterizacao": "Sistema Viário",
@@ -2472,14 +2642,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 62,
     "cd_lote": "51540090423",
     "bairro": "Coqueiros",
-    "lat": -27.5639,
-    "lng": -48.5828,
+    "lat": -27.611202,
+    "lng": -48.580844,
     "tipo": "APP",
     "responsavel": "FLORAM",
     "caracterizacao": "APP Ilhota do Abrão",
@@ -2501,14 +2673,16 @@
     "modelos_ppp": [
       "CEPAC — Certificados de Potencial Construtivo",
       "Operação Urbana Consorciada"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Coqueiros, Florianópolis, SC, Brasil"
   },
   {
     "fid": 881,
     "cd_lote": "66340883350",
     "bairro": "Armacao",
-    "lat": -27.7264,
-    "lng": -48.5033,
+    "lat": -27.736035,
+    "lng": -48.507903,
     "tipo": "Sistema Viário",
     "responsavel": "SMI",
     "caracterizacao": "Sistema Viário - VIA PI-105",
@@ -2530,7 +2704,9 @@
     "modelos_ppp": [
       "Concessão Onerosa — Turismo Premium",
       "RPPNM — Reserva Particular do Patrimônio Natural"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Armacao, Florianópolis, SC, Brasil"
   },
   {
     "fid": 159,
@@ -2594,8 +2770,8 @@
     "fid": 261,
     "cd_lote": "23340370316",
     "bairro": "Canasvieiras",
-    "lat": -27.4744,
-    "lng": -48.4672,
+    "lat": -27.429567,
+    "lng": -48.460244,
     "tipo": "Outros",
     "responsavel": "Estado",
     "caracterizacao": "Imóvel pertence ao Estado de SC",
@@ -2617,14 +2793,16 @@
     "modelos_ppp": [
       "Concessão Onerosa de Uso",
       "PPP Hotel-Boutique"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Canasvieiras, Florianópolis, SC, Brasil"
   },
   {
     "fid": 262,
     "cd_lote": "23340170248",
     "bairro": "Canasvieiras",
-    "lat": -27.4744,
-    "lng": -48.4672,
+    "lat": -27.429567,
+    "lng": -48.460244,
     "tipo": "Outros",
     "responsavel": "Estado",
     "caracterizacao": "Imóvel pertence ao Estado de SC",
@@ -2646,14 +2824,16 @@
     "modelos_ppp": [
       "Concessão Onerosa de Uso",
       "PPP Hotel-Boutique"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Canasvieiras, Florianópolis, SC, Brasil"
   },
   {
     "fid": 588,
     "cd_lote": "24610381500",
     "bairro": "Canasvieiras",
-    "lat": -27.4744,
-    "lng": -48.4672,
+    "lat": -27.429567,
+    "lng": -48.460244,
     "tipo": "AVL",
     "responsavel": "N/A",
     "caracterizacao": "AVL - Área Verde de Lazer",
@@ -2675,14 +2855,16 @@
     "modelos_ppp": [
       "Concessão Onerosa de Uso",
       "PPP Hotel-Boutique"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Canasvieiras, Florianópolis, SC, Brasil"
   },
   {
     "fid": 808,
     "cd_lote": "66710216162",
     "bairro": "Barra da Lagoa",
-    "lat": -27.5744,
-    "lng": -48.4319,
+    "lat": -27.574778,
+    "lng": -48.425835,
     "tipo": "AVL",
     "responsavel": "N/A",
     "caracterizacao": "AVL - Área Verde de Lazer",
@@ -2704,14 +2886,16 @@
     "modelos_ppp": [
       "PPP Turismo Náutico",
       "Concessão Onerosa — Residencial Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Barra da Lagoa, Florianópolis, SC, Brasil"
   },
   {
     "fid": 435,
     "cd_lote": "66590102550",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Sistema Viário",
     "responsavel": "SMI",
     "caracterizacao": "Sistema Viário",
@@ -2733,14 +2917,16 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 406,
     "cd_lote": "66490781280",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Sistema Viário",
     "responsavel": "SMI",
     "caracterizacao": "Sistema Viário - Calçada",
@@ -2762,7 +2948,9 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   },
   {
     "fid": 158,
@@ -2797,8 +2985,8 @@
     "fid": 124,
     "cd_lote": "66230961100",
     "bairro": "Campeche",
-    "lat": -27.6791,
-    "lng": -48.488,
+    "lat": -27.700548,
+    "lng": -48.50014,
     "tipo": "Praça",
     "responsavel": "N/A",
     "caracterizacao": "Praça",
@@ -2820,14 +3008,16 @@
     "modelos_ppp": [
       "Concessão Onerosa",
       "PPP Hotel-Boutique / Pousada Premium"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Campeche, Florianópolis, SC, Brasil"
   },
   {
     "fid": 405,
     "cd_lote": "66490780996",
     "bairro": "Lagoa da Conceição",
-    "lat": -27.6008,
-    "lng": -48.4688,
+    "lat": -27.569719,
+    "lng": -48.451581,
     "tipo": "Sistema Viário",
     "responsavel": "SMI",
     "caracterizacao": "Sistema Viário - Calçada",
@@ -2849,6 +3039,8 @@
     "modelos_ppp": [
       "Concessão Onerosa — Frente Lagoa",
       "PPP Marina / Porto de Lazer"
-    ]
+    ],
+    "geocode_source": "nominatim",
+    "geocode_query": "Lagoa da Conceição, Florianópolis, SC, Brasil"
   }
 ]
